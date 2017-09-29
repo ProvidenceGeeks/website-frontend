@@ -12,7 +12,7 @@ New Feature Request / Improvement:
 - Description: A new feature to show data from cool social media service
 - Designs: A link or upload of some design mock up
 - Dependencies: integration with cool social media service's API
-- Acceptance Criters:
+- Acceptance Criteria:
 1. Should do XYZ
 1. Should let user see such and such
 
