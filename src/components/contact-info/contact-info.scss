@@ -1,0 +1,20 @@
+.contact-info {
+  overflow: hidden;
+
+  .phone,
+  .email {
+    &:after{
+      content: "\a";
+      white-space: pre;
+    }
+  }
+
+  .name {
+    font-size: 1.25em;
+  }
+
+  img{
+    max-height: 125%;
+    max-width: 125%;
+  }
+}
