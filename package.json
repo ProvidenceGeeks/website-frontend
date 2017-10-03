@@ -4,7 +4,7 @@
   "description": "UI frontend repository for the Providence Geeks website. Built with React and webpack.",
   "main": "./src/index.js",
   "scripts": {
-    "build": "",
+    "build": "webpack -p",
     "develop": "",
     "serve": ""
   },
@@ -15,8 +15,13 @@
   "author": "pholyoke@kenzan.com",
   "license": "MIT",
   "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "html-webpack-plugin": "^2.30.1",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "webpack": "^3.6.0"
   }
 }
