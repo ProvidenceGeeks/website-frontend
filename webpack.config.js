@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
-//var webpack = require('webpack');
+// var webpack = require('webpack');
 
 module.exports = {
   entry: {
