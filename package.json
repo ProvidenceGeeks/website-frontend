@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "build": "npm run lint && webpack -p",
-    "develop": "webpack-dev-server --open --config ./webpack.develop.config.js",
+    "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
     "lint": "eslint *.js",
     "serve": ""
   },
