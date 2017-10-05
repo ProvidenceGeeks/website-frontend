@@ -1,12 +1,12 @@
 {
   "name": "website-frontend",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "UI frontend repository for the Providence Geeks website. Built with React and webpack.",
   "main": "./src/index.js",
   "scripts": {
-    "build": "webpack -p",
-    "develop": "webpack-dev-server --open --config ./webpack.config.js",
-    "lint": "eslint *.js src/**/*.js",
+    "build": "yarn lint && webpack --config ./webpack.config.develop.js -p",
+    "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
+    "lint": "eslint *.js",
     "serve": ""
   },
   "repository": {
@@ -17,13 +17,14 @@
   "license": "MIT",
   "dependencies": {
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "webpack-merge": "^4.1.0"
   },
   "devDependencies": {
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-react": "^6.24.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
     "eslint": "^4.8.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-react": "^7.4.0",

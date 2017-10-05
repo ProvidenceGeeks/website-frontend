@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
-//var webpack = require('webpack');
+// var webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -9,7 +9,7 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'app.bundle.js',
+    filename: '[name].[chunkhash].bundle.js',
     sourceMapFilename: '[name].map'
   },
 
@@ -33,21 +33,6 @@ module.exports = {
         exclude: path.join(__dirname, 'node_modules')
       }
     ]
-  },
-
-  devServer: {
-    port: 9000,
-    host: 'localhost',
-    historyApiFallback: true,
-    watchOptions: {
-      aggregateTimeout: 300,
-      poll: 1000
-    },
-    hot: false,
-    inline: true,
-    stats: {
-      color: true
-    }
   },
 
   plugins: [
