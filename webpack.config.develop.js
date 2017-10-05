@@ -8,10 +8,6 @@ module.exports = webpackMerge(commonConfig, {
     filename: '[name].bundle.js'
   },
 
-  module: {
-    rules: []
-  },
-
   devServer: {
     port: 9000,
     host: 'localhost',
