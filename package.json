@@ -4,7 +4,7 @@
   "description": "UI frontend repository for the Providence Geeks website. Built with React and webpack.",
   "main": "./src/index.js",
   "scripts": {
-    "build": "npm run lint && webpack -p",
+    "build": "npm run lint && webpack --config webpack.config.common.js -p",
     "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
     "lint": "eslint *.js",
     "serve": ""
