@@ -53,9 +53,8 @@ module.exports = {
     ),
 
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'common'],
-      filenames: ['common.js', 'vendor.js'],
-      minChunks: Infinity
+      name: 'common',
+      filenames: ['common.js', 'vendor.js']
     }),
 
     new webpack.ProvidePlugin({ // exposes non-modular vendor globals to webpack

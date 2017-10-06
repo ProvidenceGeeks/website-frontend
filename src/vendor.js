@@ -1,3 +1,4 @@
 import 'react';
 import 'react-dom';
-import 'react-bootstrap';
+import 'jquery';
+import 'bootstrap';
