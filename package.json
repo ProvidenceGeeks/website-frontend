@@ -7,7 +7,7 @@
     "build": "npm run lint && webpack --config ./webpack.config.common.js -p",
     "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
     "lint": "eslint *.js",
-    "serve": ""
+    "serve": "npm run build && http-server ./build -o -p 9000"
   },
   "repository": {
     "url": "https://github.com/ProvidenceGeeks/website-frontend.git",
@@ -38,6 +38,7 @@
     "url-loader": "^0.6.2",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "http-server": "^0.10.0"
   }
 }
