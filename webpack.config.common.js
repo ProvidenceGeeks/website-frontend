@@ -40,6 +40,10 @@ module.exports = {
           ]
         },
         exclude: path.join(__dirname, 'node_modules')
+      },
+      {
+        test: /\.(s*)css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },

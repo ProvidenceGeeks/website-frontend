@@ -1,12 +1,15 @@
 const commonConfig = require('./webpack.config.common');
 const webpackMerge = require('webpack-merge');
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = webpackMerge(commonConfig, {
 
   output: {
     filename: '[name].bundle.js'
   },
+
+  context: path.resolve(__dirname, 'src'),
 
   devServer: {
     port: 9000,
