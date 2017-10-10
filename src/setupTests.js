@@ -1,1 +1,0 @@
-import raf from 'react-raf-shim';
