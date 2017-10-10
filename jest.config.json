@@ -1,0 +1,26 @@
+{
+  "verbose": true,
+
+  "coverageReporters": ["html", "json", "lcov", "cobertura"],
+
+  "testRegex": "(/src/.*\\.(test|spec))\\.(ts|tsx|js|jsx)$",
+
+  "moduleFileExtensions": ["ts", "tsx", "js", "jsx"],
+
+  "transform": {
+    "^.\\.jsx$": "<rootDir>/node_modules/babel-jest"
+  },
+
+  "moduleNameMapper": {
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/mocks/file-mock.js",
+    "\\.(css|scss)$": "<rootDir>/test/__mocks__/style-mock.js"
+  },
+
+  "coverageDirectory": "<rootDir>/reports/test-coverage",
+
+  "collectCoverageFrom": [
+    "src/components/**/*.{ts,tsx}",
+    "src/services/**/*.{ts,tsx}",
+    "src/views/**/*.{ts,tsx}"
+  ]
+}
