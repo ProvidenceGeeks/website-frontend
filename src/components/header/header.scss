@@ -1,0 +1,65 @@
+$primary-color: rgb(27, 41, 48);
+$logo-color: rgb(246, 205, 77);
+$border-color: rgb(150, 150, 150);
+$social-icon-size: 4rem;
+
+#header {
+  background: $primary-color;
+  max-height: 10em;
+  color: #fff;
+  border-bottom: 2px solid $border-color;
+  border-top: 2px solid $border-color;
+}
+
+.logo {
+  height: 7em;
+  margin: 1em 0 1em 0;
+}
+
+.logo path {
+  fill: $logo-color;
+}
+
+.logo svg {
+  padding: .75em 0 .75em 0;
+  height: 100%;
+}
+
+.social {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.social div {
+  margin-right: $social-icon-size;
+}
+
+.fa.fa-facebook {
+  color: #fff;
+  background: rgb(60, 90, 150);
+}
+
+.fa.fa-twitter {
+  color: #fff;
+  background: rgb(89, 173, 235);
+}
+
+.fa.fa-slack {
+  color: #1C2930;
+  background: #fff;
+  font-size: $social-icon-size - 0.5;
+}
+
+.circle {
+  background-color: #333;
+  border-radius: $social-icon-size;
+  color: #fff;
+  display: inline-block;
+  height: $social-icon-size;
+  line-height: $social-icon-size;
+  width: $social-icon-size;
+  font-size: ($social-icon-size/2);
+  text-align: center;
+}
