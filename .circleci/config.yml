@@ -5,11 +5,8 @@
 version: 2
 jobs:
   build:
-    machine:
-      node:
-        version: 6.10.0
-      environment:
-        PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+    docker:
+      - image: circleci/node:6.11.0
 
     working_directory: ~/repo
 
@@ -25,12 +22,12 @@ jobs:
 
       - run:
           name: Install Yarn
-          command: npm install -g yarn@~1.0.0
+          command: sudo npm install -g yarn@~1.0.0
 
       - run:
-          name: Install Dependencies
+          name: Install Project Dependencies
           command: yarn install
 
       - run:
-          name: Run the Build
+          name: Run Project Build
           command: yarn run build

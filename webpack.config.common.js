@@ -61,12 +61,10 @@ module.exports = {
   },
 
   plugins: [
-    new HtmlWebpackPlugin(
-      {
-        template: './index.html',
-        chunksSortMode: 'dependency'
-      }
-    ),
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      chunksSortMode: 'dependency'
+    }),
 
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
