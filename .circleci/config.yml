@@ -5,11 +5,8 @@
 version: 2
 jobs:
   build:
-    machine:
-      node:
-        version: 6.10.0
-      environment:
-        PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+    docker:
+      - image: circleci/node:6.11.0
 
     working_directory: ~/repo
 
