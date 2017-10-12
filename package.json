@@ -8,7 +8,7 @@
     "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
     "lint": "eslint *.js",
     "serve": "npm run build && http-server ./build -o -p 9000",
-    "test": "jest --coverage"
+    "test": "jest"
   },
   "repository": {
     "url": "https://github.com/ProvidenceGeeks/website-frontend.git",
@@ -48,10 +48,5 @@
     "webpack-dev-server": "^2.9.1",
     "webpack-md5-hash": "^0.0.5",
     "webpack-merge": "^4.1.0"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(css|scss)$": "<rootDir>/test/__mocks__/style-mock.js"
-    }
   }
 }

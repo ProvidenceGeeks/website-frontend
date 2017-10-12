@@ -29,5 +29,9 @@ jobs:
           command: yarn install
 
       - run:
+          name: Run Jest Tests
+          command: yarn test
+
+      - run:
           name: Run Project Build
           command: yarn run build

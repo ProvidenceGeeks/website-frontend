@@ -8,10 +8,6 @@ module.exports = {
     vendor: './vendor.js'
   },
 
-  externals: {
-    'react/addons': true
-  },
-
   output: {
     path: path.resolve(__dirname, './build'),
     filename: '[name].[chunkhash].bundle.js',
