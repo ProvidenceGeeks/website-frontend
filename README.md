@@ -4,20 +4,39 @@
 UI frontend repository for the Providence Geeks website.  Built with React and webpack.
 
 ## Project Setup
+1. Make sure you have read the Frontend Onboarding docs [here](https://github.com/ProvidenceGeeks/website-docs/wiki/Onboarding-Guide#frontend)
 
-To get started run: `yarn install `
+### Development
+Runs the app in development mode. The page will automatically reload when changes are made, and you should see build errors and lint warnings in the console.
 
-### `yarn develop` or `npm run develop` 
-Runs the app in development mode. The page should open automatically, however if it doesn't the url is: [http://localhost:9000](http://localhost:9000).
+```
+yarn develop
+```
 
-The page will automatically reload when changes are made, and you should see build errors and lint warnings in the console. 
+The page should open automatically, however if it doesn't the url is: [http://localhost:9000](http://localhost:9000).
 
-### `yarn build` or `npm run build`
+### Production
 Creates a minified bundled build, and outputs to the build folder.
+```
+yarn build
+```
 
-### `yarn serve` or `npm run serve`
-Runs the build script and runs the resulting output in the web browser.
+### Testing
+Runs unit tests with [jest](https://facebook.github.io/jest/)
+```
+yarn test
+```
 
-## Development
+To generate coverage, use
+```
+yarn test -- --coverage
+```
+
+### Demo
+Run a production build locally
+```
+yarn serve
+```
+
 
 ## Release Management

@@ -30,7 +30,7 @@ jobs:
 
       - run:
           name: Run Jest Tests
-          command: yarn test
+          command: yarn test -- --coverage
 
       - run:
           name: Run Project Build
