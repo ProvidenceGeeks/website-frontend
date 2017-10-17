@@ -1,14 +1,14 @@
 import * as React from 'react';
-import raf from '../../react-raf-shim';
+import raf from '../../../test/shims/react-raf-shim';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Hello from './hello';
+import Logo from './logo';
 
 configure({ adapter: new Adapter() });
 
-describe('Hello-World Component', () => {
-  const hello = shallow(<Hello />);
+describe('Logo SVG Component', () => {
+  const hello = shallow(<Logo />);
 
   it('should not be null', () => {
     expect(hello).not.toBeNull();

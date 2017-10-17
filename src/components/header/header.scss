@@ -5,15 +5,13 @@ $social-icon-size: 4rem;
 
 #header {
   background: $primary-color;
-  max-height: 10em;
+  display: flex;
+  height: 10rem;
   color: #fff;
-  border-bottom: 2px solid $border-color;
-  border-top: 2px solid $border-color;
 }
 
 .logo {
-  height: 7em;
-  margin: 1em 0 1em 0;
+  margin: 1rem 0 1rem 0;
 }
 
 .logo path {
@@ -21,19 +19,18 @@ $social-icon-size: 4rem;
 }
 
 .logo svg {
-  padding: .75em 0 .75em 0;
+  padding: .75rem 0 .75rem 0;
   height: 100%;
 }
 
 .social {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .social div {
-  margin-right: $social-icon-size;
+  margin-right: $social-icon-size/1.5;
 }
 
 .fa.fa-facebook {
@@ -46,10 +43,8 @@ $social-icon-size: 4rem;
   background: rgb(89, 173, 235);
 }
 
-.fa.fa-slack {
-  color: #1C2930;
-  background: #fff;
-  font-size: $social-icon-size - 0.5;
+.slack {
+  width: $social-icon-size;
 }
 
 .circle {
