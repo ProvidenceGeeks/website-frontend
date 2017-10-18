@@ -2,7 +2,7 @@
   "name": "website-frontend",
   "version": "0.1.0",
   "description": "UI frontend repository for the Providence Geeks website. Built with React and webpack.",
-  "main": "./src/index.js",
+  "main": "./src/index.jsx",
   "scripts": {
     "build": "npm run lint && webpack --config ./webpack.config.prod.js -p",
     "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
