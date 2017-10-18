@@ -29,7 +29,7 @@ yarn test
 
 To generate coverage, use
 ```
-yarn test -- --coverage
+yarn test --coverage
 ```
 
 ### Demo
