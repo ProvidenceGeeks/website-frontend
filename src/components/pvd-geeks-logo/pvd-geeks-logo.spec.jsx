@@ -1,16 +1,15 @@
 import * as React from 'react';
-import raf from '../../../test/shims/react-raf-shim';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import SlackIcon from './slack-icon';
+import PvdGeeksLogo from './pvd-geeks-logo';
 
 configure({ adapter: new Adapter() });
 
-describe('Slack Icon Component', () => {
-  const icon = shallow(<SlackIcon />);
+describe('Logo SVG Component', () => {
+  const logo = shallow(<PvdGeeksLogo />);
 
   it('should not be null', () => {
-    expect(icon).not.toBeNull();
+    expect(logo).not.toBeNull();
   });
 });
