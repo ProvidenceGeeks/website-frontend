@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const Logo = () => {
+const PvdGeeksLogo = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 1198.000000 1198.000000" preserveAspectRatio="xMidYMid meet">
       <g transform="translate(0.000000,1198.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
@@ -54,4 +54,4 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default PvdGeeksLogo;

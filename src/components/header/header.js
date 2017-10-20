@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './header.scss';
-import Logo from '../../components/logo/logo';
+import PvdGeeksLogo from '../pvd-geeks-logo/pvd-geeks-logo';
 import FacebookIcon from '../../components/facebook-icon/facebook-icon';
 import SlackIcon from '../../components/slack-icon/slack-icon';
 import TwitterIcon from '../../components/twitter-icon/twitter-icon';
@@ -16,7 +16,7 @@ export default class Header extends React.Component {
         <div className="header">
           <div className="col-xs-2">
             <div className="logo">
-              <a href="./"><Logo /></a>
+              <a href="./"><PvdGeeksLogo /></a>
             </div>
           </div>
 
