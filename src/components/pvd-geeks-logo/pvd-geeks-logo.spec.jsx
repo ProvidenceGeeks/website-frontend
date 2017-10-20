@@ -6,10 +6,14 @@ import PvdGeeksLogo from './pvd-geeks-logo';
 
 configure({ adapter: new Adapter() });
 
-describe('Logo SVG Component', () => {
+describe('PVD Geeks Logo SVG Component', () => {
   const logo = shallow(<PvdGeeksLogo />);
 
   it('should not be null', () => {
     expect(logo).not.toBeNull();
+  });
+
+  it('should have one svg logo', () => {
+    expect(logo.length).toEqual(1);
   });
 });

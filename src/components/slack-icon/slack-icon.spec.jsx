@@ -11,5 +11,10 @@ describe('Slack Icon Component', () => {
 
   it('should not be null', () => {
     expect(icon).not.toBeNull();
+    expect(icon.length).toEqual(1);
+  });
+
+  it('should have one slack svg icon', () => {
+    expect(icon.find('svg.slack-icon').length).toEqual(1);
   });
 });

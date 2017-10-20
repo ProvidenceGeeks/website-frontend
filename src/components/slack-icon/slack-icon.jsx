@@ -3,7 +3,7 @@ import './slack-icon.scss';
 
 const SlackIcon = () => {
   return (
-    <svg version="1.1" x="0px" y="0px" viewBox="-257.2 245.2 125.1 125.1" className="slack">
+    <svg version="1.1" x="0px" y="0px" viewBox="-257.2 245.2 125.1 125.1" className="slack-icon">
       <g id="Layer_2"></g>
       <g id="Layer_1">
         <g>
