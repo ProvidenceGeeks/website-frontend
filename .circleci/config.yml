@@ -1,7 +1,3 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 version: 2
 jobs:
   build:
@@ -33,13 +29,21 @@ jobs:
           command: yarn test --coverage
 
       - run:
-          name: Run Project Build
-          command: yarn run build
+          name: Execute The Build
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              echo "Master branch, releasing to production"
 
-          // if develop
-          // 1) export pre-release environment variable
-          // 2) have webpack release to stage
+              export RELEASE_ENV=production
+              yarn run release
 
-          // if master
-          // 1) export release environment variable
-          // 2) have webpack release to production
+            else if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              echo "Develop branch, releasing to stage"
+
+              export RELEASE_ENV=stage
+              yarn run release
+
+            else
+              echo "Branch undetermined, likely a CI build"
+              yarn run build
+            fi

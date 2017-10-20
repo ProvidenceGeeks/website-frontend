@@ -1,7 +1,7 @@
 const webpackMerge = require('webpack-merge');
 const prodConfig = require('./webpack.config.prod');
 const S3Plugin = require('webpack-s3-plugin');
-const bucketBase = 'providencegeeks.com';
+const bucketBase = 'providencegeeks.com/frontend';
 const isProductionRelease = process.env.RELEASE_ENV === 'production';
 const releaseConfig = {
   bucket: isProductionRelease ? 'production' : 'stage',
@@ -20,7 +20,7 @@ module.exports = webpackMerge(prodConfig, {
         region: 'us-east-1'
       },
       s3UploadOptions: {
-        Bucket: `providencegeeks.com/frontend/${releaseConfig.bucket}`
+        Bucket: `${bucketBase}/${releaseConfig.bucket}`
       },
       cdnizerOptions: {
         defaultCDNBase: releaseConfig.cdnBase
