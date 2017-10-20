@@ -30,8 +30,16 @@ jobs:
 
       - run:
           name: Run Jest Tests
-          command: yarn test -- --coverage
+          command: yarn test --coverage
 
       - run:
           name: Run Project Build
           command: yarn run build
+
+          // if develop
+          // 1) export pre-release environment variable
+          // 2) have webpack release to stage
+
+          // if master
+          // 1) export release environment variable
+          // 2) have webpack release to production
