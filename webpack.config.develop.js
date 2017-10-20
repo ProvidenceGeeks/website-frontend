@@ -11,6 +11,15 @@ module.exports = webpackMerge(commonConfig, {
 
   context: path.resolve(__dirname, 'src'),
 
+  module: {
+    rules: [
+      {
+        test: /\.(s*)css$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      }
+    ]
+  },
+
   devServer: {
     port: 9000,
     host: 'localhost',

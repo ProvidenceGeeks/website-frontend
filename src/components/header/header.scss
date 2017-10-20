@@ -1,0 +1,51 @@
+@import '../bootstrap/bootstrap';
+
+$social-icon-size: 4rem;
+
+.header {
+  background: $darkgrey;
+  display: flex;
+  color: #fff;
+}
+
+.logo {
+  height: 10rem;
+}
+
+.logo path {
+  fill: $gold;
+}
+
+.logo svg {
+  margin-left: 2rem;
+  padding: 1rem 0;
+  height: 9rem;
+}
+
+.social-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.social {
+  display: flex;
+}
+
+.social li {
+  padding: 0 !important;
+}
+
+.social li a {
+  margin-right: $social-icon-size/1.5;
+}
+
+.slack, .twitter {
+  width: $social-icon-size;
+}
+
+.facebook {
+  width: $social-icon-size;
+  height: $social-icon-size;
+}
+
