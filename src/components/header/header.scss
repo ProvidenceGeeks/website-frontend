@@ -40,39 +40,12 @@ $social-icon-size: 4rem;
   margin-right: $social-icon-size/1.5;
 }
 
-.fa.fa-facebook {
-  color: $white;
-  background: $facebook-bg-color;
-}
-
-.fa.fa-twitter {
-  color: $white;
-  background: $twitter-bg-color;
-}
-
-.fa {
-  color: $white;
-
-  &.fa-facebook {
-    background: $facebook-bg-color;
-  }
-
-  &.fa-twitter {
-    background: $twitter-bg-color;
-  }
-}
-
-.slack {
+.slack, .twitter {
   width: $social-icon-size;
 }
 
-.circle {
-  background-color: #333;
-  border-radius: $social-icon-size;
-  color: $white;
-  font-size: ($social-icon-size/2);
-  line-height: $social-icon-size;
-  text-align: center;
+.facebook {
+  width: $social-icon-size;
   height: $social-icon-size;
-  width: $social-icon-size;
 }
+

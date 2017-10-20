@@ -42,10 +42,6 @@ module.exports = {
         exclude: path.join(__dirname, 'node_modules')
       },
       {
-        test: /\.(s*)css$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      },
-      {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'url-loader?limit=10000&mimetype=application/font-woff'
       },

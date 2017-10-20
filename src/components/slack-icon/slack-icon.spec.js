@@ -3,14 +3,14 @@ import raf from '../../../test/shims/react-raf-shim';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Logo from './logo';
+import SlackIcon from './slack-icon';
 
 configure({ adapter: new Adapter() });
 
-describe('Logo SVG Component', () => {
-  const logo = shallow(<Logo />);
+describe('Slack Icon Component', () => {
+  const icon = shallow(<SlackIcon />);
 
   it('should not be null', () => {
-    expect(logo).not.toBeNull();
+    expect(icon).not.toBeNull();
   });
 });

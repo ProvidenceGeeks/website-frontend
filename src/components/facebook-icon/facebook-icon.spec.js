@@ -3,14 +3,14 @@ import raf from '../../../test/shims/react-raf-shim';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Logo from './logo';
+import FacebookIcon from './facebook-icon';
 
 configure({ adapter: new Adapter() });
 
-describe('Logo SVG Component', () => {
-  const logo = shallow(<Logo />);
+describe('Facebook-Icon SVG Component', () => {
+  const icon = shallow(<FacebookIcon />);
 
   it('should not be null', () => {
-    expect(logo).not.toBeNull();
+    expect(icon).not.toBeNull();
   });
 });
