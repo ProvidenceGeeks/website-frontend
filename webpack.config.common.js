@@ -4,7 +4,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    index: './index.js',
+    index: './index.jsx',
     vendor: './vendor.js'
   },
 
@@ -17,28 +17,24 @@ module.exports = {
 
   context: path.resolve(__dirname, 'src'),
 
+  resolve: {
+    extensions: ['.jsx', '.js']
+  },
+
   module: {
     rules: [
       {
-        test: /\.js$/,
-        loader: 'react-hot-loader/webpack',
-        exclude: path.join(__dirname, 'node_modules')
-      },
-      {
-        test: /\.js$/,
+        test: /\.(js*)x$/,
         enforce: 'pre',
         loader: 'eslint-loader',
         exclude: path.join(__dirname, 'node_modules')
       },
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        query: {
-          presets: [
-            'babel-preset-env',
-            'react'
-          ]
-        },
+        test: /\.(js*)x$/,
+        loaders: [
+          'babel-loader',
+          'react-hot-loader/webpack'
+        ],
         exclude: path.join(__dirname, 'node_modules')
       },
       {
@@ -59,8 +55,7 @@ module.exports = {
     }),
 
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'common',
-      filenames: ['common.js', 'vendor.js']
+      name: 'common'
     }),
 
     new webpack.ProvidePlugin({ // exposes non-modular vendor globals to webpack

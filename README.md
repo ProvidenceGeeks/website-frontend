@@ -27,9 +27,14 @@ Runs unit tests with [jest](https://facebook.github.io/jest/)
 yarn test
 ```
 
+For TDD (recommended for local development), add the `watch` flag
+```
+yarn test --watch
+```
+
 To generate coverage, use
 ```
-yarn test -- --coverage
+yarn test --coverage
 ```
 
 ### Demo
