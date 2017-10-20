@@ -37,7 +37,7 @@ jobs:
               export RELEASE_ENV=production
               yarn run release
 
-            else if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
               echo "Develop branch, releasing to stage"
 
               export RELEASE_ENV=stage
