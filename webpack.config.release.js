@@ -5,7 +5,7 @@ const bucketBase = 'providencegeeks.com/frontend';
 const isProductionRelease = process.env.RELEASE_ENV === 'production';
 const releaseConfig = {
   bucket: isProductionRelease ? 'production' : 'stage',
-  cdnBase: isProductionRelease ? 'http://dt3s8ap74m6pw.cloudfront.net' : 'http://d2b64jbw6hxz4f.cloudfront.net',
+  cdnBase: isProductionRelease ? '//dt3s8ap74m6pw.cloudfront.net' : '//d2b64jbw6hxz4f.cloudfront.net',
   distributionId: isProductionRelease ? process.env.AWS_DISTRIBUTION_ID_PROD : process.env.AWS_DISTRIBUTION_ID_STAGE
 };
 
