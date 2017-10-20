@@ -7,6 +7,7 @@
     "build": "npm run lint && webpack --config ./webpack.config.prod.js -p",
     "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
     "lint": "eslint *.js ./src/**/**/*.spec.jsx",
+    "release": "npm run lint && webpack --config ./webpack.config.release.js -p",
     "serve": "npm run build && http-server ./build -o -p 9000",
     "test": "jest --config ./jest.config.json"
   },
@@ -49,6 +50,7 @@
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1",
     "webpack-md5-hash": "^0.0.5",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "webpack-s3-plugin": "^1.0.0-rc.0"
   }
 }
