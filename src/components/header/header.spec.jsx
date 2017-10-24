@@ -26,12 +26,13 @@ describe('Header Component', () => {
   });
 
   it('should have facebook link', () => {
-    const fbLink = header.find('.social-container .facebook-link');
+    const facebookLink = header.find('.social-container .facebook-link');
 
-    expect(fbLink.prop('href')).toEqual('https://www.facebook.com/providencegeeks/');
-    expect(fbLink.prop('title')).toEqual('Like Us');
-    expect(fbLink.length).toEqual(1);
-    expect(fbLink.find('svg.facebook-icon').length).toEqual(1);
+    expect(facebookLink.prop('href')).toEqual('https://www.facebook.com/providencegeeks/');
+    expect(facebookLink.prop('title')).toEqual('Like Us');
+    expect(facebookLink.length).toEqual(1);
+    expect(facebookLink.prop('target')).toEqual('_blank');
+    expect(facebookLink.find('svg.facebook-icon').length).toEqual(1);
   });
 
   it('should have slack link', () => {
@@ -40,6 +41,7 @@ describe('Header Component', () => {
     expect(slackLink.prop('href')).toEqual('http://providencegeeks.slack.com/');
     expect(slackLink.prop('title')).toEqual('Join Us');
     expect(slackLink.length).toEqual(1);
+    expect(slackLink.prop('target')).toEqual('_blank');
     expect(slackLink.find('svg.slack-icon').length).toEqual(1);
   });
 
@@ -48,6 +50,7 @@ describe('Header Component', () => {
 
     expect(twitterLink.prop('href')).toEqual('https://twitter.com/providencegeeks');
     expect(twitterLink.prop('title')).toEqual('Follow Us');
+    expect(twitterLink.prop('target')).toEqual('_blank');
     expect(twitterLink.length).toEqual(1);
     expect(twitterLink.find('svg.twitter-icon').length).toEqual(1);
   });
