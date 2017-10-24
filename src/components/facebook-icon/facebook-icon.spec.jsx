@@ -11,5 +11,10 @@ describe('Facebook-Icon SVG Component', () => {
 
   it('should not be null', () => {
     expect(icon).not.toBeNull();
+    expect(icon.length).toEqual(1);
+  });
+
+  it('should have one facebook svg icon', () => {
+    expect(icon.find('svg.facebook-icon').length).toEqual(1);
   });
 });

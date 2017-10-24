@@ -12,4 +12,9 @@ describe('Hello View', () => {
   it('should not be null', () => {
     expect(home).not.toBeNull();
   });
+
+  it('should have a container be null', () => {
+    expect(home.find('.home').length).toEqual(1);
+  });
+
 });
