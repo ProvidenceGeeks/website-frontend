@@ -12,8 +12,8 @@ export default class Header extends React.Component {
 
   render() {
     return (
-      <div className="header">
-        <div className="row">
+      <div className="row">
+        <div className="header">
           <div className="col-xs-2">
             <div className="logo">
               <a href="/"><PvdGeeksLogo /></a>
@@ -22,7 +22,7 @@ export default class Header extends React.Component {
 
           <div className="social-container col-xs-8 col-xs-offset-2">
             <ul className="social list-inline">
-              <li><a className="fb-link" href="https://www.facebook.com/providencegeeks/" title="Like Us"><FacebookIcon /></a></li>
+              <li><a className="facebook-link" href="https://www.facebook.com/providencegeeks/" title="Like Us"><FacebookIcon /></a></li>
               <li><a className="slack-link" href="http://providencegeeks.slack.com/" title="Join Us"><SlackIcon /></a></li>
               <li><a className="twitter-link" href="https://twitter.com/providencegeeks" title="Follow Us"><TwitterIcon /></a></li>
             </ul>

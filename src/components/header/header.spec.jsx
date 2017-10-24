@@ -26,7 +26,7 @@ describe('Header Component', () => {
   });
 
   it('should have facebook link', () => {
-    const fbLink = header.find('.social-container .fb-link');
+    const fbLink = header.find('.social-container .facebook-link');
 
     expect(fbLink.prop('href')).toEqual('https://www.facebook.com/providencegeeks/');
     expect(fbLink.prop('title')).toEqual('Like Us');
