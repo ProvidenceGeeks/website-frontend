@@ -1,15 +1,11 @@
 @import '../bootstrap/bootstrap';
 
-$social-icon-size: 4rem;
+$social-icon-size: 2.5rem;
 
 .header {
   background: $darkgrey;
-  display: flex;
-  color: #fff;
-}
-
-.logo {
-  height: 10rem;
+  color: $white;
+  width: 100%;
 }
 
 .logo path {
@@ -19,21 +15,11 @@ $social-icon-size: 4rem;
 .logo svg {
   margin-left: 2rem;
   padding: 1rem 0;
-  height: 9rem;
-}
-
-.social-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  height: 7rem;
 }
 
 .social {
-  display: flex;
-}
-
-.social li {
-  padding: 0 !important;
+  margin: 0;
 }
 
 .social li a {
