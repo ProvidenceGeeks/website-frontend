@@ -1,0 +1,55 @@
+@import '../bootstrap/bootstrap';
+
+$social-icon-size: 2.5rem;
+
+.footer {
+  background: $darkgrey;
+  color: $white;
+}
+
+.logo path {
+  fill: $gold;
+}
+
+.logo svg {
+  margin-left: 2rem;
+  padding: 1rem 0;
+  height: 7rem;
+}
+
+.social {
+  margin: 0;
+}
+
+.social li a {
+  margin-right: $social-icon-size/1.5;
+}
+
+.slack-icon, .twitter-icon {
+  width: $social-icon-size;
+}
+
+.facebook-icon {
+  width: $social-icon-size;
+  height: $social-icon-size;
+}
+
+.footer-top {
+  border-spacing: 15px;
+}
+
+hr {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  width: 95.5%;
+  background: $lightgrey;
+}
+
+.copyright {
+  padding: .33em 0 2em 2rem !important;
+  color: $lightgrey;
+}
+
+.footer-top {
+  width: 100%;
+}
