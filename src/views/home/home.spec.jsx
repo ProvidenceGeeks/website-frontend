@@ -6,15 +6,18 @@ import Home from './home';
 
 configure({ adapter: new Adapter() });
 
-describe('Hello View', () => {
+describe('Home component', () => {
   const home = shallow(<Home />);
 
   it('should not be null', () => {
     expect(home).not.toBeNull();
   });
 
-  it('should have a container be null', () => {
+  it('should have a container not be null', () => {
     expect(home.find('.home').length).toEqual(1);
   });
 
+  // it('should have a hero-banner Component', () => {
+  //   expect(home.find('div.hero-banner').length).toEqual(1);
+  // });
 });
