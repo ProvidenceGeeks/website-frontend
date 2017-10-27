@@ -29,7 +29,9 @@ export default class Footer extends React.Component {
           </div>
         </div>
 
-        <hr />
+        <div className="col-md-12 d-flex">
+          <hr />
+        </div>
 
         <div className="copyright col-md-12">
           <small className="copyright-text">&copy; Copyright 2017 Providence Geeks</small>

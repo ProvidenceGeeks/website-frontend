@@ -38,11 +38,18 @@ $social-icon-size: 2.5rem;
   border-spacing: 15px;
 }
 
-hr {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  width: 95.5%;
+.footer-hr-container {
+  padding: 0 !important;
+}
+
+.footer.row > div {
+  padding: 0;
+}
+
+.footer hr {
+  margin: 0rem 1.66667rem 0rem 2rem !important;
   background: $lightgrey;
+  width: 100%;
 }
 
 .copyright {
