@@ -20,4 +20,8 @@ describe('Bootstrap Component', () => {
   it('should have a Home Component', () => {
     expect(bootstrap.find('.home').length).toEqual(1);
   });
+
+  it('should have a Footer Component', () => {
+    expect(bootstrap.find('.footer').length).toEqual(1);
+  });
 });
