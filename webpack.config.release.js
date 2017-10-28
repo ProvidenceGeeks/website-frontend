@@ -2,8 +2,9 @@ const webpackMerge = require('webpack-merge');
 const prodConfig = require('./webpack.config.prod');
 const S3Plugin = require('webpack-s3-plugin');
 const isProductionRelease = process.env.RELEASE_ENV === 'production';
+const bucketPrefix = isProductionRelease ? 'www' : 'stage';
 const releaseConfig = {
-  bucket: isProductionRelease ? 'pwww.pvdgeeks.org' : 'stage.pvdgeeks.org',
+  bucket: `${bucketPrefix}.pvdgeeks.org`,
   cdnBase: isProductionRelease ? '//dt3s8ap74m6pw.cloudfront.net' : '//d2b64jbw6hxz4f.cloudfront.net',
   distributionId: isProductionRelease ? process.env.AWS_DISTRIBUTION_ID_PROD : process.env.AWS_DISTRIBUTION_ID_STAGE
 };
@@ -19,7 +20,7 @@ module.exports = webpackMerge(prodConfig, {
         region: 'us-east-1'
       },
       s3UploadOptions: {
-        Bucket: `${bucketBase}/${releaseConfig.bucket}`
+        Bucket: releaseConfig.bucket
       },
       cdnizerOptions: {
         defaultCDNBase: releaseConfig.cdnBase
