@@ -1,10 +1,9 @@
 const webpackMerge = require('webpack-merge');
 const prodConfig = require('./webpack.config.prod');
 const S3Plugin = require('webpack-s3-plugin');
-const bucketBase = 'providencegeeks.com/frontend';
 const isProductionRelease = process.env.RELEASE_ENV === 'production';
 const releaseConfig = {
-  bucket: isProductionRelease ? 'production' : 'stage',
+  bucket: isProductionRelease ? 'pwww.pvdgeeks.org' : 'stage.pvdgeeks.org',
   cdnBase: isProductionRelease ? '//dt3s8ap74m6pw.cloudfront.net' : '//d2b64jbw6hxz4f.cloudfront.net',
   distributionId: isProductionRelease ? process.env.AWS_DISTRIBUTION_ID_PROD : process.env.AWS_DISTRIBUTION_ID_STAGE
 };
