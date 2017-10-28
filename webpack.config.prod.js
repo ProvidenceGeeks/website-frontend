@@ -27,7 +27,7 @@ module.exports = webpackMerge(commonConfig, {
       prefix: 'icons/',
       statsFilename: 'icons/stats.json',
       inject: true,
-      title: 'The Greenhouse',
+      title: 'Providence Geeks',
       background: '#efefef',
       icons: {
         android: true,
