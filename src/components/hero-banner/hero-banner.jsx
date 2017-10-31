@@ -8,7 +8,7 @@ export default class HeroBanner extends React.Component {
     super();
 
     const backgroundImages = [
-      'http://via.placeholder.com/900x587/f6cd4d/fff/?text=BG-Img-1',
+      'http://via.placeholder.com/900x587/d8b445/fff/?text=BG-Img-1',
       'http://via.placeholder.com/900x587/ff970f/fff/?text=BG-Img-2',
       'http://via.placeholder.com/900x587/c10000/fff/?text=BG-Img-3'
     ];

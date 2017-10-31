@@ -34,15 +34,4 @@ describe('Hero-Banner Component', () => {
                                  'digital innovators connect, collaborate, and ultimately make ' +
                                  'the City-State and its geeks info-technology leaders.');
   });
-
-  it('container should have 68% opacity', () => {
-    // Should ensure that the background of .hero-container is set to rgba(26, 41, 48, .68)
-    let containerStyle = heroBanner.find('.hero-container').get(0).style;
-
-    expect(containerStyle).to.have.property('background', 'rgba(26, 41, 48, .68)');
-  });
-
-  it('.hero-banner should have some background image', () => {
-    // Should ensure that the background property is set to something.
-  });
 });
