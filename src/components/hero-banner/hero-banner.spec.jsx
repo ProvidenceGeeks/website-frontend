@@ -6,9 +6,9 @@ import ReactTestUtils from 'react-dom/test-utils';
 import HeroBanner from './hero-banner';
 import Logo from '../../components/pvd-geeks-logo/pvd-geeks-logo';
 
-configure({ adapter: new Adapter() });
+const TestUtils = ReactTestUtils;
 
-var TestUtils = ReactTestUtils;
+configure({ adapter: new Adapter() });
 
 describe('Hero-Banner Component', () => {
   const heroBanner = mount(<HeroBanner />);
