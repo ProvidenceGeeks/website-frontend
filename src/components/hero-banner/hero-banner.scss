@@ -7,6 +7,9 @@
 
 .hero-banner {
   margin: 0 -15px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
 }
 
 .hero-container {
@@ -18,6 +21,7 @@
 
 .hero-title {
   font-family: Canter;
+  font-weight: bold;
   font-size: 4rem;
   text-transform: uppercase;
   margin-bottom: 0;

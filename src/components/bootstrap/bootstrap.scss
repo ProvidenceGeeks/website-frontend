@@ -5,19 +5,17 @@
 @import "~bootstrap/scss/grid";
 @import "~bootstrap/scss/type";
 @import "~bootstrap/scss/_jumbotron";
-
-// @import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Josefin+Slab');
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700|Josefin+Slab:300,400,400i,700');
 
 @font-face {
   font-family: 'Canter';
-  src: url('../../fonts/Canter Bold.otf') format('opentype');
+  src: url('../../components/bootstrap/fonts/canter-bold.otf') format('opentype');
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'Canter';
-  src: url('../../fonts/Canter Bold.otf') format('opentype');
+  src: url('../../components/bootstrap/fonts/canter-light.otf') format('opentype');
 }
 
 $white: rgb(255, 255, 255);

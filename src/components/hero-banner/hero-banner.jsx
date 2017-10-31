@@ -1,19 +1,20 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Logo from '../pvd-geeks-logo/pvd-geeks-logo';
 import './hero-banner.scss';
+import PvdGeeksLogo from '../pvd-geeks-logo/pvd-geeks-logo';
 
 export default class HeroBanner extends React.Component {
   constructor() {
     super();
 
-    let backgrounds = generateRandomBG(1);
+    const backgroundImages = [
+      'http://via.placeholder.com/900x587/f6cd4d/fff/?text=BG-Img-1',
+      'http://via.placeholder.com/900x587/ff970f/fff/?text=BG-Img-2',
+      'http://via.placeholder.com/900x587/c10000/fff/?text=BG-Img-3'
+    ];
 
     this.styles = {
-      background: `url(${ backgrounds[Math.floor(Math.random() * backgrounds.length)] })`,
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center center',
-      backgroundSize: '100% 100%'
+      backgroundImage: `url(${ backgroundImages[Math.floor(Math.random() * backgroundImages.length)] })`
     };
   }
 
@@ -29,7 +30,7 @@ export default class HeroBanner extends React.Component {
             <hr className="text-line align-self-center" />
           </div>
 
-          <Logo />
+          <PvdGeeksLogo />
 
           <div className="row d-flex justify-content-center align-self-center">
             <p className="hero-text">The goal of Providence Geeks is to help Rhode Island’s digital innovators connect,
@@ -39,16 +40,6 @@ export default class HeroBanner extends React.Component {
       </div>
     );
   }
-}
-
-function generateRandomBG(count = 1) {
-  let images = [];
-
-  for (let i = 0; i < count; i += 1) {
-    images.push(`http://via.placeholder.com/900x587/${ Math.floor(Math.random() * 16777215).toString(16) }/fff/?text=BG-Img`);
-  }
-
-  return images;
 }
 
 HeroBanner.propTypes = {
