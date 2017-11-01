@@ -1,0 +1,19 @@
+@import '../bootstrap/bootstrap';
+
+[class^="col-"],
+[class*=" col-"] {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.navigation-bar .nav-tabs {
+  background: $gold;
+}
+
+.navigation-bar .nav-tabs li {
+  margin: 2rem .5rem;
+}
+
+.navigation-bar .nav-tabs li a {
+  color: $darkgrey;
+}
