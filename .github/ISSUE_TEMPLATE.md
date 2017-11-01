@@ -17,7 +17,6 @@ New Feature Request / Improvement:
 1. Should let user see such and such
 
 Bug:
-- Use 'Bug' label
 - Please provide:
 1. Summary
 1. OS/Browser, version/device used if mobile
