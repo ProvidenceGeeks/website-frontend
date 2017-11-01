@@ -14,7 +14,7 @@ export default class HeroBanner extends React.Component {
     ];
 
     this.styles = {
-      backgroundImage: `url(${ backgroundImages[Math.floor(Math.random() * backgroundImages.length)] })`
+      backgroundImage: `url(${ getRandomBackgroundImage(backgroundImages) })`
     };
   }
 
@@ -40,6 +40,10 @@ export default class HeroBanner extends React.Component {
       </div>
     );
   }
+}
+
+function getRandomBackgroundImage(backgroundImageArray) {
+  return backgroundImageArray[Math.floor(Math.random() * backgroundImageArray.length)];
 }
 
 HeroBanner.propTypes = {

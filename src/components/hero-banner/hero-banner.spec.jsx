@@ -18,13 +18,13 @@ describe('Hero-Banner Component', () => {
   });
 
   it('should have a Logo Component', () => {
-    var logoComponent = require('../../components/pvd-geeks-logo/pvd-geeks-logo');
+    const pvdGeeksLogo = require('../../components/pvd-geeks-logo/pvd-geeks-logo');
 
-    var page = TestUtils.renderIntoDocument(
+    const page = TestUtils.renderIntoDocument(
       <Logo />
     );
 
-    TestUtils.scryRenderedComponentsWithType(page, logoComponent);
+    TestUtils.scryRenderedComponentsWithType(page, pvdGeeksLogo);
   });
 
   it('should have text in the hero-banner', () => {
@@ -33,5 +33,13 @@ describe('Hero-Banner Component', () => {
     expect(heroText.text()).toBe('The goal of Providence Geeks is to help Rhode Island’s ' +
                                  'digital innovators connect, collaborate, and ultimately make ' +
                                  'the City-State and its geeks info-technology leaders.');
+  });
+
+  it('getRandomBackgroundImage function should be called one time', () => {
+    heroBanner.instance().getRandomBackgroundImage = jest.fn();
+    heroBanner.update();
+    heroBanner.instance().getRandomBackgroundImage();
+
+    expect(heroBanner.instance().getRandomBackgroundImage.mock.calls.length).toBe(1);
   });
 });
