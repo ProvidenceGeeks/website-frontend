@@ -1,0 +1,84 @@
+@import '../bootstrap/bootstrap';
+
+.jumbotron {
+  padding: 1.5rem 1rem !important;
+  border-radius: 0 !important;
+}
+
+.hero-banner {
+  margin: 0 -15px;
+  margin-bottom: 0 !important;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+.hero-container {
+  height: 25.5rem;
+  background: $hero-bg-color;
+  border: 3px solid $gold;
+  color: $white;
+}
+
+.hero-title {
+  font-family: Canter;
+  font-weight: bold;
+  font-size: 4rem;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  letter-spacing: .1em;
+  white-space: nowrap;
+  text-align: justify;
+}
+
+.hero-banner div:nth-child(2) {
+  margin-top: -10px;
+}
+
+.hero-subtitle {
+  display: inline;
+  font-family: "Josefin Slab";
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin: 0;
+}
+
+.text-line {
+  display: inline;
+  width: 2.5rem;
+  margin: 0;
+  margin: .5rem;
+  z-index: 1;
+  background: $white;
+}
+
+.hero-banner h1:before {
+  left: 0;
+}
+
+.hero-text {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+  max-width: 40%;
+  text-align: center;
+}
+
+.hero-banner .pvd-geeks-logo {
+  width: 5rem;
+  margin: .5rem 0;
+  justify-content: center;
+  align-self: center;
+}
+
+.hero-banner .pvd-geeks-logo > g > path:nth-child(1),
+.hero-banner .pvd-geeks-logo > g > path:nth-child(2),
+.hero-banner .pvd-geeks-logo > g > path:nth-child(4),
+.hero-banner .pvd-geeks-logo > g > path:nth-child(5) {
+  display: none;
+}
+
+.hero-banner .pvd-geeks-logo > g > path:nth-child(3) {
+  fill: $white;
+  display: block !important;
+}

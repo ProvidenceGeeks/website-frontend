@@ -4,6 +4,19 @@
 @import "~bootstrap/scss/utilities";
 @import "~bootstrap/scss/grid";
 @import "~bootstrap/scss/type";
+@import "~bootstrap/scss/_jumbotron";
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700|Josefin+Slab:300,400,400i,700');
+
+@font-face {
+  font-family: 'Canter';
+  src: url('../../components/bootstrap/fonts/canter-bold.otf') format('opentype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Canter';
+  src: url('../../components/bootstrap/fonts/canter-light.otf') format('opentype');
+}
 
 $white: rgb(255, 255, 255);
 $gold: rgb(246, 205, 77);
@@ -12,3 +25,4 @@ $lightgrey: rgb(188, 191, 194);
 
 $facebook-bg-color: rgb(60, 90, 150);
 $twitter-bg-color: rgb(89, 173, 235);
+$hero-bg-color: rgba(26, 41, 48, .68);

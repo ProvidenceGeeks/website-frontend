@@ -1,5 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import HeroBanner from '../../components/hero-banner/hero-banner';
 import './home.scss';
 
 export default class Home extends React.Component {
@@ -11,7 +12,7 @@ export default class Home extends React.Component {
 
     return (
       <div className="home">
-
+        <HeroBanner />
       </div>
     );
   }
