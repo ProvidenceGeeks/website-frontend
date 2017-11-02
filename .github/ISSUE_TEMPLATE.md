@@ -17,7 +17,18 @@ New Feature Request / Improvement:
 1. Should let user see such and such
 
 Bug:
-- Please provide steps to reproduce including browser version
+- Please provide:
+1. Summary
+1. OS/Browser, version/device used if mobile
+1. Environment url(s)
+1. Exact steps to reproduce (example below)
+      1. Go to [url]
+      1. Click on [asset]
+1. Expected result: It should do ABC
+1. Actual result: It does XYZ
+1. Error message (if applicable)
+1. screenshot(jpg) or video(gif) if any
+      1. Naming Convention: defect_’page’_’feature’’#’; ex: defect_events-list_hoverover1
 
 Other:
 - Please provide all relevant details
