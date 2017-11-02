@@ -18,5 +18,14 @@
     "src/components/**/*.{js,jsx}",
     "src/services/**/*.{js,jsx}",
     "src/views/**/*.{js,jsx}"
-  ]
+  ],
+
+  "coverageThreshold": {
+    "global": {
+      "branches": 85,
+      "functions": 85,
+      "lines": 85,
+      "statements": 85
+    }
+  }
 }
