@@ -12,8 +12,13 @@ export default class NavigationBar extends React.Component {
       <div className="row navigation-bar">
         <div className="col-md-12">
           <Tabs id="navigation-bar-tabs">
-            <Tab eventKey={1} title="Events"><h3>EVENTS GO HERE</h3></Tab>
-            <Tab eventKey={2} title="Blog"><h3>BLOG GOES HERE</h3></Tab>
+            <Tab eventKey={1} title="Events" className="events-tab-content">
+              <h3>EVENTS GO HERE</h3>
+            </Tab>
+
+            <Tab eventKey={2} title="Blog" className="blog-tab-content">
+              <h3>BLOG GOES HERE</h3>
+            </Tab>
           </Tabs>
         </div>
       </div>

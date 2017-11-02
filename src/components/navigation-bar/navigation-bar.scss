@@ -1,7 +1,7 @@
 @import '../bootstrap/bootstrap';
 
-[class^="col-"],
-[class*=" col-"] {
+.navigation-bar [class^="col-"],
+.navigation-bar [class*=" col-"] {
   padding-right: 0 !important;
   padding-left: 0 !important;
 }
@@ -11,9 +11,31 @@
 }
 
 .navigation-bar .nav-tabs li {
-  margin: 2rem .5rem;
+  margin: 0rem 1rem 0 3.5rem;
 }
 
-.navigation-bar .nav-tabs li a {
-  color: $darkgrey;
+.navigation-bar .nav-tabs li {
+  &[class="active"] {
+    font-weight: bold;
+    padding-bottom: .5rem;
+    border-bottom: 1rem solid $darkgrey;
+  }
+
+  & > a:hover {
+    text-decoration: none;
+  }
+
+  a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: $darkgrey;
+    font-size: 1.5rem;
+    padding: 2rem 2rem 0 2rem;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+}
+
+.events-tab-content, .blog-tab-content {
+  margin-left: 3.5rem;
 }
