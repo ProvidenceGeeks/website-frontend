@@ -11,8 +11,14 @@ describe('navigation-bar Component', () => {
 
   it('should not be null', () => {
     expect(navigationBar).not.toBeNull();
-    expect(navigationBar.find('.navigationBar').length).toEqual(1);
+    expect(navigationBar.find('.navigation-bar').length).toEqual(1);
   });
 
-  // Ask about positive and negative tests for clicking nav elements
+  it('ensure that events content is in the tab component', () => {
+    expect(navigationBar.find('.events').length).toEqual(1);
+  });
+
+  it('ensure that blogs are in the tab component', () => {
+    expect(navigationBar.find('.blog').length).toEqual(1);
+  });
 });
