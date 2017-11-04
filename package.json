@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run lint && webpack --config ./webpack.config.prod.js -p",
     "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
-    "lint": "eslint *.js ./src/**/**/*.spec.jsx",
+    "lint": "eslint *.js ./src/**/**/*.spec.*",
     "release": "npm run lint && webpack --config ./webpack.config.release.js -p",
     "serve": "npm run build && http-server ./build -o -p 9000",
     "test": "jest --config ./jest.config.json"
@@ -18,12 +18,14 @@
   "author": "pholyoke@kenzan.com",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.17.0",
     "bootstrap": "^4.0.0-beta.2",
     "jquery": "^3.2.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
+    "axios-mock-adapter": "^1.9.0",
     "babel-core": "^6.26.0",
     "babel-jest": "^21.2.0",
     "babel-loader": "^7.1.2",
