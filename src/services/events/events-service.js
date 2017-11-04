@@ -1,6 +1,6 @@
 import * as axios from 'axios';
 
-export default class EventsService {
+class EventsService {
 
   constructor() {
   }
@@ -12,3 +12,5 @@ export default class EventsService {
       });
   }
 }
+
+export default EventsService;
