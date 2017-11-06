@@ -20,4 +20,8 @@ describe('Home component', () => {
   it('should have a hero-banner Component', () => {
     expect(home.find('div.hero-banner').length).toEqual(1);
   });
+
+  it('should have a navigation-bar Component', () => {
+    expect(home.find('div.navigation-bar').length).toEqual(1);
+  });
 });
