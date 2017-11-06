@@ -12,7 +12,6 @@ export default class Home extends React.Component {
   }
 
   componentDidMount() {
-    // should probably go in componentDidMount
     EventsService.getEvents()
       .then((events) => {
         this.events = events;
