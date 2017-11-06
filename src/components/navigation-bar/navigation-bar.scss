@@ -8,6 +8,7 @@
 
 .navigation-bar .nav-tabs {
   background: $gold;
+  border: 0;
 }
 
 .navigation-bar .nav-tabs li {
@@ -38,4 +39,9 @@
 
 .events-tab-content, .blog-tab-content {
   margin-left: 3.5rem;
+}
+
+.tab-content {
+  background: $lightgrey;
+  height: 100%;
 }

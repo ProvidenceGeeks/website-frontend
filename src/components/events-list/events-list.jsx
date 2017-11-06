@@ -10,7 +10,9 @@ export default class EventsList extends React.Component {
   render() {
 
     return (
-      <h1>EVENTS LIST</h1>
+      <div className="row-fluid">
+        <h3 className="events-header">Upcoming Events</h3>
+      </div>
     );
   }
 }
