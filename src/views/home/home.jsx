@@ -8,11 +8,17 @@ export default class Home extends React.Component {
   constructor() {
     super();
 
+    this.events = [];
+  }
+
+  componentDidMount() {
+    // should probably go in componentDidMount
     EventsService.getEvents()
       .then((events) => {
-        console.debug('events!!!!!!', events); // eslint-disable-line
+        this.events = events;
+        console.debug('events!!!!!!', this.events); // eslint-disable-line
       }).catch(function(response) {
-        console.log(response); // eslint-disable-line
+        console.error(response); // eslint-disable-line
       });
   }
 
