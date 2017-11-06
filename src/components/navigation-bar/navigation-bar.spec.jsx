@@ -6,7 +6,7 @@ import NavigationBar from './navigation-bar';
 
 configure({ adapter: new Adapter() });
 
-describe('navigation-bar Component', () => {
+describe('Navigation Bar Component', () => {
   const navigationBar = mount(<NavigationBar />);
 
   it('should not be null', () => {
@@ -14,11 +14,11 @@ describe('navigation-bar Component', () => {
     expect(navigationBar.find('.navigation-bar').length).toEqual(1);
   });
 
-  it('ensure that events content is in the tab component', () => {
+  it('should ensure that events content is in the tab component', () => {
     expect(navigationBar.find('.events').length).toEqual(1);
   });
 
-  it('ensure that blogs are in the tab component', () => {
+  it('should ensure that blogs are in the tab component', () => {
     expect(navigationBar.find('.blog').length).toEqual(1);
   });
 });
