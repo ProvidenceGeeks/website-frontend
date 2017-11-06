@@ -24,6 +24,13 @@ module.exports = webpackMerge(commonConfig, {
     port: 9000,
     host: 'localhost',
     historyApiFallback: true,
+    proxy: {
+      '/api/*': {
+        target: 'http://stage.pvdgeeks.org',
+        secure: false,
+        changeOrigin: true
+      }
+    },
     watchOptions: {
       aggregateTimeout: 300,
       poll: 1000

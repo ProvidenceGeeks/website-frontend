@@ -4,11 +4,11 @@
   "description": "UI frontend repository for the Providence Geeks website. Built with React and webpack.",
   "main": "./src/index.jsx",
   "scripts": {
-    "build": "npm run lint && webpack --config ./webpack.config.prod.js -p",
+    "build": "npm run lint && webpack --config ./webpack.config.prod.js",
     "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
-    "lint": "eslint *.js ./src/**/**/*.spec.jsx",
+    "lint": "eslint *.js ./src/**/**/*.spec.*",
     "release": "npm run lint && webpack --config ./webpack.config.release.js -p",
-    "serve": "npm run build && http-server ./build -o -p 9000",
+    "serve": "npm run build && http-server ./build -o --proxy http://stage.pvdgeeks.org",
     "test": "jest --config ./jest.config.json"
   },
   "repository": {
@@ -18,12 +18,14 @@
   "author": "pholyoke@kenzan.com",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.17.0",
     "bootstrap": "^4.0.0-beta.2",
     "jquery": "^3.2.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
   "devDependencies": {
+    "axios-mock-adapter": "^1.9.0",
     "babel-core": "^6.26.0",
     "babel-jest": "^21.2.0",
     "babel-loader": "^7.1.2",
@@ -46,6 +48,8 @@
     "react-test-renderer": "^16.0.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
+    "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony-v2.8.22",
+    "uglifyjs-webpack-plugin": "^1.0.1",
     "url-loader": "^0.6.2",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1",
