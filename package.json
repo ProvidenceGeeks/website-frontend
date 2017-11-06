@@ -7,7 +7,7 @@
     "build": "npm run lint && webpack --config ./webpack.config.prod.js",
     "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
     "lint": "eslint *.js ./src/**/**/*.spec.*",
-    "release": "npm run lint && webpack --config ./webpack.config.release.js -p",
+    "release": "npm run lint && webpack --config ./webpack.config.release.js",
     "serve": "npm run build && http-server ./build -o --proxy http://stage.pvdgeeks.org",
     "test": "jest --config ./jest.config.json"
   },
