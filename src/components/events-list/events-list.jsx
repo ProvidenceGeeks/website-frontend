@@ -19,13 +19,13 @@ export default class EventsList extends React.Component {
 
           <div className="col-md-4">
             <div className="card">
-              <img className="card-img-top" src="http://via.placeholder.com/318x180" alt="Card image cap" />
+              <a href="#MEETUP-URL" target="_blank" rel="noopener noreferrer">
+                <img className="card-img-top" src="http://via.placeholder.com/318x180" alt="Event Image" />
 
-              <div className="card-img-overlay d-flex">
                 <div className="event-title-container align-self-end">
                   <span className="event-title">Event Name</span>
                 </div>
-              </div>
+              </a>
 
               <div className="card-block">
                 <p className="card-text">
