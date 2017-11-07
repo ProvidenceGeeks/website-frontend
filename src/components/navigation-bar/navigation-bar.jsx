@@ -1,4 +1,5 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import { Tabs, Tab } from 'react-bootstrap';
 import EventsList from '../../components/events-list/events-list';
 import './navigation-bar.scss';
@@ -15,7 +16,7 @@ export default class NavigationBar extends React.Component {
           <Tabs id="navigation-bar-tabs">
             <Tab eventKey={1} title="Events" className="events-tab-content">
               <div className="events">
-                <EventsList />
+                <EventsList eventsData={ this.props.eventsData } />
               </div>
             </Tab>
 
@@ -28,3 +29,7 @@ export default class NavigationBar extends React.Component {
     );
   }
 }
+
+NavigationBar.propTypes = {
+  eventsData: PropTypes.object
+};

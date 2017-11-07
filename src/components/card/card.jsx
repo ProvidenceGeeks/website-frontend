@@ -1,34 +1,36 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import './card.scss';
 
 export default class Card extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
+    this.props = props;
   }
 
   render() {
     return (
       <div className="card">
-        <a href={ this.props.url } target={ this.props.target } rel="noopener noreferrer">
-          <img className="card-img-top" src={ this.props.imgSource } alt={ this.props.imgAlt } />
+        <a href={ this.props.eventData.url } target={ this.props.eventData.target } rel="noopener noreferrer">
+          <img className="card-img-top" src={ this.props.eventData.imgSource } alt={ this.props.eventData.imgAlt } />
 
-          <div className="event-title-container align-self-end">
-            <span className="event-title">{ this.props.eventTitle }</span>
+          <div className="card-title-container align-self-end">
+            <span className="card-title">{ this.props.eventData.cardTitle }</span>
           </div>
         </a>
 
         <div className="card-block">
           <p className="card-text">
-            { this.props.eventText }
+            { this.props.eventData.cardText }
           </p>
 
-          <div className="event-footer">
-                <span className="event-datetime float-left">
-                  <span className="event-date">{ this.props.eventDate }</span>
-                  <span className="event-time">{ this.props.eventTime }</span>
-                </span>
+          <div className="card-info">
+            <span className="card-datetime float-left">
+              <span className="card-date">{ this.props.eventData.cardDate }</span>
+              <span className="card-time">{ this.props.eventData.cardTime }</span>
+            </span>
 
-            <svg version="1.1" viewBox="0 0 24 24" className="event-social-share float-right">
+            <svg version="1.1" viewBox="0 0 24 24" className="card-social-share float-right" onClick={ () => { socialClick(); } }>
               <g id="info" />
               <g id="icons">
                 <path d="M21.7,10.2l-6.6-6C14.6,3.7,14,4.2,14,5v3c-4.7,0-8.7,2.9-10.6,6.8c-0.7,1.3-1.1,2.7-1.4,4.1
@@ -43,17 +45,14 @@ export default class Card extends React.Component {
 }
 
 Card.propTypes = {
-  url: React.PropTypes.string.isRequired,
-  target: React.PropTypes.string.isRequired,
-  imgSource: React.PropTypes.string.isRequired,
-  imgAlt: React.PropTypes.string.isRequired,
-  eventTitle: React.PropTypes.string.isRequired,
-  eventText: React.PropTypes.string.isRequired,
-  eventDate: React.PropTypes.number.isRequired,
-  eventTime: React.PropTypes.number.isRequired
-}
+  eventData: PropTypes.array.isRequired
+};
 
 Card.defaultProps = {
   target: '_self',
   imgAlt: 'Event Image'
-}
+};
+
+const socialClick = () => {
+  console.log('TEST'); // eslint-disable-line
+};

@@ -20,18 +20,6 @@
   src: url('../../components/bootstrap/fonts/canter-light.otf') format('opentype');
 }
 
-@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
-  @if $inset {
-    -webkit-box-shadow:inset $top $left $blur $color;
-    -moz-box-shadow:inset $top $left $blur $color;
-    box-shadow:inset $top $left $blur $color;
-  } @else {
-    -webkit-box-shadow: $top $left $blur $color;
-    -moz-box-shadow: $top $left $blur $color;
-    box-shadow: $top $left $blur $color;
-  }
-}
-
 $white: rgb(255, 255, 255);
 $gold: rgb(246, 205, 77);
 $darkgrey: rgb(27, 41, 48);

@@ -28,7 +28,7 @@ export default class Home extends React.Component {
       <div className="home">
         <HeroBanner />
 
-        <NavigationBar />
+        <NavigationBar eventData={ this.events } />
       </div>
     );
   }
