@@ -5,3 +5,66 @@
   font-size: 2.5rem;
   padding: 2.5rem 0;
 }
+
+.events-grid {
+  margin-bottom: 2rem;
+}
+
+.events-grid .card {
+  margin: 0 1rem !important;
+}
+
+.events-grid .card:first-child {
+  margin-left: 0 !important;
+}
+
+.card-img-overlay {
+  height: 53.5%;
+  padding: 0 !important;
+  @include box-shadow(0, 2px, 3px, rgba(0, 0, 0, 0.2));
+}
+
+.card {
+  font-family: "Josefin Sans", sans-serif;
+  background: none !important;
+  border: none !important;
+}
+
+.event-title-container {
+  background: $denim;
+  text-align: center;
+  font-weight: 100;
+  font-size: 1.4rem;
+  color: $gold;
+  width: 100%;
+  padding: .55rem;
+}
+
+.card-block {
+  margin-top: 2rem;
+  padding: .5rem;
+}
+
+.event-datetime {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.event-date:after {
+  content: '/'
+}
+
+.event-social-share {
+
+  :hover {
+    cursor: pointer;
+  }
+
+  width: 1.75rem;
+  height: 1.75rem;
+  enable-background: new 0 0 24 24;
+}
+
+.event-footer {
+  width: 100%;
+}

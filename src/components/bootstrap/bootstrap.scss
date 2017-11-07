@@ -6,6 +6,7 @@
 @import "~bootstrap/scss/type";
 @import "~bootstrap/scss/_jumbotron";
 @import "~bootstrap/scss/_nav";
+@import "~bootstrap/scss/_card";
 @import url('//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700|Josefin+Slab:300,400,400i,700');
 
 @font-face {
@@ -19,10 +20,27 @@
   src: url('../../components/bootstrap/fonts/canter-light.otf') format('opentype');
 }
 
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
 $white: rgb(255, 255, 255);
 $gold: rgb(246, 205, 77);
 $darkgrey: rgb(27, 41, 48);
 $lightgrey: rgb(188, 191, 194);
+
+$steel: #0A1612;
+$screen: #F1F3F6;
+$denim: #1A2930;
+$mustard: #F7CE3E;
 
 $facebook-bg-color: rgb(60, 90, 150);
 $twitter-bg-color: rgb(89, 173, 235);
