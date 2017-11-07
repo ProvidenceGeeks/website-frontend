@@ -18,6 +18,7 @@ export default class EventsList extends React.Component {
         <div className="events-grid col-md-12 d-flex justify-content-between">
 
           <div className="col-md-4">
+            {/*
             <div className="card">
               <a href="#MEETUP-URL" target="_blank" rel="noopener noreferrer">
                 <img className="card-img-top" src="http://via.placeholder.com/318x180" alt="Event Image" />
@@ -49,6 +50,7 @@ export default class EventsList extends React.Component {
                 </div>
               </div>
             </div>
+            */}
           </div>
 
         </div>
