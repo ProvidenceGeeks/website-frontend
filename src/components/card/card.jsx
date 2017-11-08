@@ -9,24 +9,26 @@ export default class Card extends React.Component {
   }
 
   render() {
+    console.log("CARD:"); // eslint-disable-line
+    console.log(this.props.eventData); // eslint-disable-line
     return (
       <div className="card">
-        <a href={ this.props.eventData.url } target={ this.props.eventData.target } rel="noopener noreferrer">
-          <img className="card-img-top" src={ this.props.eventData.imgSource } alt={ this.props.eventData.imgAlt } />
+        <a href={ this.props.eventData.link } target={ this.props.target } rel="noopener noreferrer">
+          <img className="card-img-top" src={ this.props.imgSource } alt={ this.props.imgAlt } />
 
           <div className="card-title-container align-self-end">
-            <span className="card-title">{ this.props.eventData.cardTitle }</span>
+            <span className="card-title">{ this.props.eventData.name }</span>
           </div>
         </a>
 
         <div className="card-block">
           <p className="card-text">
-            { this.props.eventData.cardText }
+            { filterDescription(this.props.eventData.description) }
           </p>
 
           <div className="card-info">
             <span className="card-datetime float-left">
-              <span className="card-date">{ this.props.eventData.cardDate }</span>
+              <span className="card-date">{ this.props.eventData.time }</span>
               <span className="card-time">{ this.props.eventData.cardTime }</span>
             </span>
 
@@ -45,14 +47,27 @@ export default class Card extends React.Component {
 }
 
 Card.propTypes = {
-  eventData: PropTypes.array.isRequired
+  eventData: PropTypes.object.isRequired,
+  target: PropTypes.string,
+  imgSource: PropTypes.string,
+  imgAlt: PropTypes.string
 };
 
 Card.defaultProps = {
   target: '_self',
+  imgSource: 'http://via.placeholder.com/318x180',
   imgAlt: 'Event Image'
 };
 
 const socialClick = () => {
   console.log('TEST'); // eslint-disable-line
+};
+
+const filterDescription = (description) => {
+  if (description !== null) {
+    // Filter to be 160 chars long, and remove all HTML tags.
+    return description.replace(/<\/?[^>]+(>|$)/g, '').substr(0, 160);
+  } else {
+    return 'No Description Set.';
+  }
 };

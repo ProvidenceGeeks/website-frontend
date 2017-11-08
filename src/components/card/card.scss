@@ -23,6 +23,10 @@
   color: $gold;
   width: 100%;
   padding: .55rem;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-block {

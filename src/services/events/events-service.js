@@ -6,7 +6,7 @@ class EventsService {
   }
 
   static getEvents() {
-    return axios.get('/api/events')
+    return axios.get('http://stage.pvdgeeks.org/api/events')
       .then(function(response) {
         return response.data;
       });

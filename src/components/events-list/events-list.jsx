@@ -1,11 +1,17 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import EventsService from '../../services/events/events-service';
 import Card from '../../components/card/card';
 import './events-list.scss';
 
 export default class EventsList extends React.Component {
   constructor() {
     super();
+
+    this.state = {
+      events: [],
+      firstSixEvents: []
+    };
 
     this.data = [
       {
@@ -41,8 +47,23 @@ export default class EventsList extends React.Component {
     ];
   }
 
+  componentDidMount() {
+    EventsService.getEvents()
+      .then((events) => {
+        this.setState({ events: events });
+
+        this.setState({
+          firstSixEvents: events.slice(0, 6)
+        });
+
+        console.log('events!!!!!!', this.state.events); // eslint-disable-line
+      }).catch(function(response) {
+        console.error(response); // eslint-disable-line
+      });
+  }
+
   render() {
-    console.log(this.props); // eslint-disable-line
+    console.log(this.state.firstSixEvents); // eslint-disable-line
     return (
       <div className="row-fluid">
         <div className="col-md-12">
@@ -50,17 +71,15 @@ export default class EventsList extends React.Component {
         </div>
 
         <div className="events-grid col-md-12 d-flex justify-content-between flex-wrap">
-          <div className="col-md-4">
-            <Card eventData={ this.data[0] } />
-          </div>
-
-          <div className="col-md-4">
-            <Card eventData={ this.data[1] } />
-          </div>
-
-          <div className="col-md-4">
-            <Card eventData={ this.data[2] } />
-          </div>
+          {
+            this.state.firstSixEvents.map(function (value, key) {
+              return (
+                <div key={ key } className="col-md-4">
+                  <Card eventData={ value } target="_blank" />
+                </div>
+              );
+            })
+          }
         </div>
       </div>
     );
