@@ -33,6 +33,10 @@
   padding: .5rem;
 }
 
+.card-text {
+  font-size: 1.1rem;
+}
+
 .card-info {
   width: 100%;
 }
@@ -50,4 +54,5 @@
   width: 1.75rem;
   height: 1.75rem;
   enable-background: new 0 0 24 24;
+  display: block;
 }

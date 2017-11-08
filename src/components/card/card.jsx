@@ -1,5 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import Moment from 'react-moment';
 import './card.scss';
 
 export default class Card extends React.Component {
@@ -12,7 +13,7 @@ export default class Card extends React.Component {
     console.log("CARD:"); // eslint-disable-line
     console.log(this.props.eventData); // eslint-disable-line
     return (
-      <div className="card">
+      <div className="card d-flex">
         <a href={ this.props.eventData.link } target={ this.props.target } rel="noopener noreferrer">
           <img className="card-img-top" src={ this.props.imgSource } alt={ this.props.imgAlt } />
 
@@ -26,10 +27,9 @@ export default class Card extends React.Component {
             { filterDescription(this.props.eventData.description) }
           </p>
 
-          <div className="card-info">
+          <div className="card-info d-flex align-self-end">
             <span className="card-datetime float-left">
-              <span className="card-date">{ this.props.eventData.time }</span>
-              <span className="card-time">{ this.props.eventData.cardTime }</span>
+              <div className="card-time"><Moment format="MM/DD/YY h:mmA">{ this.props.eventData.time }</Moment></div>
             </span>
 
             <svg version="1.1" viewBox="0 0 24 24" className="card-social-share float-right" onClick={ () => { socialClick(); } }>
