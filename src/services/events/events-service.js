@@ -2,11 +2,10 @@ import * as axios from 'axios';
 
 class EventsService {
 
-  constructor() {
-  }
+  constructor() {}
 
   static getEvents() {
-    return axios.get('http://stage.pvdgeeks.org/api/events')
+    return axios.get('/api/events')
       .then(function(response) {
         return response.data;
       });

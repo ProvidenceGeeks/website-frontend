@@ -31,6 +31,7 @@
 
 .card-block {
   padding: .5rem;
+  height: 100%;
 }
 
 .card-text {
@@ -39,9 +40,10 @@
 
 .card-info {
   width: 100%;
+  margin-bottom: 1.5rem;
 }
 
-.card-datetime {
+.card-time {
   font-size: 1.25rem;
   font-weight: bold;
 }
@@ -55,4 +57,26 @@
   height: 1.75rem;
   enable-background: new 0 0 24 24;
   display: block;
+}
+
+.card-social {
+  height: 100%;
+}
+
+.social-link-fb svg,
+.social-link-tw svg {
+  height: 1.7rem;
+  cursor: pointer;
+}
+
+.social-link-fb svg {
+  .st0 {
+    fill: #395898;
+  }
+}
+
+.social-link-tw svg {
+  .st0 {
+    fill: #2DA1EC;
+  }
 }
