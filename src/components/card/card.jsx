@@ -1,6 +1,5 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Moment from 'react-moment';
 import FacebookIcon from '../facebook-icon/facebook-icon';
 import TwitterIcon from '../twitter-icon/twitter-icon';
 import './card.scss';
@@ -31,15 +30,9 @@ export default class Card extends React.Component {
           </div>
         </a>
 
-        <div className="card-block">
-          <p className="card-text">
-            { Card.filterDescription(this.props.description) }
-          </p>
-        </div>
-
         <div className="card-info d-flex align-self-end justify-content-between">
-          <div className="card-time">
-            <Moment format="MM/DD/YY h:mmA">{ this.props.time }</Moment>
+          <div className="card-heading">
+            { this.props.heading }
           </div>
 
           <div className="card-social">
@@ -56,6 +49,12 @@ export default class Card extends React.Component {
             </div>
           </div>
         </div>
+
+        <div className="card-block">
+          <p className="card-text">
+            { Card.filterDescription(this.props.description) }
+          </p>
+        </div>
       </div>
     );
   }
@@ -64,8 +63,8 @@ export default class Card extends React.Component {
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  heading: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
-  time: PropTypes.number,
   imgSource: PropTypes.string,
   imgAlt: PropTypes.string,
   tweetMessage: PropTypes.string,
@@ -73,7 +72,6 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  time: 0,
   imgSource: 'http://via.placeholder.com/318x180',
   imgAlt: 'Event Image',
   tweetMessage: ' ',

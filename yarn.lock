@@ -5660,10 +5660,6 @@ react-hot-loader@^3.0.0-beta.7:
     redbox-react "^1.3.6"
     source-map "^0.6.1"
 
-react-moment@^0.6.6:
-  version "0.6.6"
-  resolved "https://registry.yarnpkg.com/react-moment/-/react-moment-0.6.6.tgz#05b5d9ae6331ff0b14c38eaa21b17835379cdf3c"
-
 react-overlays@^0.7.4:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.7.4.tgz#ef2ec652c3444ab8aa014262b18f662068e56d5c"

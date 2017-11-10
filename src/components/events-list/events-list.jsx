@@ -1,4 +1,5 @@
 import * as React from 'react';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import Card from '../../components/card/card';
 import EventsService from '../../services/events/events-service';
@@ -16,13 +17,6 @@ export default class EventsList extends React.Component {
     };
   }
 
-  loadMoreEvents() {
-    this.setState({
-      currentPage: this.state.currentPage + 1,
-      visibleEvents: this.state.events.slice(0, this.state.currentPage * 6)
-    });
-  }
-
   componentDidMount() {
     EventsService.getEvents()
       .then((events) => {
@@ -34,6 +28,20 @@ export default class EventsList extends React.Component {
       }).catch(function(response) {
         console.error(response); // eslint-disable-line
       });
+  }
+
+  loadMoreEvents() {
+    this.setState({
+      currentPage: this.state.currentPage + 1,
+      visibleEvents: this.state.events.slice(0, this.state.currentPage * 6)
+    });
+  }
+
+  static formatHeading(event) {
+    const time = moment(event.time).format('MM/DD/YY h:mmA');
+    const venue = event.venue && event.venue.city ? `@ ${event.venue.city}` : '';
+
+    return `${time} ${venue}`;
   }
 
   render() {
@@ -51,9 +59,9 @@ export default class EventsList extends React.Component {
                   <Card
                     title={ value.name }
                     description={ value.description || 'No Description Available' }
+                    heading={ EventsList.formatHeading(value) }
                     link={ value.link }
                     imgAlt={ value.name }
-                    time={ value.time }
                     facebookMessage={ value.link }
                     tweetMessage={ `${ value.name } - ${ value.link } ! @ProvidenceGeeks` }
                   />
@@ -64,7 +72,7 @@ export default class EventsList extends React.Component {
         </div>
 
         <LoadMoreButton loadMore={ () => this.loadMoreEvents() }/>
-        
+
       </div>
     );
   }

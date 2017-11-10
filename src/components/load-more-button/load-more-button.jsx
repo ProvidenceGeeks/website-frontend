@@ -1,5 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import './load-more-button.scss';
 
 export default class LoadMoreButton extends React.Component {
   constructor() {
