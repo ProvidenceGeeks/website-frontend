@@ -1,6 +1,7 @@
 @import '../bootstrap/bootstrap.scss';
 
-div.load-more-button {
+button.load-more {
+  margin: 0 auto;
   cursor: pointer;
   color: $denim;
   font-weight: 300;

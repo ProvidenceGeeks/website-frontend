@@ -9,8 +9,8 @@ export default class LoadMoreButton extends React.Component {
 
   render() {
     return (
-      <div className="col-md-12 d-flex justify-content-center load-more-button">
-        <button className="trigger" onClick={ () => { this.props.loadMore(); } }>Load More</button>
+      <div className="col-md-12 d-flex justify-content-center">
+        <button className="load-more" onClick={ () => { this.props.loadMore(); } }>Load More</button>
       </div>
     );
   }
