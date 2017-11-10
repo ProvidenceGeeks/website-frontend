@@ -11,7 +11,7 @@ export default class Card extends React.Component {
   }
 
   static filterDescription(description) {
-    if (description !== "null") {
+    if (description !== 'null') {
       // Filter to be 160 chars long, and remove all HTML tags.
       return description.replace(/<\/?[^>]+(>|$)/g, '').substr(0, 160);
     } else {
@@ -65,13 +65,13 @@ Card.propTypes = {
   link: PropTypes.string.isRequired,
   imgSource: PropTypes.string,
   imgAlt: PropTypes.string,
-  tweetMessage: PropTypes.string,
-  facebookMessage: PropTypes.string
+  facebookShareMessage: PropTypes.string,
+  twitterShareMessage: PropTypes.string
 };
 
 Card.defaultProps = {
   imgSource: 'http://via.placeholder.com/318x180', // TODO better placeholder?
   imgAlt: 'Event Image',
-  facebookShareMessage: ' ', // TODO should hide this element if this prop is not provided
-  twitterShareMessage: ' ' // TODO should hide this element if this prop is not provided
+  facebookShareMessage: ' ', // TODO should hide this element if this prop is not provided?
+  twitterShareMessage: ' ' // TODO should hide this element if this prop is not provided?
 };
