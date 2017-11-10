@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
+import EventsList from '../../components/events-list/events-list';
 import './navigation-bar.scss';
 
 export default class NavigationBar extends React.Component {
@@ -13,7 +14,9 @@ export default class NavigationBar extends React.Component {
         <div className="col-md-12">
           <Tabs id="navigation-bar-tabs">
             <Tab eventKey={1} title="Events" className="events-tab-content">
-              <h3 className="events">EVENTS GO HERE</h3>
+              <div className="events">
+                <EventsList />
+              </div>
             </Tab>
 
             <Tab eventKey={2} title="Blog" className="blog-tab-content">

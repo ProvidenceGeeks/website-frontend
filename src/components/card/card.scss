@@ -1,0 +1,82 @@
+@import '../bootstrap/bootstrap';
+
+.card-img-overlay {
+  padding: 0 !important;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+  font-family: "Josefin Sans", sans-serif;
+  background: none !important;
+  border: none !important;
+}
+
+.card-img-top {
+  border-radius: 0 !important;
+}
+
+.card-title-container {
+  background: $denim;
+  text-align: center;
+  font-weight: 100;
+  font-size: 1.4rem;
+  color: $gold;
+  width: 100%;
+  padding: .55rem;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-block {
+  padding: .5rem;
+  height: 100%;
+}
+
+.card-text {
+  font-size: 1.1rem;
+}
+
+.card-info {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.card-time {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-social-share {
+  :hover {
+    cursor: pointer;
+  }
+
+  width: 1.75rem;
+  height: 1.75rem;
+  enable-background: new 0 0 24 24;
+  display: block;
+}
+
+.card-social {
+  height: 100%;
+}
+
+.social-link-fb svg,
+.social-link-tw svg {
+  height: 1.7rem;
+  cursor: pointer;
+}
+
+.social-link-fb svg {
+  .st0 {
+    fill: #395898;
+  }
+}
+
+.social-link-tw svg {
+  .st0 {
+    fill: #2DA1EC;
+  }
+}

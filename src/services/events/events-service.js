@@ -2,8 +2,7 @@ import * as axios from 'axios';
 
 class EventsService {
 
-  constructor() {
-  }
+  constructor() {}
 
   static getEvents() {
     return axios.get('/api/events')

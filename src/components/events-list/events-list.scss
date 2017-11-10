@@ -1,0 +1,39 @@
+@import '../bootstrap/bootstrap';
+
+.events-header {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 2.5rem;
+  padding: 2.5rem 0;
+}
+
+.events-grid {
+  margin-bottom: 2rem;
+  display: flex;
+}
+
+.events-grid > div {
+  margin-bottom: 1.5rem;
+}
+
+.events-grid .card {
+  margin: 0 1.5rem 1.5rem 0 !important;
+  height: 100%;
+}
+
+.events-grid .card:first-child {
+  margin-left: 0 !important;
+}
+
+.events-load-more {
+  cursor: pointer;
+  color: $denim;
+  font-weight: 300;
+  background: $gold;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  padding: .5rem 5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid $denim;
+  font-family: 'Josefin Sans', sans-serif;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
