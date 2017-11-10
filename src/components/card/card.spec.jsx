@@ -8,14 +8,16 @@ configure({ adapter: new Adapter() });
 
 describe('Card Component', () => {
   const mockEvent = mockEvents[0];
-  const card = mount(<Card title={ `${mockEvent.name}` }
-                           body={ `${mockEvent.description}`}
-                           heading={ `Heading: ${mockEvent.name}!!!` }
-                           link={ mockEvent.link }
-                           imgAlt={ `${mockEvent.name}` }
-                           imgSource={ 'https://s3.amazonaws.com/hosted.pvdgeeks.org/website/hero-banner/hero-image-1.jpg' }
-                           facebookShareMessage={ 'Post this to Facebook!' }
-                           twitterShareMessage={ 'Post this to Twitter!' } />);
+  const card = mount(<Card
+    title={ `${mockEvent.name}` }
+    body={ `${mockEvent.description}`}
+    heading={ `Heading: ${mockEvent.name}!!!` }
+    link={ mockEvent.link }
+    imgAlt={ `${mockEvent.name}` }
+    imgSource={ 'https://s3.amazonaws.com/hosted.pvdgeeks.org/website/hero-banner/hero-image-1.jpg' }
+    facebookShareMessage={ 'Post this to Facebook!' }
+    twitterShareMessage={ 'Post this to Twitter!' }
+  />);
 
   // TODO
   describe('default props', () => {
