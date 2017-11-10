@@ -3,15 +3,13 @@ import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import mockEvents from '../../../test/__mocks__/mock-events.json';
 import Card from './card';
-import FacebookIcon from '../facebook-icon/facebook-icon';
 
 configure({ adapter: new Adapter() });
 
 describe('Card Component', () => {
   const mockEvent = mockEvents[0];
-
   const card = mount(<Card title={ `${mockEvent.name}` }
-                           body={ `${mockEvent.description} || 'No Description Available'`}
+                           body={ `${mockEvent.description}`}
                            heading={ `Heading: ${mockEvent.name}!!!` }
                            link={ mockEvent.link }
                            imgAlt={ `${mockEvent.name}` }
@@ -34,13 +32,13 @@ describe('Card Component', () => {
   it('should test title displays correctly', () => {
     const title = card.find('.card-title');
 
-    expect(title.innerHTML).toEqual(mockEvent.title);
+    expect(title.text()).toEqual(mockEvent.name);
   });
 
-  it('should test heading displays correctly', () => {
+  it('should test the heading displays correctly', () => {
     const heading = card.find('.card-heading');
 
-    expect(heading.innerHTML).toEqual(`Heading: ${mockEvent.name}!!!`);
+    expect(heading.text()).toContain(`Heading: ${mockEvent.name}!!!`);
   });
 
   it('should test facebook share displays correctly', () => {
@@ -57,10 +55,10 @@ describe('Card Component', () => {
     expect(card.find('.twitter-icon').length).toEqual(1);
   });
 
-  it('should test description displays correctly', () => {
+  it('should test the body displays correctly', () => {
     const body = card.find('.card-text');
 
-    // expect(body.innerHTML).toEqual('No Description Available');
+    expect(body.text()).toEqual('No Description Available.');
   });
 
   // TODO

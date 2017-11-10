@@ -11,11 +11,11 @@ export default class Card extends React.Component {
   }
 
   static filterDescription(description) {
-    if (!description !== null) {
+    if (description !== "null") {
       // Filter to be 160 chars long, and remove all HTML tags.
       return description.replace(/<\/?[^>]+(>|$)/g, '').substr(0, 160);
     } else {
-      return 'No Description Set.';
+      return 'No Description Available.';
     }
   }
 
