@@ -8,9 +8,11 @@ export default class HeroBanner extends React.Component {
     super();
 
     const backgroundImages = [
-      'http://via.placeholder.com/900x587/d8b445/fff/?text=BG-Img-1',
-      'http://via.placeholder.com/900x587/ff970f/fff/?text=BG-Img-2',
-      'http://via.placeholder.com/900x587/c10000/fff/?text=BG-Img-3'
+      'https://s3.amazonaws.com/hosted.pvdgeeks.org/website/hero-banner/hero-image-1.jpg',
+      'https://s3.amazonaws.com/hosted.pvdgeeks.org/website/hero-banner/hero-image-2.jpg',
+      'https://s3.amazonaws.com/hosted.pvdgeeks.org/website/hero-banner/hero-image-3.jpg',
+      'https://s3.amazonaws.com/hosted.pvdgeeks.org/website/hero-banner/hero-image-4.jpg',
+      'https://s3.amazonaws.com/hosted.pvdgeeks.org/website/hero-banner/hero-image-5.jpg'
     ];
 
     this.styles = {
