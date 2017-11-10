@@ -20,9 +20,8 @@ export default class EventsList extends React.Component {
   componentDidMount() {
     EventsService.getEvents()
       .then((events) => {
-        this.setState({ events: events });
-
         this.setState({
+          events: events,
           visibleEvents: events.slice(0, 6)
         });
       }).catch(function(response) {

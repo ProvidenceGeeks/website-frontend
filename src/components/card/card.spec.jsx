@@ -17,52 +17,68 @@ describe('Card Component', () => {
                            facebookShareMessage={ 'Post this to Facebook!' }
                            twitterShareMessage={ 'Post this to Twitter!' } />);
 
-  it('should not be null', () => {
-    expect(card).not.toBeNull();
-    expect(card.find('.card').length).toEqual(1);
+  // TODO
+  describe('default props', () => {
+    it('should test default values when props are not provided', () => {
+
+    });
   });
 
-  it('should test image and image alt display correctly', () => {
-    const img = card.find('img');
+  describe('card elements', () => {
+    it('should not be null', () => {
+      expect(card).not.toBeNull();
+      expect(card.find('.card').length).toEqual(1);
+    });
 
-    expect(img.prop('src')).toEqual('https://s3.amazonaws.com/hosted.pvdgeeks.org/website/hero-banner/hero-image-1.jpg');
-    expect(img.prop('alt')).toEqual(mockEvent.name);
-  });
+    it('should test image and image alt display correctly', () => {
+      const img = card.find('img');
 
-  it('should test title displays correctly', () => {
-    const title = card.find('.card-title');
+      expect(img.prop('src')).toEqual('https://s3.amazonaws.com/hosted.pvdgeeks.org/website/hero-banner/hero-image-1.jpg');
+      expect(img.prop('alt')).toEqual(mockEvent.name);
+    });
 
-    expect(title.text()).toEqual(mockEvent.name);
-  });
+    it('should test title displays correctly', () => {
+      const title = card.find('.card-title');
 
-  it('should test the heading displays correctly', () => {
-    const heading = card.find('.card-heading');
+      expect(title.text()).toEqual(mockEvent.name);
+    });
 
-    expect(heading.text()).toContain(`Heading: ${mockEvent.name}!!!`);
-  });
+    it('should test the heading displays correctly', () => {
+      const heading = card.find('.card-heading');
 
-  it('should test facebook share displays correctly', () => {
-    const message = encodeURIComponent('Post this to Facebook!');
+      expect(heading.text()).toContain(`Heading: ${mockEvent.name}!!!`);
+    });
 
-    expect(card.find('.facebook-share').prop('href')).toEqual(`https://www.facebook.com/sharer/sharer.php?u=${message}`);
-    expect(card.find('.facebook-icon').length).toEqual(1);
-  });
+    it('should test facebook share displays correctly', () => {
+      const message = encodeURIComponent('Post this to Facebook!');
 
-  it('should test twitter share displays correctly', () => {
-    const message = encodeURIComponent('Post this to Twitter!');
+      expect(card.find('.facebook-share').prop('href')).toEqual(`https://www.facebook.com/sharer/sharer.php?u=${message}`);
+      expect(card.find('.facebook-icon').length).toEqual(1);
+    });
 
-    expect(card.find('.twitter-share').prop('href')).toEqual(`https://twitter.com/intent/tweet?status=${message}`);
-    expect(card.find('.twitter-icon').length).toEqual(1);
-  });
+    it('should test twitter share displays correctly', () => {
+      const message = encodeURIComponent('Post this to Twitter!');
 
-  it('should test the body displays correctly', () => {
-    const body = card.find('.card-text');
+      expect(card.find('.twitter-share').prop('href')).toEqual(`https://twitter.com/intent/tweet?status=${message}`);
+      expect(card.find('.twitter-icon').length).toEqual(1);
+    });
 
-    expect(body.text()).toEqual('No Description Available.');
+    it('should test the body displays correctly', () => {
+      const body = card.find('.card-text');
+
+      expect(body.text()).toEqual('No Description Available.');
+    });
   });
 
   // TODO
-  it('should test default values when props are not provided', () => {
+  describe('filterDescription', () => {
+    it('should test filterDescription when a description is passed', () => {
 
+    });
+
+    it('should test filterDescription when no description is passed', () => {
+
+    });
   });
+
 });
