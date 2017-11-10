@@ -13,4 +13,12 @@ describe('Card Component', () => {
     expect(card).not.toBeNull();
     expect(card.find('.').length).toEqual(1);
   });
+
+  it('should test a lot of things', () => {
+
+  });
+
+  it('should test load more button', () => {
+
+  })
 });

@@ -11,31 +11,40 @@ export default class Card extends React.Component {
     this.props = props;
   }
 
+  static filterDescription(description) {
+    if (!description !== null) {
+      // Filter to be 160 chars long, and remove all HTML tags.
+      return description.replace(/<\/?[^>]+(>|$)/g, '').substr(0, 160);
+    } else {
+      return 'No Description Set.';
+    }
+  }
+
   render() {
     return (
       <div className="card d-flex">
-        <a href={ this.props.eventData.link } target={ this.props.target } rel="noopener noreferrer">
+        <a href={ this.props.link } rel="noopener noreferrer">
           <img className="card-img-top" src={ this.props.imgSource } alt={ this.props.imgAlt } />
 
           <div className="card-title-container align-self-end">
-            <span className="card-title">{ this.props.eventData.name }</span>
+            <span className="card-title">{ this.props.title }</span>
           </div>
         </a>
 
         <div className="card-block">
           <p className="card-text">
-            { filterDescription(this.props.eventData.description) }
+            { Card.filterDescription(this.props.description) }
           </p>
         </div>
 
         <div className="card-info d-flex align-self-end justify-content-between">
           <div className="card-time">
-            <Moment format="MM/DD/YY h:mmA">{ this.props.eventData.time }</Moment>
+            <Moment format="MM/DD/YY h:mmA">{ this.props.time }</Moment>
           </div>
 
           <div className="card-social">
             <div className="social-link-fb float-left">
-              <a href={ `https://www.facebook.com/sharer/sharer.php?u=${ encodeURIComponent(this.props.eventData.link) }` } target="_blank">
+              <a href={ `https://www.facebook.com/sharer/sharer.php?u=${ encodeURIComponent(this.props.facebookMessage) }` } target="_blank">
                 <FacebookIcon />
               </a>
             </div>
@@ -53,25 +62,20 @@ export default class Card extends React.Component {
 }
 
 Card.propTypes = {
-  eventData: PropTypes.object.isRequired,
-  target: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  time: PropTypes.number,
   imgSource: PropTypes.string,
   imgAlt: PropTypes.string,
-  tweetMessage: PropTypes.string
+  tweetMessage: PropTypes.string,
+  facebookMessage: PropTypes.string
 };
 
 Card.defaultProps = {
-  target: '_self',
+  time: 0,
   imgSource: 'http://via.placeholder.com/318x180',
   imgAlt: 'Event Image',
-  tweetMessage: ' '
-};
-
-const filterDescription = (description) => {
-  if (description !== null) {
-    // Filter to be 160 chars long, and remove all HTML tags.
-    return description.replace(/<\/?[^>]+(>|$)/g, '').substr(0, 160);
-  } else {
-    return 'No Description Set.';
-  }
+  tweetMessage: ' ',
+  facebookMessage: ' '
 };

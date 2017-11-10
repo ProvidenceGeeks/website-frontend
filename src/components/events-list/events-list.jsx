@@ -1,7 +1,8 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import EventsService from '../../services/events/events-service';
 import Card from '../../components/card/card';
+import EventsService from '../../services/events/events-service';
+import LoadMoreButton from '../load-more-button/load-more-button';
 import './events-list.scss';
 
 export default class EventsList extends React.Component {
@@ -47,16 +48,23 @@ export default class EventsList extends React.Component {
             this.state.visibleEvents.map(function (value, key) {
               return (
                 <div key={ key } className="col-md-4">
-                  <Card eventData={ value } tweetMessage={ `${ value.name } - ${ value.link } ! @ProvidenceGeeks` } target="_blank" />
+                  <Card
+                    title={ value.name }
+                    description={ value.description || 'No Description Available' }
+                    link={ value.link }
+                    imgAlt={ value.name }
+                    time={ value.time }
+                    facebookMessage={ value.link }
+                    tweetMessage={ `${ value.name } - ${ value.link } ! @ProvidenceGeeks` }
+                  />
                 </div>
               );
             })
           }
         </div>
 
-        <div className="col-md-12 d-flex justify-content-center">
-          <button className="events-load-more" onClick={ () => { this.loadMoreEvents(); } }>Load More</button>
-        </div>
+        <LoadMoreButton loadMore={ () => this.loadMoreEvents() }/>
+        
       </div>
     );
   }

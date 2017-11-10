@@ -6,7 +6,7 @@ import EventsList from './events-list';
 
 configure({ adapter: new Adapter() });
 
-describe('Home component', () => {
+describe('Events List component', () => {
   const eventsList = mount(<EventsList />);
 
   it('should not be null', () => {
