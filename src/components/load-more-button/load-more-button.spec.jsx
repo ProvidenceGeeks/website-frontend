@@ -11,12 +11,13 @@ describe('Load More Button component', () => {
 
   it('should not be null', () => {
     expect(loadMoreButton).not.toBeNull();
-    expect(loadMoreButton.find('.load-more-button').length).toEqual(1);
-    expect(loadMoreButton.find('.trigger').length).toEqual(1);
+    expect(loadMoreButton.find('button.load-more').length).toEqual(1);
   });
 
   it('should call the callback function once when clicked once', () => {
-    loadMoreButton.find('.trigger').simulate('click');
+    loadMoreButton.find('button.load-more').simulate('click');
+
     expect(loadMore.mock.calls.length).toEqual(1);
   });
+
 });

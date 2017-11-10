@@ -53,17 +53,17 @@ export default class EventsList extends React.Component {
 
         <div className="events-grid col-md-12 d-flex justify-content-start flex-wrap">
           {
-            this.state.visibleEvents.map(function (value, key) {
+            this.state.visibleEvents.map(function (event, key) {
               return (
                 <div key={ key } className="col-md-4">
                   <Card
-                    title={ value.name }
-                    description={ value.description || 'No Description Available' }
-                    heading={ EventsList.formatHeading(value) }
-                    link={ value.link }
-                    imgAlt={ value.name }
-                    facebookMessage={ value.link }
-                    tweetMessage={ `${ value.name } - ${ value.link } ! @ProvidenceGeeks` }
+                    title={ event.name }
+                    body={ event.description || 'No Description Available' }
+                    heading={ EventsList.formatHeading(event) }
+                    link={ event.link }
+                    imgAlt={ event.name }
+                    facebookShareMessage={ event.link }
+                    twitterShareMessage={ `${ event.name } - ${ event.link } ! @ProvidenceGeeks` }
                   />
                 </div>
               );

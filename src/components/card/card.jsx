@@ -31,19 +31,17 @@ export default class Card extends React.Component {
         </a>
 
         <div className="card-info d-flex align-self-end justify-content-between">
-          <div className="card-heading">
-            { this.props.heading }
-          </div>
+          <div className="card-heading">{ this.props.heading }</div>
 
           <div className="card-social">
             <div className="social-link-fb float-left">
-              <a href={ `https://www.facebook.com/sharer/sharer.php?u=${ encodeURIComponent(this.props.facebookMessage) }` } target="_blank">
+              <a className="facebook-share" href={ `https://www.facebook.com/sharer/sharer.php?u=${ encodeURIComponent(this.props.facebookShareMessage) }` } target="_blank">
                 <FacebookIcon />
               </a>
             </div>
 
             <div className="social-link-tw float-right">
-              <a href={ `https://twitter.com/intent/tweet?status=${ encodeURIComponent(this.props.tweetMessage) }` } target="_blank">
+              <a className="twitter-share" href={ `https://twitter.com/intent/tweet?status=${ encodeURIComponent(this.props.twitterShareMessage) }` } target="_blank">
                 <TwitterIcon />
               </a>
             </div>
@@ -52,7 +50,7 @@ export default class Card extends React.Component {
 
         <div className="card-block">
           <p className="card-text">
-            { Card.filterDescription(this.props.description) }
+            { Card.filterDescription(this.props.body) }
           </p>
         </div>
       </div>
@@ -62,7 +60,7 @@ export default class Card extends React.Component {
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
   imgSource: PropTypes.string,
@@ -72,8 +70,8 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  imgSource: 'http://via.placeholder.com/318x180',
+  imgSource: 'http://via.placeholder.com/318x180', // TODO better placeholder?
   imgAlt: 'Event Image',
-  tweetMessage: ' ',
-  facebookMessage: ' '
+  facebookShareMessage: ' ', // TODO should hide this element if this prop is not provided
+  twitterShareMessage: ' ' // TODO should hide this element if this prop is not provided
 };
