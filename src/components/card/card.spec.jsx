@@ -13,7 +13,7 @@ describe('Card Component', () => {
   mockEvent.description = mockEvent.description ? mockEvent.description : 'No Description Available.';
 
   const mockCardContent = mockEvent;
-  
+
   beforeEach(() => {
     card = mount(<Card
       title={ `${mockCardContent.name}` }
