@@ -15,4 +15,5 @@ describe('Blog Posts List component', () => {
   it('should have placeholder text', () => {
     expect(blogPostsList.text()).toBe('BLOG POSTS GO HERE');
   });
+
 });
