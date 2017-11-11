@@ -12,6 +12,7 @@ export default class Header extends React.Component {
 
   render() {
     return (
+
       <div className="row">
         <div className="header d-flex">
           <div className="col-md-2">
@@ -29,6 +30,7 @@ export default class Header extends React.Component {
           </div>
         </div>
       </div>
+
     );
   }
 }

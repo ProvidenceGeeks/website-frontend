@@ -12,6 +12,7 @@ export default class Footer extends React.Component {
 
   render() {
     return (
+
       <div className="footer row">
         <div className="footer-top d-flex">
           <div className="col-md-2">
@@ -37,6 +38,7 @@ export default class Footer extends React.Component {
           <small className="copyright-text">&copy; Copyright 2017 Providence Geeks</small>
         </div>
       </div>
+
     );
   }
 }

@@ -1,11 +1,8 @@
 import * as React from 'react';
 import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import ReactTestUtils from 'react-dom/test-utils';
-import Logo from '../../components/pvd-geeks-logo/pvd-geeks-logo';
+import PvdGeeksLogo from '../../components/pvd-geeks-logo/pvd-geeks-logo';
 import HeroBanner from './hero-banner';
-
-const TestUtils = ReactTestUtils;
 
 configure({ adapter: new Adapter() });
 
@@ -21,20 +18,15 @@ describe('Hero Banner component', () => {
     expect(heroBanner.find('.hero-banner').length).toEqual(1);
   });
 
-  it('should have a Logo component', () => {
-    const pvdGeeksLogo = require('../../components/pvd-geeks-logo/pvd-geeks-logo');
-
-    const page = TestUtils.renderIntoDocument(
-      <Logo />
-    );
-
-    TestUtils.scryRenderedComponentsWithType(page, pvdGeeksLogo);
+  it('should have a PvdGeeksLogo component', () => {
+    expect(heroBanner.find(PvdGeeksLogo).length).toEqual(1);
   });
 
   it('should have proper copy text in the hero-banner', () => {
     const heroText = heroBanner.find('.hero-text');
 
-    expect(heroText.text()).toBe('The goal of Providence Geeks is to help Rhode Island’s digital innovators connect, collaborate, and ultimately make the City-State and its geeks info-technology leaders.');
+    expect(heroText.text()).toBe('The goal of Providence Geeks is to help Rhode Island’s digital innovators connect, ' +
+      'collaborate, and ultimately make the City-State and its geeks info-technology leaders.');
   });
 
   it('should test the background image changes on component update / refresh', () => {

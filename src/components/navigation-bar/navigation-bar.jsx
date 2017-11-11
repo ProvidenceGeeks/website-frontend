@@ -10,6 +10,7 @@ export default class NavigationBar extends React.Component {
 
   render() {
     return (
+
       <div className="row navigation-bar">
         <div className="col-md-12">
           <Tabs id="navigation-bar-tabs">
@@ -25,6 +26,7 @@ export default class NavigationBar extends React.Component {
           </Tabs>
         </div>
       </div>
+
     );
   }
 }

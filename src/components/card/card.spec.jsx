@@ -2,6 +2,8 @@ import * as React from 'react';
 import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import mockEvents from '../../../test/__mocks__/mock-events.json';
+import FacebookIcon from '../facebook-icon/facebook-icon';
+import TwitterIcon from '../twitter-icon/twitter-icon';
 import Card from './card';
 
 configure({ adapter: new Adapter() });
@@ -63,14 +65,14 @@ describe('Card Component', () => {
       const message = encodeURIComponent('Post this to Facebook!');
 
       expect(card.find('.facebook-share').prop('href')).toEqual(`https://www.facebook.com/sharer/sharer.php?u=${message}`);
-      expect(card.find('.facebook-icon').length).toEqual(1);
+      expect(card.find(FacebookIcon).length).toEqual(1);
     });
 
     it('should test twitter share displays correctly', () => {
       const message = encodeURIComponent('Post this to Twitter!');
 
       expect(card.find('.twitter-share').prop('href')).toEqual(`https://twitter.com/intent/tweet?status=${message}`);
-      expect(card.find('.twitter-icon').length).toEqual(1);
+      expect(card.find(TwitterIcon).length).toEqual(1);
     });
 
     it('should test the body displays correctly', () => {

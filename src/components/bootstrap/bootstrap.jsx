@@ -11,8 +11,8 @@ export default class Bootstrap extends React.Component {
   }
 
   render() {
-
     return (
+
       <div className='container-fluid'>
         <Header />
 
@@ -20,6 +20,7 @@ export default class Bootstrap extends React.Component {
 
         <Footer />
       </div>
+
     );
   }
 }

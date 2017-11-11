@@ -16,12 +16,17 @@ export default class HeroBanner extends React.Component {
     ];
 
     this.styles = {
-      backgroundImage: `url(${ getRandomBackgroundImage(backgroundImages) })`
+      backgroundImage: `url(${ HeroBanner.getRandomBackgroundImage(backgroundImages) })`
     };
+  }
+
+  static getRandomBackgroundImage(backgroundImageArray) {
+    return backgroundImageArray[Math.floor(Math.random() * backgroundImageArray.length)];
   }
 
   render() {
     return (
+
       <div className="hero-banner jumbotron" style={this.styles}>
         <div className="hero-container col-md-12 d-flex flex-column justify-content-center">
           <h1 className="hero-title justify-content-center align-self-center">Providence Geeks</h1>
@@ -41,11 +46,8 @@ export default class HeroBanner extends React.Component {
         </div>
       </div>
     );
-  }
-}
 
-function getRandomBackgroundImage(backgroundImageArray) {
-  return backgroundImageArray[Math.floor(Math.random() * backgroundImageArray.length)];
+  }
 }
 
 HeroBanner.propTypes = {

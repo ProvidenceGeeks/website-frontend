@@ -25,11 +25,11 @@ describe('Home component', () => {
     expect(home).not.toBeNull();
   });
 
-  it('should have a HeroBanner component', () => {
+  it('should have a Hero Banner component', () => {
     expect(home.find(HeroBanner).length).toEqual(1);
   });
 
-  it('should have a NavigationBar component', () => {
+  it('should have a Navigation Bar component', () => {
     expect(home.find(NavigationBar).length).toEqual(1);
   });
 });
