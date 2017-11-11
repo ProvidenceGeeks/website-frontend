@@ -1,9 +1,7 @@
 import * as React from 'react';
 import './footer.scss';
 import PvdGeeksLogo from '../pvd-geeks-logo/pvd-geeks-logo';
-import FacebookIcon from '../../components/facebook-icon/facebook-icon';
-import SlackIcon from '../../components/slack-icon/slack-icon';
-import TwitterIcon from '../../components/twitter-icon/twitter-icon';
+import SocialFollowLinks from '../social-follow-links/social-follow-links';
 
 const Footer = () => {
   return (
