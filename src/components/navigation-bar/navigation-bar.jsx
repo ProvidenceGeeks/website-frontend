@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
-import BlogPostsList from '../blog-posts-list/blog-posts-list'
+import BlogPostsList from '../blog-posts-list/blog-posts-list';
 import EventsList from '../events-list/events-list';
 import './navigation-bar.scss';
 

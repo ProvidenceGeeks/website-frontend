@@ -6,6 +6,6 @@ export default class BlogPostsList extends React.Component {
 
       <h3 className="blog-posts">BLOG POSTS GO HERE</h3>
 
-    )
+    );
   }
 }

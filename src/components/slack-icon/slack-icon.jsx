@@ -27,4 +27,4 @@ export default class SlackIcon extends React.Component {
 
     );
   }
-};
+}

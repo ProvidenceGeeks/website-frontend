@@ -17,4 +17,4 @@ export default class TwitterIcon extends React.Component {
 
     );
   }
-};
+}
