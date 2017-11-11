@@ -4,8 +4,7 @@ export default class PvdGeeksLogo extends React.Component {
   render() {
     return (
 
-      <svg className="pvd-geeks-logo" xmlns="http://www.w3.org/2000/svg" version="1.0"
-         viewBox="0 0 1198.000000 1198.000000" preserveAspectRatio="xMidYMid meet">
+      <svg className="pvd-geeks-logo" xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 1198.000000 1198.000000" preserveAspectRatio="xMidYMid meet">
         <g transform="translate(0.000000,1198.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
           <path d="M5755 11894 c-44 -2 -165 -11 -270 -20 -1716 -143 -3293 -1041 -4301 -2450 -554 -775
           -908 -1659 -1043 -2609 -74 -518 -74 -1132 0 -1650 229 -1606 1098 -3039 2415 -3981 775 -554
@@ -55,6 +54,6 @@ export default class PvdGeeksLogo extends React.Component {
         </g>
       </svg>
 
-    )
-  };
-};
+    );
+  }
+}
