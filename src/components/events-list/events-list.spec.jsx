@@ -1,5 +1,3 @@
-// global.XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import * as React from 'react';
