@@ -6,7 +6,6 @@ import SlackIcon from '../../components/slack-icon/slack-icon';
 import TwitterIcon from '../../components/twitter-icon/twitter-icon';
 
 const Header = () => {
-
   return (
 
     <div className="row">
