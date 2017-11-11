@@ -7,7 +7,11 @@ import SlackIcon from './slack-icon';
 configure({ adapter: new Adapter() });
 
 describe('Slack Icon Component', () => {
-  const icon = shallow(<SlackIcon />);
+  let icon;
+
+  beforeEach(() => {
+    icon = shallow(<SlackIcon />);
+  });
 
   it('should not be null', () => {
     expect(icon).not.toBeNull();

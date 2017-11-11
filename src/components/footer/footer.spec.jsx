@@ -7,7 +7,11 @@ import Footer from './footer';
 configure({ adapter: new Adapter() });
 
 describe('footer Component', () => {
-  const footer = mount(<Footer />);
+  let footer;
+
+  beforeEach(() => {
+    footer = mount(<Footer />);
+  });
 
   it('should not be null', () => {
     expect(footer).not.toBeNull();

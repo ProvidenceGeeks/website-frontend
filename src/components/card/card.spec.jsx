@@ -8,21 +8,24 @@ configure({ adapter: new Adapter() });
 
 describe('Card Component', () => {
   let mockEvent = mockEvents[0];
+  let card;
 
   mockEvent.description = mockEvent.description ? mockEvent.description : 'No Description Available.';
 
   const mockCardContent = mockEvent;
-
-  const card = mount(<Card
-    title={ `${mockCardContent.name}` }
-    body={ `${mockCardContent.description}`}
-    heading={ `Heading: ${mockCardContent.name}!!!` }
-    link={ mockCardContent.link }
-    imgAlt={ `${mockCardContent.name}` }
-    imgSource={ 'https://s3.amazonaws.com/hosted.pvdgeeks.org/website/hero-banner/hero-image-1.jpg' }
-    facebookShareMessage={ 'Post this to Facebook!' }
-    twitterShareMessage={ 'Post this to Twitter!' }
-  />);
+  
+  beforeEach(() => {
+    card = mount(<Card
+      title={ `${mockCardContent.name}` }
+      body={ `${mockCardContent.description}`}
+      heading={ `Heading: ${mockCardContent.name}!!!` }
+      link={ mockCardContent.link }
+      imgAlt={ `${mockCardContent.name}` }
+      imgSource={ 'https://s3.amazonaws.com/hosted.pvdgeeks.org/website/hero-banner/hero-image-1.jpg' }
+      facebookShareMessage={ 'Post this to Facebook!' }
+      twitterShareMessage={ 'Post this to Twitter!' }
+    />);
+  });
 
   // TODO
   describe('default props', () => {

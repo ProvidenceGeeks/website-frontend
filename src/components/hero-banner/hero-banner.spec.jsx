@@ -11,7 +11,11 @@ const TestUtils = ReactTestUtils;
 configure({ adapter: new Adapter() });
 
 describe('Hero-Banner Component', () => {
-  const heroBanner = mount(<HeroBanner />);
+  let heroBanner;
+
+  beforeEach(() => {
+    heroBanner = mount(<HeroBanner />);
+  });
 
   it('should not be null', () => {
     expect(heroBanner).not.toBeNull();

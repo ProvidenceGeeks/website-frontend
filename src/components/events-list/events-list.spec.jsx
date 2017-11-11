@@ -1,3 +1,7 @@
+// global.XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
 import * as React from 'react';
 import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -8,7 +12,15 @@ configure({ adapter: new Adapter() });
 
 // TODO improve code coverage
 describe('Events List component', () => {
-  const eventsList = mount(<EventsList />);
+  let mockAxios;
+  let eventsList;
+
+  beforeEach(() => {
+    mockAxios = new MockAdapter(axios);
+    mockAxios.onGet('/api/events').reply(200, mockEvents);
+
+    eventsList = mount(<EventsList />);
+  });
 
   it('should not be null', () => {
     expect(eventsList).not.toBeNull();
