@@ -39,7 +39,6 @@ describe('Events List component', () => {
     expect(eventsList.find('.load-more-button').length).toEqual(1);
   });
 
-  // TODO
   it('should load more events when the load more button is clicked', () => {
 
   });

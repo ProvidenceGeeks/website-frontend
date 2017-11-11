@@ -10,11 +10,12 @@ describe('Events Service', () => {
     mockAxios = new MockAdapter(axios);
   });
 
-  it('should test getEvents returns events data', () => {
+  it('should test getEvents returns events data', (done) => {
     mockAxios.onGet('/api/events').reply(200, MockEvents);
 
     EventsService.getEvents().then((events) => {
       expect(events.length).toEqual(MockEvents.length);
+      done();
     });
 
   });
