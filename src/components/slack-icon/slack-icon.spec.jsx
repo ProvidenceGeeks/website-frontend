@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-
 import SlackIcon from './slack-icon';
 
 configure({ adapter: new Adapter() });
 
-describe('Slack Icon Component', () => {
+describe('Slack Icon component', () => {
   let icon;
 
   beforeEach(() => {

@@ -4,11 +4,13 @@ import * as React from 'react';
 import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import mockEvents from '../../../test/__mocks__/mock-events.json';
+import BlogPostsList from '../blog-posts-list/blog-posts-list';
+import EventsList from '../events-list/events-list';
 import NavigationBar from './navigation-bar';
 
 configure({ adapter: new Adapter() });
 
-describe('Navigation Bar Component', () => {
+describe('Navigation Bar component', () => {
   let mockAxios;
   let navigationBar;
 
@@ -21,14 +23,13 @@ describe('Navigation Bar Component', () => {
 
   it('should not be null', () => {
     expect(navigationBar).not.toBeNull();
-    expect(navigationBar.find('.navigation-bar').length).toEqual(1);
   });
 
-  it('should ensure that events content is in the tab component', () => {
-    expect(navigationBar.find('.events').length).toEqual(1);
+  it('should have an Events List component in the Tab component', () => {
+    expect(navigationBar.find(EventsList).length).toEqual(1);
   });
 
-  it('should ensure that blogs are in the tab component', () => {
-    expect(navigationBar.find('.blog').length).toEqual(1);
+  it('should have a Blog Posts List component in the Tab component', () => {
+    expect(navigationBar.find(BlogPostsList).length).toEqual(1);
   });
 });

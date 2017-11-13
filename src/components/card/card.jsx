@@ -10,12 +10,13 @@ export default class Card extends React.Component {
     this.props = props;
   }
 
-  static formatHtmlContent(description) {
+  static formatHtmlContent(description = '') {
     return description.replace(/<\/?[^>]+(>|$)/g, '').substr(0, 160);
   }
 
   render() {
     return (
+
       <div className="card d-flex">
         <a href={ this.props.link } rel="noopener noreferrer">
           <img className="card-img-top" src={ this.props.imgSource } alt={ this.props.imgAlt } />
@@ -49,6 +50,7 @@ export default class Card extends React.Component {
           </p>
         </div>
       </div>
+
     );
   }
 }

@@ -6,7 +6,7 @@ import TwitterIcon from './twitter-icon';
 
 configure({ adapter: new Adapter() });
 
-describe('Twitter Icon Component', () => {
+describe('Twitter Icon component', () => {
   let icon;
 
   beforeEach(() => {

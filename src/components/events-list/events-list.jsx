@@ -45,6 +45,7 @@ export default class EventsList extends React.Component {
 
   render() {
     return (
+
       <div className="row-fluid">
         <div className="col-md-12">
           <h3 className="events-header">Upcoming Events</h3>
@@ -73,6 +74,7 @@ export default class EventsList extends React.Component {
         <LoadMoreButton loadMore={ () => this.loadMoreEvents() }/>
 
       </div>
+
     );
   }
 }
