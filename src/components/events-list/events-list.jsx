@@ -57,7 +57,7 @@ export default class EventsList extends React.Component {
                 <div key={ key } className="col-md-4">
                   <Card
                     title={ event.name }
-                    body={ event.description || 'No Description Available' }
+                    body={ Card.formatHtmlContent(event.description || 'No Description Available') }
                     heading={ EventsList.formatHeading(event) }
                     link={ event.link }
                     imgAlt={ event.name }

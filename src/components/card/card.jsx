@@ -10,13 +10,8 @@ export default class Card extends React.Component {
     this.props = props;
   }
 
-  static filterDescription(description) {
-    if (description !== 'null') {
-      // Filter to be 160 chars long, and remove all HTML tags.
-      return description.replace(/<\/?[^>]+(>|$)/g, '').substr(0, 160);
-    } else {
-      return 'No Description Available.';
-    }
+  static formatHtmlContent(description, limit = 160) {
+    return description.replace(/<\/?[^>]+(>|$)/g, '').substr(0, limit);
   }
 
   render() {
@@ -50,7 +45,7 @@ export default class Card extends React.Component {
 
         <div className="card-block">
           <p className="card-text">
-            { Card.filterDescription(this.props.body) }
+            { this.props.body }
           </p>
         </div>
       </div>

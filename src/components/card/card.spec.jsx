@@ -7,13 +7,17 @@ import Card from './card';
 configure({ adapter: new Adapter() });
 
 describe('Card Component', () => {
-  const mockEvent = mockEvents[0];
+  let mockEvent = mockEvents[0];
+  mockEvent.description = mockEvent.description ? mockEvent.description : 'No Description Available.';
+
+  const mockCardContent = mockEvent;
+
   const card = mount(<Card
-    title={ `${mockEvent.name}` }
-    body={ `${mockEvent.description}`}
-    heading={ `Heading: ${mockEvent.name}!!!` }
-    link={ mockEvent.link }
-    imgAlt={ `${mockEvent.name}` }
+    title={ `${mockCardContent.name}` }
+    body={ `${mockCardContent.description}`}
+    heading={ `Heading: ${mockCardContent.name}!!!` }
+    link={ mockCardContent.link }
+    imgAlt={ `${mockCardContent.name}` }
     imgSource={ 'https://s3.amazonaws.com/hosted.pvdgeeks.org/website/hero-banner/hero-image-1.jpg' }
     facebookShareMessage={ 'Post this to Facebook!' }
     twitterShareMessage={ 'Post this to Twitter!' }
@@ -36,19 +40,19 @@ describe('Card Component', () => {
       const img = card.find('img');
 
       expect(img.prop('src')).toEqual('https://s3.amazonaws.com/hosted.pvdgeeks.org/website/hero-banner/hero-image-1.jpg');
-      expect(img.prop('alt')).toEqual(mockEvent.name);
+      expect(img.prop('alt')).toEqual(mockCardContent.name);
     });
 
     it('should test title displays correctly', () => {
       const title = card.find('.card-title');
 
-      expect(title.text()).toEqual(mockEvent.name);
+      expect(title.text()).toEqual(mockCardContent.name);
     });
 
     it('should test the heading displays correctly', () => {
       const heading = card.find('.card-heading');
 
-      expect(heading.text()).toContain(`Heading: ${mockEvent.name}!!!`);
+      expect(heading.text()).toContain(`Heading: ${mockCardContent.name}!!!`);
     });
 
     it('should test facebook share displays correctly', () => {
