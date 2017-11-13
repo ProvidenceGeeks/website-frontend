@@ -2,6 +2,7 @@ import * as React from 'react';
 
 const PvdGeeksLogo = () => {
   return (
+
     <svg className="pvd-geeks-logo" xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 1198.000000 1198.000000" preserveAspectRatio="xMidYMid meet">
       <g transform="translate(0.000000,1198.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
         <path d="M5755 11894 c-44 -2 -165 -11 -270 -20 -1716 -143 -3293 -1041 -4301 -2450 -554 -775
@@ -51,6 +52,7 @@ const PvdGeeksLogo = () => {
         -28 -293 -31 l-238 -3 0 961 0 962 243 -4 c226 -3 246 -5 301 -27z"/>
       </g>
     </svg>
+
   );
 };
 

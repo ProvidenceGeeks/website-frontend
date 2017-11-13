@@ -23,6 +23,7 @@ const NavigationBar = () => {
         </Tabs>
 
       </div>
+
     </div>
 
   );

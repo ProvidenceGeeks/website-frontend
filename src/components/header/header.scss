@@ -17,20 +17,3 @@ $social-icon-size: 2.5rem;
   padding: 1rem 0;
   height: 7rem;
 }
-
-.social {
-  margin: 0;
-}
-
-.social li a {
-  margin-right: $social-icon-size/1.5;
-}
-
-.slack-icon, .twitter-icon {
-  width: $social-icon-size;
-}
-
-.facebook-icon {
-  width: $social-icon-size;
-  height: $social-icon-size;
-}
