@@ -7,7 +7,11 @@ import FacebookIcon from './facebook-icon';
 configure({ adapter: new Adapter() });
 
 describe('Facebook-Icon SVG Component', () => {
-  const icon = shallow(<FacebookIcon />);
+  let icon;
+
+  beforeEach(() => {
+    icon = shallow(<FacebookIcon />);
+  });
 
   it('should not be null', () => {
     expect(icon).not.toBeNull();

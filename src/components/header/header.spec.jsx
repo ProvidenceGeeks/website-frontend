@@ -7,7 +7,11 @@ import Header from './header';
 configure({ adapter: new Adapter() });
 
 describe('Header Component', () => {
-  const header = mount(<Header />);
+  let header;
+
+  beforeEach(() => {
+    header = mount(<Header />);
+  });
 
   it('should not be null', () => {
     expect(header).not.toBeNull();

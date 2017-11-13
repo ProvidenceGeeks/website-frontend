@@ -6,8 +6,13 @@ import LoadMoreButton from './load-more-button';
 configure({ adapter: new Adapter() });
 
 describe('Load More Button component', () => {
-  const loadMore = jest.fn();
-  const loadMoreButton = shallow(<LoadMoreButton loadMore={ loadMore }/>);
+  let loadMore;
+  let loadMoreButton;
+
+  beforeEach(() => {
+    loadMore = jest.fn();
+    loadMoreButton = shallow(<LoadMoreButton loadMore={ loadMore }/>);
+  });
 
   it('should not be null', () => {
     expect(loadMoreButton).not.toBeNull();

@@ -6,8 +6,12 @@ import TwitterIcon from './twitter-icon';
 
 configure({ adapter: new Adapter() });
 
-describe('Slack-Icon SVG Component', () => {
-  const icon = shallow(<TwitterIcon />);
+describe('Twitter Icon Component', () => {
+  let icon;
+
+  beforeEach(() => {
+    icon = shallow(<TwitterIcon />);
+  });
 
   it('should not be null', () => {
     expect(icon).not.toBeNull();
