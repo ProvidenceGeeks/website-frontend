@@ -10,8 +10,8 @@ export default class Card extends React.Component {
     this.props = props;
   }
 
-  static formatHtmlContent(description, limit = 160) {
-    return description.replace(/<\/?[^>]+(>|$)/g, '').substr(0, limit);
+  static formatHtmlContent(description) {
+    return description.replace(/<\/?[^>]+(>|$)/g, '').substr(0, 160);
   }
 
   render() {

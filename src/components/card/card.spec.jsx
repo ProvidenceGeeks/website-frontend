@@ -8,6 +8,7 @@ configure({ adapter: new Adapter() });
 
 describe('Card Component', () => {
   let mockEvent = mockEvents[0];
+
   mockEvent.description = mockEvent.description ? mockEvent.description : 'No Description Available.';
 
   const mockCardContent = mockEvent;
