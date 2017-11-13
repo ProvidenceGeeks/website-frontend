@@ -9,7 +9,7 @@ import Header from './header';
 
 configure({ adapter: new Adapter() });
 
-describe('Header Component', () => {
+describe('Header component', () => {
   let header;
 
   beforeEach(() => {

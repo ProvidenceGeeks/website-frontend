@@ -5,7 +5,7 @@ import FacebookIcon from './facebook-icon';
 
 configure({ adapter: new Adapter() });
 
-describe('Facebook-Icon SVG Component', () => {
+describe('Facebook Icon component', () => {
   let icon;
 
   beforeEach(() => {

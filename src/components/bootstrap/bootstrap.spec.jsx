@@ -11,7 +11,7 @@ import Bootstrap from './bootstrap';
 
 configure({ adapter: new Adapter() });
 
-describe('Bootstrap Component', () => {
+describe('Bootstrap component', () => {
   let bootstrap;
   let mockAxios;
 

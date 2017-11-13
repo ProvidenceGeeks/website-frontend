@@ -10,7 +10,7 @@ import Home from './home';
 
 configure({ adapter: new Adapter() });
 
-describe('Home component', () => {
+describe('Home View component', () => {
   let home;
   let mockAxios;
 

@@ -5,7 +5,7 @@ import PvdGeeksLogo from './pvd-geeks-logo';
 
 configure({ adapter: new Adapter() });
 
-describe('PVD Geeks Logo SVG Component', () => {
+describe('PVD Geeks Logo component', () => {
   let logo;
 
   beforeEach(() => {

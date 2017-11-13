@@ -8,7 +8,7 @@ import Card from './card';
 
 configure({ adapter: new Adapter() });
 
-describe('Card Component', () => {
+describe('Card component', () => {
   let mockEvent = mockEvents[0];
   let card;
 
@@ -83,13 +83,24 @@ describe('Card Component', () => {
   });
 
   // TODO
-  describe('filterDescription', () => {
-    it('should test filterDescription when a description is passed', () => {
+  describe('Card.formatHtmlContent', () => {
+    it('should test formatHtmlContent when a value is provided', () => {
+      const formattedContent = Card.formatHtmlContent();
 
+      expect(formattedContent).toEqual('');
     });
 
-    it('should test filterDescription when no description is passed', () => {
+    it('should test formatHtmlContent when no value is provided', () => {
+      const content = '<p><img src=\"http://photos4.meetupstatic.com/photos/event/5/1/7/2/600_436940850.jpeg\" /></p> ' +
+                      '<p>Location:</p> <p>Providence Public Library</p> <p>150 Empire Street, Providence, RI 02903<br/>' +
+                      '- Rhode Island Room</p> <p>Requirements:</p> <p>1. A laptop is required<br/>2. headphones or ' +
+                      'earbuds are OPTIONAL</p> <p>\\n\\n\\nProvidence Code Night with the Mayor Presented by IntraCity ' +
+                      'Geeks.</p> <p>Send all questions to [masked]</p> <p>Introduction to Web Development!</p>' +
+                      '<p>#ProvidenceCodeNight<br/>#MayorElorza<br/>#IntraCityGeeks</p>';
+      const formattedContent = Card.formatHtmlContent(content);
 
+      expect(formattedContent).toEqual(' Location: Providence Public Library 150 Empire Street, Providence, RI 02903- ' +
+        'Rhode Island Room Requirements: 1. A laptop is required2. headphones or earbuds ar');
     });
   });
 

@@ -9,7 +9,7 @@ import Footer from './footer';
 
 configure({ adapter: new Adapter() });
 
-describe('footer Component', () => {
+describe('Footer component', () => {
   let footer;
 
   beforeEach(() => {

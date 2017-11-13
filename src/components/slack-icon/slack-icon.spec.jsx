@@ -5,7 +5,7 @@ import SlackIcon from './slack-icon';
 
 configure({ adapter: new Adapter() });
 
-describe('Slack Icon Component', () => {
+describe('Slack Icon component', () => {
   let icon;
 
   beforeEach(() => {

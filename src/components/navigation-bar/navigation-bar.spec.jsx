@@ -10,7 +10,7 @@ import NavigationBar from './navigation-bar';
 
 configure({ adapter: new Adapter() });
 
-describe('Navigation Bar Component', () => {
+describe('Navigation Bar component', () => {
   let mockAxios;
   let navigationBar;
 
