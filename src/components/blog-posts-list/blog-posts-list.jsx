@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-export default class BlogPostsList extends React.Component {
-  render() {
-    return (
+const BlogPostsList = () => {
+  return (
 
-      <h3 className="blog-posts">BLOG POSTS GO HERE</h3>
+    <h3 className="blog-posts">BLOG POSTS GO HERE</h3>
 
-    );
-  }
-}
+  );
+};
+
+export default BlogPostsList;

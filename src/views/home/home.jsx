@@ -4,23 +4,18 @@ import HeroBanner from '../../components/hero-banner/hero-banner';
 import NavigationBar from '../../components/navigation-bar/navigation-bar';
 import './home.scss';
 
-export default class Home extends React.Component {
-  constructor() {
-    super();
-  }
+const Home = () => {
+  return (
+    <div className="home">
+      <HeroBanner />
 
-  render() {
-
-    return (
-      <div className="home">
-        <HeroBanner />
-
-        <NavigationBar />
-      </div>
-    );
-  }
-}
+      <NavigationBar />
+    </div>
+  );
+};
 
 Home.propTypes = {
   children: PropTypes.element
 };
+
+export default Home;
