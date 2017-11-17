@@ -10,7 +10,7 @@ const NavigationBar = () => {
     <div className="row navigation-bar">
       <div className="col-md-12">
 
-        <Tabs id="navigation-bar-tabs">
+        <Tabs id="navigation-bar-tabs d-flex">
           <Tab eventKey={1} title="Events" className="events-tab-content">
             <div className="events">
               <EventsList />
