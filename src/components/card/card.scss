@@ -45,7 +45,7 @@
 }
 
 .card-heading {
-  font-size: 1.25rem;
+  font-size: .9rem;
   font-weight: bold;
 }
 
@@ -63,6 +63,9 @@
 .card-social {
   height: 100%;
   margin-top: 10px;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  display: flex;
 }
 
 .social-link-fb svg,
@@ -80,5 +83,16 @@
 .social-link-tw svg {
   .st0 {
     fill: #2DA1EC;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .card-heading {
+    font-size: .9rem;
+  }
+
+  .social-link-fb svg,
+  .social-link-tw svg {
+    height: 2rem;
   }
 }

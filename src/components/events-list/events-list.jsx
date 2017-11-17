@@ -55,7 +55,7 @@ export default class EventsList extends React.Component {
           {
             this.state.visibleEvents.map(function (event, key) {
               return (
-                <div key={ key } className="col-md-4">
+                <div key={ key } className="col-md-4 col-sm-12">
                   <Card
                     title={ event.name }
                     body={ Card.formatHtmlContent(event.description || 'No Description Available') }
