@@ -61,6 +61,7 @@ export default class EventsList extends React.Component {
                     body={ Card.formatHtmlContent(event.description || 'No Description Available') }
                     heading={ EventsList.formatHeading(event) }
                     link={ event.link }
+                    imgSource={ event.group.group_photo }
                     imgAlt={ event.name }
                     facebookShareMessage={ event.link }
                     twitterShareMessage={ `${ event.name } - ${ event.link } ! @ProvidenceGeeks` }
