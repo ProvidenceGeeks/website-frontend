@@ -23,3 +23,14 @@
 .events-grid .card:first-child {
   margin-left: 0 !important;
 }
+
+@include media-breakpoint-down(sm) {
+  .events-header {
+    font-size: 1.5rem;
+    padding: 1.5rem 0;
+  }
+
+  .events-grid .card {
+    margin: 0 !important;
+  }
+}
