@@ -42,6 +42,7 @@
     "extract-text-webpack-plugin": "^3.0.1",
     "favicons-webpack-plugin": "^0.0.7",
     "file-loader": "^1.1.5",
+    "html-critical-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.30.1",
     "http-server": "^0.10.0",
     "jest": "^21.2.1",
