@@ -18,7 +18,7 @@ export default class Card extends React.Component {
     return (
 
       <div className="card d-flex">
-        <a href={ this.props.link } rel="noopener noreferrer">
+        <a className="card-link" href={ this.props.link } rel="noopener noreferrer" target="_blank">
           <img className="card-img-top" src={ this.props.imgSource } alt={ this.props.imgAlt } />
 
           <div className="card-title-container align-self-end">
@@ -31,13 +31,13 @@ export default class Card extends React.Component {
 
           <div className="card-social">
             <div className="social-link-fb float-left">
-              <a className="facebook-share" href={ `https://www.facebook.com/sharer/sharer.php?u=${ encodeURIComponent(this.props.facebookShareMessage) }` } target="_blank" rel="noopener">
+              <a className="facebook-share" href={ `https://www.facebook.com/sharer/sharer.php?u=${ encodeURIComponent(this.props.facebookShareMessage) }` } target="_blank" rel="noopener noreferrer">
                 <FacebookIcon />
               </a>
             </div>
 
             <div className="social-link-tw float-right">
-              <a className="twitter-share" href={ `https://twitter.com/intent/tweet?status=${ encodeURIComponent(this.props.twitterShareMessage) }` } target="_blank" rel="noopener">
+              <a className="twitter-share" href={ `https://twitter.com/intent/tweet?status=${ encodeURIComponent(this.props.twitterShareMessage) }` } target="_blank" rel="noopener noreferrer">
                 <TwitterIcon />
               </a>
             </div>

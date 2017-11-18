@@ -35,7 +35,15 @@ describe('Card component', () => {
       expect(card.find('.card').length).toEqual(1);
     });
 
-    it('should test image source and image alt displays correctly', () => {
+    it('should test the card as a link display correctly', () => {
+      const cardLink = card.find('.card-link');
+
+      expect(cardLink.prop('href')).toEqual(mockEvent.link);
+      expect(cardLink.prop('rel')).toEqual('noopener noreferrer');
+      expect(cardLink.prop('target')).toEqual('_blank');
+    });
+
+    it('should test image and image alt display correctly', () => {
       const img = card.find('img');
 
       expect(img.prop('src')).toEqual(mockCardContent.group.group_photo);
@@ -56,15 +64,21 @@ describe('Card component', () => {
 
     it('should test facebook share displays correctly', () => {
       const message = encodeURIComponent('Post this to Facebook!');
+      const fbShare = card.find('.facebook-share');
 
-      expect(card.find('.facebook-share').prop('href')).toEqual(`https://www.facebook.com/sharer/sharer.php?u=${message}`);
+      expect(fbShare.prop('href')).toEqual(`https://www.facebook.com/sharer/sharer.php?u=${message}`);
+      expect(fbShare.prop('target')).toEqual('_blank');
+      expect(fbShare.prop('rel')).toEqual('noopener noreferrer');
       expect(card.find(FacebookIcon).length).toEqual(1);
     });
 
     it('should test twitter share displays correctly', () => {
       const message = encodeURIComponent('Post this to Twitter!');
+      const twitterShare = card.find('.twitter-share');
 
-      expect(card.find('.twitter-share').prop('href')).toEqual(`https://twitter.com/intent/tweet?status=${message}`);
+      expect(twitterShare.prop('href')).toEqual(`https://twitter.com/intent/tweet?status=${message}`);
+      expect(twitterShare.prop('target')).toEqual('_blank');
+      expect(twitterShare.prop('rel')).toEqual('noopener noreferrer');
       expect(card.find(TwitterIcon).length).toEqual(1);
     });
 
