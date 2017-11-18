@@ -67,7 +67,7 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  imgSource: '//via.placeholder.com/318x180', // TODO better placeholder?
+  imgSource: '//via.placeholder.com/318x180', // TODO make a custom placeholder
   imgAlt: 'Event Image',
   facebookShareMessage: ' ', // TODO should hide this element if this prop is not provided?
   twitterShareMessage: ' ' // TODO should hide this element if this prop is not provided?
