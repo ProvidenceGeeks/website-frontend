@@ -18,7 +18,7 @@ export default class Card extends React.Component {
     return (
 
       <div className="card d-flex">
-        <a className="card-link" href={ this.props.link } rel="noopener noreferrer" target="_blank">
+        <a className="card-link" href={ this.props.link } target="_blank" rel="noopener noreferrer">
           <img className="card-img-top" src={ this.props.imgSource } alt={ this.props.imgAlt } />
 
           <div className="card-title-container align-self-end">
