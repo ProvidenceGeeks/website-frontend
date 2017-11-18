@@ -1,19 +1,28 @@
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
 import MockEvents from '../../../test/__mocks__/mock-events.json';
 import EventsService from './events-service';
 
 describe('Events Service', () => {
-  let mockAxios;
+  let eventsService;
 
   beforeEach(() => {
-    mockAxios = new MockAdapter(axios);
+    eventsService = EventsService;
+
+    global.fetch = jest.fn().mockImplementation(() => {
+      return new Promise((resolve) => {
+        resolve({
+          status: 200,
+          json: function() {
+            return MockEvents
+          }
+        });
+      });
+    });
+
   });
 
   it('should test getEvents returns events data', (done) => {
-    mockAxios.onGet('/api/events').reply(200, MockEvents);
 
-    EventsService.getEvents().then((events) => {
+    eventsService.getEvents().then((events) => {
       expect(events.length).toEqual(MockEvents.length);
       done();
     });
