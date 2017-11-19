@@ -42,7 +42,7 @@ describe('Card component', () => {
       expect(card.find('.card').length).toEqual(1);
     });
 
-    it('should test image and image alt display correctly', () => {
+    it('should test image source and image alt displays correctly', () => {
       const img = card.find('img');
 
       expect(img.prop('src')).toEqual(mockCardContent.group.group_photo);
