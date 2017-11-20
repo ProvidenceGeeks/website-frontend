@@ -48,7 +48,7 @@ module.exports = webpackMerge(commonConfig, {
     new WebpackPwaManifest({
       name: 'Providence Geeks',
       short_name: 'PVD Geeks', // eslint-disable-line camelcase
-      start_url: '/', // eslint-disable-line camelcase
+      start_url: '.', // eslint-disable-line camelcase
       inject: true,
       fingerprints: true,
       ios: true,
@@ -59,8 +59,6 @@ module.exports = webpackMerge(commonConfig, {
         sizes: [96, 128, 192, 256, 384, 512]
       }]
     }),
-
-    new ExtractTextPlugin('styles.[chunkhash].css'),
 
     new HtmlCriticalPlugin({
       base: path.resolve(__dirname, 'build'),
@@ -75,6 +73,8 @@ module.exports = webpackMerge(commonConfig, {
         blockJSRequests: false
       }
     }),
+
+    new ExtractTextPlugin('styles.[chunkhash].css'),
 
     // hack to get ES2015 support out of UglifyJS
     // https://github.com/webpack-contrib/uglifyjs-webpack-plugin/issues/33#issuecomment-302969855

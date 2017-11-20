@@ -4,12 +4,13 @@
   "description": "UI frontend repository for the Providence Geeks website. Built with React and webpack.",
   "main": "./src/index.jsx",
   "scripts": {
-    "build": "npm run lint && webpack --config ./webpack.config.prod.js",
+    "clean": "rimraf ./build && rimraf ./reports",
+    "build": "npm run clean && npm run lint && webpack --config ./webpack.config.prod.js",
     "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
     "lint": "eslint *.js ./src/**/**/*.spec.*",
-    "release": "npm run lint && webpack --config ./webpack.config.release.js",
+    "release": "npm run clean && npm run lint && webpack --config ./webpack.config.release.js",
     "serve": "npm run build && http-server ./build -o --proxy http://stage.pvdgeeks.org",
-    "test": "jest --config ./jest.config.json"
+    "test": "npm run clean && jest --config ./jest.config.json"
   },
   "repository": {
     "url": "https://github.com/ProvidenceGeeks/website-frontend.git",
@@ -47,6 +48,7 @@
     "node-sass": "^4.5.3",
     "react-hot-loader": "^3.0.0-beta.7",
     "react-test-renderer": "^16.0.0",
+    "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
     "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony-v2.8.22",
