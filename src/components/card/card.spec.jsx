@@ -35,7 +35,7 @@ describe('Card component', () => {
       expect(card.find('.card').length).toEqual(1);
     });
 
-    it('should test the card as a link display correctly', () => {
+    it('should test the card as a link displays correctly', () => {
       const cardLink = card.find('.card-link');
 
       expect(cardLink.prop('href')).toEqual(mockEvent.link);
@@ -102,7 +102,7 @@ describe('Card component', () => {
     it('should test image source and image alt displays default values correctly', () => {
       const img = card.find('img');
 
-      expect(img.prop('src')).toEqual('http://via.placeholder.com/318x180');
+      expect(img.prop('src')).toEqual('//via.placeholder.com/318x180');
       expect(img.prop('alt')).toEqual('Event Image');
     });
 
