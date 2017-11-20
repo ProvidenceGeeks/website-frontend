@@ -29,14 +29,7 @@ describe('Card component', () => {
     />);
   });
 
-  // TODO
-  describe('default props', () => {
-    it('should test default values when props are not provided', () => {
-
-    });
-  });
-
-  describe('card elements', () => {
+  describe('Card elements when all values are provided', () => {
     it('should not be null', () => {
       expect(card).not.toBeNull();
       expect(card.find('.card').length).toEqual(1);
@@ -79,6 +72,38 @@ describe('Card component', () => {
       const body = card.find('.card-text');
 
       expect(body.text()).toEqual('No Description Available.');
+    });
+  });
+
+  describe('Card elements when only required props are provided', () => {
+    beforeEach(() => {
+      card = mount(<Card
+        title={ `${mockCardContent.name}` }
+        body={ `${mockCardContent.description}`}
+        heading={ `Heading: ${mockCardContent.name}!!!` }
+        link={ mockCardContent.link }
+      />);
+    });
+
+    it('should test image source and image alt displays default values correctly', () => {
+      const img = card.find('img');
+
+      expect(img.prop('src')).toEqual('http://via.placeholder.com/318x180');
+      expect(img.prop('alt')).toEqual('Event Image');
+    });
+
+    it('should test facebook share displays default values correctly', () => {
+      const message = encodeURIComponent(' ');
+
+      expect(card.find('.facebook-share').prop('href')).toEqual(`https://www.facebook.com/sharer/sharer.php?u=${message}`);
+      expect(card.find(FacebookIcon).length).toEqual(1);
+    });
+
+    it('should test twitter share displays default values correctly', () => {
+      const message = encodeURIComponent(' ');
+
+      expect(card.find('.twitter-share').prop('href')).toEqual(`https://twitter.com/intent/tweet?status=${message}`);
+      expect(card.find(TwitterIcon).length).toEqual(1);
     });
   });
 
