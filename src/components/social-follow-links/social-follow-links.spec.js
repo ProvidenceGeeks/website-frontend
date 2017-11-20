@@ -23,6 +23,7 @@ describe('Social Follow Links component', () => {
     expect(facebookLink.prop('title')).toEqual('Like Us');
     expect(facebookLink.length).toEqual(1);
     expect(facebookLink.prop('target')).toEqual('_blank');
+    expect(facebookLink.prop('rel')).toEqual('noopener noreferrer');
     expect(facebookLink.find(FacebookIcon).length).toEqual(1);
   });
 
@@ -33,6 +34,7 @@ describe('Social Follow Links component', () => {
     expect(slackLink.prop('title')).toEqual('Join Us');
     expect(slackLink.length).toEqual(1);
     expect(slackLink.prop('target')).toEqual('_blank');
+    expect(slackLink.prop('rel')).toEqual('noopener noreferrer');
     expect(slackLink.find(SlackIcon).length).toEqual(1);
   });
 
@@ -42,6 +44,7 @@ describe('Social Follow Links component', () => {
     expect(twitterLink.prop('href')).toEqual('https://twitter.com/providencegeeks');
     expect(twitterLink.prop('title')).toEqual('Follow Us');
     expect(twitterLink.prop('target')).toEqual('_blank');
+    expect(twitterLink.prop('rel')).toEqual('noopener noreferrer');
     expect(twitterLink.length).toEqual(1);
     expect(twitterLink.find(TwitterIcon).length).toEqual(1);
   });

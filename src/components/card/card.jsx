@@ -18,7 +18,7 @@ export default class Card extends React.Component {
     return (
 
       <div className="card d-flex">
-        <a href={ this.props.link } rel="noopener noreferrer">
+        <a className="card-link" href={ this.props.link } target="_blank" rel="noopener noreferrer">
           <img className="card-img-top" src={ this.props.imgSource } alt={ this.props.imgAlt } />
 
           <div className="card-title-container align-self-end">
@@ -31,13 +31,13 @@ export default class Card extends React.Component {
 
           <div className="card-social">
             <div className="social-link-fb float-left">
-              <a className="facebook-share" href={ `https://www.facebook.com/sharer/sharer.php?u=${ encodeURIComponent(this.props.facebookShareMessage) }` } target="_blank">
+              <a className="facebook-share" href={ `https://www.facebook.com/sharer/sharer.php?u=${ encodeURIComponent(this.props.facebookShareMessage) }` } target="_blank" rel="noopener noreferrer">
                 <FacebookIcon />
               </a>
             </div>
 
             <div className="social-link-tw float-right">
-              <a className="twitter-share" href={ `https://twitter.com/intent/tweet?status=${ encodeURIComponent(this.props.twitterShareMessage) }` } target="_blank">
+              <a className="twitter-share" href={ `https://twitter.com/intent/tweet?status=${ encodeURIComponent(this.props.twitterShareMessage) }` } target="_blank" rel="noopener noreferrer">
                 <TwitterIcon />
               </a>
             </div>
@@ -67,7 +67,7 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  imgSource: 'http://via.placeholder.com/318x180', // TODO better placeholder?
+  imgSource: '//via.placeholder.com/318x180', // TODO make a custom placeholder
   imgAlt: 'Event Image',
   facebookShareMessage: ' ', // TODO should hide this element if this prop is not provided?
   twitterShareMessage: ' ' // TODO should hide this element if this prop is not provided?

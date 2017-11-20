@@ -1,5 +1,3 @@
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
 import * as React from 'react';
 import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -13,11 +11,18 @@ configure({ adapter: new Adapter() });
 
 describe('Bootstrap component', () => {
   let bootstrap;
-  let mockAxios;
 
   beforeEach(() => {
-    mockAxios = new MockAdapter(axios);
-    mockAxios.onGet('/api/events').reply(200, mockEvents);
+    global.fetch = jest.fn().mockImplementation(() => {
+      return new Promise((resolve) => {
+        resolve({
+          status: 200,
+          json: () => {
+            return mockEvents;
+          }
+        });
+      });
+    });
 
     bootstrap = mount(<Bootstrap />);
   });
