@@ -23,29 +23,22 @@ describe('Card component', () => {
       heading={ `Heading: ${mockCardContent.name}!!!` }
       link={ mockCardContent.link }
       imgAlt={ `${mockCardContent.name}` }
-      imgSource={ 'https://s3.amazonaws.com/hosted.pvdgeeks.org/website/hero-banner/hero-image-1.jpg' }
+      imgSource={ `${mockCardContent.group.group_photo}` }
       facebookShareMessage={ 'Post this to Facebook!' }
       twitterShareMessage={ 'Post this to Twitter!' }
     />);
   });
 
-  // TODO
-  describe('default props', () => {
-    it('should test default values when props are not provided', () => {
-
-    });
-  });
-
-  describe('card elements', () => {
+  describe('Card elements when all values are provided', () => {
     it('should not be null', () => {
       expect(card).not.toBeNull();
       expect(card.find('.card').length).toEqual(1);
     });
 
-    it('should test image and image alt display correctly', () => {
+    it('should test image source and image alt displays correctly', () => {
       const img = card.find('img');
 
-      expect(img.prop('src')).toEqual('https://s3.amazonaws.com/hosted.pvdgeeks.org/website/hero-banner/hero-image-1.jpg');
+      expect(img.prop('src')).toEqual(mockCardContent.group.group_photo);
       expect(img.prop('alt')).toEqual(mockCardContent.name);
     });
 
@@ -82,15 +75,40 @@ describe('Card component', () => {
     });
   });
 
-  // TODO
-  describe('Card.formatHtmlContent', () => {
-    it('should test formatHtmlContent when a value is provided', () => {
-      const formattedContent = Card.formatHtmlContent();
-
-      expect(formattedContent).toEqual('');
+  describe('Card elements when only required props are provided', () => {
+    beforeEach(() => {
+      card = mount(<Card
+        title={ `${mockCardContent.name}` }
+        body={ `${mockCardContent.description}`}
+        heading={ `Heading: ${mockCardContent.name}!!!` }
+        link={ mockCardContent.link }
+      />);
     });
 
-    it('should test formatHtmlContent when no value is provided', () => {
+    it('should test image source and image alt displays default values correctly', () => {
+      const img = card.find('img');
+
+      expect(img.prop('src')).toEqual('http://via.placeholder.com/318x180');
+      expect(img.prop('alt')).toEqual('Event Image');
+    });
+
+    it('should test facebook share displays default values correctly', () => {
+      const message = encodeURIComponent(' ');
+
+      expect(card.find('.facebook-share').prop('href')).toEqual(`https://www.facebook.com/sharer/sharer.php?u=${message}`);
+      expect(card.find(FacebookIcon).length).toEqual(1);
+    });
+
+    it('should test twitter share displays default values correctly', () => {
+      const message = encodeURIComponent(' ');
+
+      expect(card.find('.twitter-share').prop('href')).toEqual(`https://twitter.com/intent/tweet?status=${message}`);
+      expect(card.find(TwitterIcon).length).toEqual(1);
+    });
+  });
+
+  describe('Card.formatHtmlContent', () => {
+    it('should test formatHtmlContent when a value is provided', () => {
       const content = '<p><img src=\"http://photos4.meetupstatic.com/photos/event/5/1/7/2/600_436940850.jpeg\" /></p> ' +
                       '<p>Location:</p> <p>Providence Public Library</p> <p>150 Empire Street, Providence, RI 02903<br/>' +
                       '- Rhode Island Room</p> <p>Requirements:</p> <p>1. A laptop is required<br/>2. headphones or ' +
@@ -101,6 +119,12 @@ describe('Card component', () => {
 
       expect(formattedContent).toEqual(' Location: Providence Public Library 150 Empire Street, Providence, RI 02903- ' +
         'Rhode Island Room Requirements: 1. A laptop is required2. headphones or earbuds ar');
+    });
+
+    it('should test formatHtmlContent when no value is provided', () => {
+      const formattedContent = Card.formatHtmlContent();
+
+      expect(formattedContent).toEqual('');
     });
   });
 

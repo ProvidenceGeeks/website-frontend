@@ -1,9 +1,6 @@
 @import '../bootstrap/bootstrap';
 
-.card-img-overlay {
-  padding: 0 !important;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-}
+$imgHeight: 233px!important;
 
 .card {
   font-family: "Josefin Sans", sans-serif;
@@ -13,6 +10,9 @@
 
 .card-img-top {
   border-radius: 0 !important;
+  min-height: $imgHeight;
+  max-height: $imgHeight;
+  object-fit: cover;
 }
 
 .card-title-container {
@@ -23,7 +23,6 @@
   color: $gold;
   width: 100%;
   padding: .55rem;
-
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
