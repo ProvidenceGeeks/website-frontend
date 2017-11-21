@@ -1,5 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import LazyLoad from 'react-lazyload';
 import FacebookIcon from '../facebook-icon/facebook-icon';
 import TwitterIcon from '../twitter-icon/twitter-icon';
 import './card.scss';
@@ -19,7 +20,9 @@ export default class Card extends React.Component {
 
       <div className="card d-flex">
         <a className="card-link" href={ this.props.link } target="_blank" rel="noopener noreferrer">
-          <img className="card-img-top" src={ this.props.imgSource } alt={ this.props.imgAlt } />
+          <LazyLoad>
+            <img className="card-img-top" src={ this.props.imgSource } alt={ this.props.imgAlt } />
+          </LazyLoad>
 
           <div className="card-title-container align-self-end">
             <span className="card-title">{ this.props.title }</span>
