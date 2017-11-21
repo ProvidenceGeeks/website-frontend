@@ -43,8 +43,17 @@ describe('Card component', () => {
       expect(cardLink.prop('target')).toEqual('_blank');
     });
 
+    // https://github.com/jasonslyvia/react-lazyload/issues/120
+    it('should test the image is lazy loaded', () => {
+      const lazy = card.find('LazyLoad');
+
+      expect(lazy.length).toEqual(1);
+      expect(lazy.find('img').length).toEqual(1);
+    });
+
+    // https://github.com/jasonslyvia/react-lazyload/issues/120
     it('should test image and image alt display correctly', () => {
-      const img = card.find('img');
+      const img = card.find('.card-img');
 
       expect(img.prop('src')).toEqual(mockCardContent.group.group_photo);
       expect(img.prop('alt')).toEqual(mockCardContent.name);
@@ -100,7 +109,7 @@ describe('Card component', () => {
     });
 
     it('should test image source and image alt displays default values correctly', () => {
-      const img = card.find('img');
+      const img = card.find('.card-img');
 
       expect(img.prop('src')).toEqual('//via.placeholder.com/318x180');
       expect(img.prop('alt')).toEqual('Event Image');
