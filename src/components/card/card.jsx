@@ -20,8 +20,8 @@ export default class Card extends React.Component {
 
       <div className="card d-flex">
         <a className="card-link" href={ this.props.link } target="_blank" rel="noopener noreferrer">
-          <LazyLoad>
-            <img className="card-img-top" src={ this.props.imgSource } alt={ this.props.imgAlt } />
+          <LazyLoad height={233}>
+            <img className="card-img" src={ this.props.imgSource } alt={ this.props.imgAlt } />
           </LazyLoad>
 
           <div className="card-title-container align-self-end">
