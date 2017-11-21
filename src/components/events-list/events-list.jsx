@@ -25,7 +25,7 @@ export default class EventsList extends React.Component {
           visibleEvents: events.slice(0, 6)
         });
       }).catch(function(response) {
-        console.error(response); // eslint-disable-line
+        console.error(response); // eslint-disable-line no-console
       });
   }
 

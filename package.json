@@ -24,7 +24,8 @@
     "moment": "^2.19.1",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.5",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "react-lazyload": "^2.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
