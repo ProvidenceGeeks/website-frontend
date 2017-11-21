@@ -1,4 +1,5 @@
 const webpackMerge = require('webpack-merge');
+const path = require('path');
 const prodConfig = require('./webpack.config.prod');
 const S3Plugin = require('webpack-s3-plugin');
 const isProductionRelease = process.env.RELEASE_ENV === 'production';
@@ -14,6 +15,7 @@ module.exports = webpackMerge(prodConfig, {
   plugins: [
 
     new S3Plugin({
+      directory: path.resolve('./build'),
       s3Options: {
         accessKeyId: process.env.AWS_ACCESS_KEY_ID,
         secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,

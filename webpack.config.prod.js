@@ -1,7 +1,7 @@
 const commonConfig = require('./webpack.config.common');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-// const HtmlCriticalPlugin = require('html-critical-webpack-plugin');
+const HtmlCriticalPlugin = require('html-critical-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
@@ -60,19 +60,19 @@ module.exports = webpackMerge(commonConfig, {
       }]
     }),
 
-    // new HtmlCriticalPlugin({
-    //   base: path.resolve(__dirname, 'build'),
-    //   src: 'index.html',
-    //   dest: 'index.html',
-    //   inline: true,
-    //   minify: true,
-    //   extract: true,
-    //   width: 375,
-    //   height: 565,
-    //   penthouse: {
-    //     blockJSRequests: false
-    //   }
-    // }),
+    new HtmlCriticalPlugin({
+      base: path.resolve(__dirname, 'build'),
+      src: 'index.html',
+      dest: 'index.html',
+      inline: true,
+      minify: true,
+      extract: true,
+      width: 375,
+      height: 565,
+      penthouse: {
+        blockJSRequests: false
+      }
+    }),
 
     new ExtractTextPlugin('styles.[chunkhash].css'),
 
