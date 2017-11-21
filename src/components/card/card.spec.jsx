@@ -43,7 +43,7 @@ describe('Card component', () => {
       expect(cardLink.prop('target')).toEqual('_blank');
     });
 
-    // https://github.com/jasonslyvia/react-lazyload/issues/120
+    // TODO Waiting on https://github.com/jasonslyvia/react-lazyload/issues/120
     it('should test the image is lazy loaded', () => {
       const lazy = card.find('LazyLoad');
 
@@ -51,7 +51,7 @@ describe('Card component', () => {
       expect(lazy.find('img').length).toEqual(1);
     });
 
-    // https://github.com/jasonslyvia/react-lazyload/issues/120
+    // TODO Waiting on https://github.com/jasonslyvia/react-lazyload/issues/120
     it('should test image and image alt display correctly', () => {
       const img = card.find('.card-img');
 
