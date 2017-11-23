@@ -15,13 +15,22 @@ export default class Card extends React.Component {
     return description.replace(/<\/?[^>]+(>|$)/g, '').substr(0, 160);
   }
 
+  // TODO we have an issue testing for the image tag within the LazyLoad component
+  // https://github.com/ProvidenceGeeks/website-frontend/issues/79
+  static generateImage(imgSource, imgAlt) {
+    const src = imgSource ? imgSource : Card.defaultProps.imgSource;
+    const alt = imgAlt ? imgAlt : Card.defaultProps.imgAlt;
+
+    return <img className="card-img" src={ src } alt={ alt } />;
+  }
+
   render() {
     return (
 
       <div className="card d-flex">
         <a className="card-link" href={ this.props.link } target="_blank" rel="noopener noreferrer">
           <LazyLoad height={233}>
-            <img className="card-img" src={ this.props.imgSource } alt={ this.props.imgAlt } />
+            { Card.generateImage(this.props.imgSource, this.props.imgAlt) }
           </LazyLoad>
 
           <div className="card-title-container align-self-end">
@@ -70,7 +79,7 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  imgSource: '//via.placeholder.com/318x180', // TODO make a custom placeholder
+  imgSource: '//via.placeholder.com/318x180', // TODO https://github.com/ProvidenceGeeks/website-frontend/issues/70
   imgAlt: 'Event Image',
   facebookShareMessage: ' ', // TODO should hide this element if this prop is not provided?
   twitterShareMessage: ' ' // TODO should hide this element if this prop is not provided?
