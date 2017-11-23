@@ -10,7 +10,7 @@ const webpackMerge = require('webpack-merge');
 
 module.exports = webpackMerge(commonConfig, {
 
-  devtool: 'source-map',
+  devtool: 'nosources-source-map',
 
   module: {
     rules: [
