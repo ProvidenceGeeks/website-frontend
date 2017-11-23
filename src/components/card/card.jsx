@@ -1,5 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import { CSSTransitionGroup } from 'react-transition-group';
 import LazyLoad from 'react-lazyload';
 import FacebookIcon from '../facebook-icon/facebook-icon';
 import TwitterIcon from '../twitter-icon/twitter-icon';
@@ -24,13 +25,29 @@ export default class Card extends React.Component {
     return <img className="card-img" src={ src } alt={ alt } />;
   }
 
+  static generatePlaceholderImage() {
+    return <img className="card-img" src={ Card.defaultProps.imgSource } alt={ Card.defaultProps.imgAlt } />;
+  }
+
   render() {
     return (
 
       <div className="card d-flex">
+
         <a className="card-link" href={ this.props.link } target="_blank" rel="noopener noreferrer">
-          <LazyLoad height={233}>
-            { Card.generateImage(this.props.imgSource, this.props.imgAlt) }
+          <LazyLoad
+            height={233}
+            placeholder={ Card.generatePlaceholderImage() }>
+
+            <CSSTransitionGroup key="1"
+              transitionName="fade"
+              transitionAppear
+              transitionAppearTimeout={1000}
+              transitionEnter={false}
+              transitionLeave={false}>
+              { Card.generateImage(this.props.imgSource, this.props.imgAlt) }
+            </CSSTransitionGroup>
+
           </LazyLoad>
 
           <div className="card-title-container align-self-end">

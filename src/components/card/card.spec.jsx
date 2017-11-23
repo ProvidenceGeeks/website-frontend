@@ -43,20 +43,17 @@ describe('Card component', () => {
       expect(cardLink.prop('target')).toEqual('_blank');
     });
 
-    // TODO https://github.com/ProvidenceGeeks/website-frontend/issues/79
-    it('should test the image is lazy loaded', () => {
+    // TODO fix as part of https://github.com/ProvidenceGeeks/website-frontend/issues/79
+    it('should test the image is lazy loaded with the < LazyLoad > component', () => {
       const lazy = card.find('LazyLoad');
 
       expect(lazy.length).toEqual(1);
       // expect(lazy.find('img').length).toEqual(1);
     });
 
-    // TODO https://github.com/ProvidenceGeeks/website-frontend/issues/79
-    it('should test image and image alt display correctly', () => {
-      const img = shallow(Card.generateImage(mockCardContent.group.group_photo, mockCardContent.name));
+    // TODO fix as part of https://github.com/ProvidenceGeeks/website-frontend/issues/79
+    xit('should test the image fades in with the < CSSTransitionGroup > component', () => {
 
-      expect(img.prop('src')).toEqual(mockCardContent.group.group_photo);
-      expect(img.prop('alt')).toEqual(mockCardContent.name);
     });
 
     it('should test title displays correctly', () => {
@@ -108,14 +105,6 @@ describe('Card component', () => {
       />);
     });
 
-    // TODO https://github.com/ProvidenceGeeks/website-frontend/issues/79
-    it('should test image source and image alt displays default values correctly', () => {
-      const img = shallow(Card.generateImage());
-
-      expect(img.prop('src')).toEqual('//via.placeholder.com/318x180');
-      expect(img.prop('alt')).toEqual('Event Image');
-    });
-
     it('should test facebook share displays default values correctly', () => {
       const message = encodeURIComponent(' ');
 
@@ -131,24 +120,64 @@ describe('Card component', () => {
     });
   });
 
-  describe('Card.formatHtmlContent', () => {
-    it('should test formatHtmlContent when a value is provided', () => {
-      const content = '<p><img src=\"http://photos4.meetupstatic.com/photos/event/5/1/7/2/600_436940850.jpeg\" /></p> ' +
-                      '<p>Location:</p> <p>Providence Public Library</p> <p>150 Empire Street, Providence, RI 02903<br/>' +
-                      '- Rhode Island Room</p> <p>Requirements:</p> <p>1. A laptop is required<br/>2. headphones or ' +
-                      'earbuds are OPTIONAL</p> <p>\\n\\n\\nProvidence Code Night with the Mayor Presented by IntraCity ' +
-                      'Geeks.</p> <p>Send all questions to [masked]</p> <p>Introduction to Web Development!</p>' +
-                      '<p>#ProvidenceCodeNight<br/>#MayorElorza<br/>#IntraCityGeeks</p>';
-      const formattedContent = Card.formatHtmlContent(content);
+  describe('Card static methods', () => {
 
-      expect(formattedContent).toEqual(' Location: Providence Public Library 150 Empire Street, Providence, RI 02903- ' +
-        'Rhode Island Room Requirements: 1. A laptop is required2. headphones or earbuds ar');
+    describe('Card.formatHtmlContent', () => {
+      it('should test formatHtmlContent when a value is provided', () => {
+        const content = '<p><img src=\"http://photos4.meetupstatic.com/photos/event/5/1/7/2/600_436940850.jpeg\" /></p> ' +
+          '<p>Location:</p> <p>Providence Public Library</p> <p>150 Empire Street, Providence, RI 02903<br/>' +
+          '- Rhode Island Room</p> <p>Requirements:</p> <p>1. A laptop is required<br/>2. headphones or ' +
+          'earbuds are OPTIONAL</p> <p>\\n\\n\\nProvidence Code Night with the Mayor Presented by IntraCity ' +
+          'Geeks.</p> <p>Send all questions to [masked]</p> <p>Introduction to Web Development!</p>' +
+          '<p>#ProvidenceCodeNight<br/>#MayorElorza<br/>#IntraCityGeeks</p>';
+        const formattedContent = Card.formatHtmlContent(content);
+
+        expect(formattedContent).toEqual(' Location: Providence Public Library 150 Empire Street, Providence, RI 02903- ' +
+          'Rhode Island Room Requirements: 1. A laptop is required2. headphones or earbuds ar');
+      });
+
+      it('should test formatHtmlContent when no value is provided', () => {
+        const formattedContent = Card.formatHtmlContent();
+
+        expect(formattedContent).toEqual('');
+      });
+
     });
 
-    it('should test formatHtmlContent when no value is provided', () => {
-      const formattedContent = Card.formatHtmlContent();
+    // TODO ideally this woulnd't be needed with solving https://github.com/ProvidenceGeeks/website-frontend/issues/79
+    describe('Card.generateImage', () => {
 
-      expect(formattedContent).toEqual('');
+      it('should test generateImage displays correctly with provided values', () => {
+        const img = shallow(Card.generateImage(mockCardContent.group.group_photo, mockCardContent.name));
+
+        expect(img.prop('src')).toEqual(mockCardContent.group.group_photo);
+        expect(img.prop('alt')).toEqual(mockCardContent.name);
+      });
+
+      it('should test generateImage displays correctly when only imgSource is provided', () => {
+        const img = shallow(Card.generateImage(mockCardContent.group.group_photo));
+
+        expect(img.prop('src')).toEqual(mockCardContent.group.group_photo);
+        expect(img.prop('alt')).toEqual(Card.defaultProps.imgAlt);
+      });
+
+      it('should test generateImage displays correctly when only imgAlt is provided', () => {
+        const img = shallow(Card.generateImage(null, mockCardContent.name));
+
+        expect(img.prop('src')).toEqual(Card.defaultProps.imgSource);
+        expect(img.prop('alt')).toEqual(mockCardContent.name);
+      });
+    });
+
+    // TODO ideally this woulnd't be needed with solving https://github.com/ProvidenceGeeks/website-frontend/issues/79
+    describe('Card.generatePlaceholderImage', () => {
+
+      it('should test getPlacholderImage will display with default values', () => {
+        const img = shallow(Card.generatePlaceholderImage());
+
+        expect(img.prop('src')).toEqual(Card.defaultProps.imgSource);
+        expect(img.prop('alt')).toEqual(Card.defaultProps.imgAlt);
+      });
     });
   });
 
