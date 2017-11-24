@@ -10,8 +10,6 @@ const webpackMerge = require('webpack-merge');
 
 module.exports = webpackMerge(commonConfig, {
 
-  devtool: 'nosources-source-map',
-
   module: {
     rules: [
       {
@@ -78,7 +76,7 @@ module.exports = webpackMerge(commonConfig, {
 
     new ExtractTextPlugin('styles.[chunkhash].css'),
 
-    // hack to get ES2015 support out of UglifyJS
+    // TODO hack to get ES2015 support out of UglifyJS
     // https://github.com/webpack-contrib/uglifyjs-webpack-plugin/issues/33#issuecomment-302969855
     new UglifyJSPlugin(),
 
@@ -86,6 +84,8 @@ module.exports = webpackMerge(commonConfig, {
       'process.env': {
         'NODE_ENV': '"production"'
       }
-    })
+    }),
+
+    new webpack.optimize.ModuleConcatenationPlugin()
   ]
 });
