@@ -37,11 +37,14 @@ export default class Card extends React.Component {
 
         <a className="card-link" href={ this.props.link } target="_blank" rel="noopener noreferrer">
           <div className="lazyload-wrapper">
+
+            {/* TODO we have an issue testing for the image tag within the LazyLoad component*/ }
+            {/* https://github.com/ProvidenceGeeks/website-frontend/issues/79*/ }
             <LazyLoad height={233} once>
               <CSSTransitionGroup key="1"
                 transitionName="fade"
                 transitionAppear
-                transitionAppearTimeout={500}
+                transitionAppearTimeout={600}
                 transitionEnter={false}
                 transitionLeave={false}>
                 { Card.generateImage(this.props.imgSource, this.props.imgAlt) }
