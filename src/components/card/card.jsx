@@ -40,7 +40,7 @@ export default class Card extends React.Component {
 
             {/* TODO we have an issue testing for the image tag within the LazyLoad component*/ }
             {/* https://github.com/ProvidenceGeeks/website-frontend/issues/79*/ }
-            <LazyLoad height={233} once>
+            <LazyLoad height={233} offset={50} once>
               <CSSTransitionGroup key="1"
                 transitionName="fade"
                 transitionAppear
