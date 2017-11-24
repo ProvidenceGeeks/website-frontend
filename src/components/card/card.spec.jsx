@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { shallow, mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import mockEvents from '../../../test/__mocks__/mock-events.json';
-import FacebookIcon from '../facebook-icon/facebook-icon';
-import TwitterIcon from '../twitter-icon/twitter-icon';
-import PlaceholderImage from './images/placeholder-318x180.png';
+import { shallow, mount, configure } from 'enzyme';
 import Card from './card';
+import FacebookIcon from '../facebook-icon/facebook-icon';
+import mockEvents from '../../../test/__mocks__/mock-events.json';
+import PlaceholderImage from './images/placeholder-318x180.png';
+import TwitterIcon from '../twitter-icon/twitter-icon';
 
 configure({ adapter: new Adapter() });
 

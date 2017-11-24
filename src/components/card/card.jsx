@@ -1,10 +1,10 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { CSSTransitionGroup } from 'react-transition-group';
 import LazyLoad from 'react-lazyload';
+import PropTypes from 'prop-types';
 import FacebookIcon from '../facebook-icon/facebook-icon';
-import TwitterIcon from '../twitter-icon/twitter-icon';
 import PlacholderImage from './images/placeholder-318x180.png';
+import TwitterIcon from '../twitter-icon/twitter-icon';
 import './card.scss';
 
 export default class Card extends React.Component {
