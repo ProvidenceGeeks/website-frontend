@@ -4,6 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import mockEvents from '../../../test/__mocks__/mock-events.json';
 import FacebookIcon from '../facebook-icon/facebook-icon';
 import TwitterIcon from '../twitter-icon/twitter-icon';
+import PlaceholderImage from './images/placeholder-318x180.png';
 import Card from './card';
 
 configure({ adapter: new Adapter() });
@@ -164,7 +165,7 @@ describe('Card component', () => {
       it('should test generateImage displays correctly when only imgAlt is provided', () => {
         const img = shallow(Card.generateImage(null, mockCardContent.name));
 
-        expect(img.prop('src')).toEqual(Card.defaultProps.imgSource);
+        expect(img.prop('src')).toEqual(PlaceholderImage);
         expect(img.prop('alt')).toEqual(mockCardContent.name);
       });
     });
@@ -175,7 +176,7 @@ describe('Card component', () => {
       it('should test getPlacholderImage will display with default values', () => {
         const img = shallow(Card.generatePlaceholderImage());
 
-        expect(img.prop('src')).toEqual(Card.defaultProps.imgSource);
+        expect(img.prop('src')).toEqual(PlaceholderImage);
         expect(img.prop('alt')).toEqual(Card.defaultProps.imgAlt);
       });
     });

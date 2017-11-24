@@ -4,6 +4,7 @@ import { CSSTransitionGroup } from 'react-transition-group';
 import LazyLoad from 'react-lazyload';
 import FacebookIcon from '../facebook-icon/facebook-icon';
 import TwitterIcon from '../twitter-icon/twitter-icon';
+import PlacholderImage from './images/placeholder-318x180.png';
 import './card.scss';
 
 export default class Card extends React.Component {
@@ -19,14 +20,14 @@ export default class Card extends React.Component {
   // TODO we have an issue testing for the image tag within the LazyLoad component
   // https://github.com/ProvidenceGeeks/website-frontend/issues/79
   static generateImage(imgSource, imgAlt) {
-    const src = imgSource ? imgSource : Card.defaultProps.imgSource;
+    const src = imgSource ? imgSource : PlacholderImage;
     const alt = imgAlt ? imgAlt : Card.defaultProps.imgAlt;
 
     return <img className="card-img" src={ src } alt={ alt } />;
   }
 
   static generatePlaceholderImage() {
-    return <img className="card-img" src={ Card.defaultProps.imgSource } alt={ Card.defaultProps.imgAlt } />;
+    return <img className="card-img" src={ PlacholderImage } alt={ Card.defaultProps.imgAlt } />;
   }
 
   render() {
@@ -35,20 +36,18 @@ export default class Card extends React.Component {
       <div className="card d-flex">
 
         <a className="card-link" href={ this.props.link } target="_blank" rel="noopener noreferrer">
-          <LazyLoad
-            height={233}
-            placeholder={ Card.generatePlaceholderImage() }>
-
-            <CSSTransitionGroup key="1"
-              transitionName="fade"
-              transitionAppear
-              transitionAppearTimeout={1000}
-              transitionEnter={false}
-              transitionLeave={false}>
-              { Card.generateImage(this.props.imgSource, this.props.imgAlt) }
-            </CSSTransitionGroup>
-
-          </LazyLoad>
+          <div className="lazyload-wrapper">
+            <LazyLoad height={233} once>
+              <CSSTransitionGroup key="1"
+                transitionName="fade"
+                transitionAppear
+                transitionAppearTimeout={500}
+                transitionEnter={false}
+                transitionLeave={false}>
+                { Card.generateImage(this.props.imgSource, this.props.imgAlt) }
+              </CSSTransitionGroup>
+            </LazyLoad>
+          </div>
 
           <div className="card-title-container align-self-end">
             <span className="card-title">{ this.props.title }</span>
@@ -96,7 +95,7 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  imgSource: '//via.placeholder.com/318x180', // TODO https://github.com/ProvidenceGeeks/website-frontend/issues/70
+  imgSource: null, // TODO https://github.com/ProvidenceGeeks/website-frontend/issues/70
   imgAlt: 'Event Image',
   facebookShareMessage: ' ', // TODO should hide this element if this prop is not provided?
   twitterShareMessage: ' ' // TODO should hide this element if this prop is not provided?
