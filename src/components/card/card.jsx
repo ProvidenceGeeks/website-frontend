@@ -17,17 +17,11 @@ export default class Card extends React.Component {
     return description.replace(/<\/?[^>]+(>|$)/g, '').substr(0, 160);
   }
 
-  // TODO we have an issue testing for the image tag within the LazyLoad component
-  // https://github.com/ProvidenceGeeks/website-frontend/issues/79
   static generateImage(imgSource, imgAlt) {
     const src = imgSource ? imgSource : PlacholderImage;
     const alt = imgAlt ? imgAlt : Card.defaultProps.imgAlt;
 
     return <img className="card-img" src={ src } alt={ alt } />;
-  }
-
-  static generatePlaceholderImage() {
-    return <img className="card-img" src={ PlacholderImage } alt={ Card.defaultProps.imgAlt } />;
   }
 
   render() {
@@ -37,9 +31,6 @@ export default class Card extends React.Component {
 
         <a className="card-link" href={ this.props.link } target="_blank" rel="noopener noreferrer">
           <div className="lazyload-wrapper">
-
-            {/* TODO we have an issue testing for the image tag within the LazyLoad component*/ }
-            {/* https://github.com/ProvidenceGeeks/website-frontend/issues/79*/ }
             <LazyLoad height={233} offset={50} once>
               <CSSTransitionGroup key="1"
                 transitionName="fade"
@@ -98,8 +89,8 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  imgSource: null, // TODO https://github.com/ProvidenceGeeks/website-frontend/issues/70
+  imgSource: null,
   imgAlt: 'Event Image',
-  facebookShareMessage: ' ', // TODO should hide this element if this prop is not provided?
-  twitterShareMessage: ' ' // TODO should hide this element if this prop is not provided?
+  facebookShareMessage: ' ', // TODO should this element be hidden if this prop is not provided?
+  twitterShareMessage: ' ' // TODO should this element be hidden if this prop is not provided?
 };

@@ -44,17 +44,23 @@ describe('Card component', () => {
       expect(cardLink.prop('target')).toEqual('_blank');
     });
 
-    // TODO fix as part of https://github.com/ProvidenceGeeks/website-frontend/issues/79
-    it('should test the image is lazy loaded with the < LazyLoad > component', () => {
-      const lazy = card.find('LazyLoad');
+    it('should test there is a lazily loaded image with a 600ms fade in', () => {
+      const lazyLoad = card.find('LazyLoad');
+      const cssTransitionGroup = lazyLoad.props().children;
+      const img = cssTransitionGroup.props.children;
 
-      expect(lazy.length).toEqual(1);
-      // expect(lazy.find('img').length).toEqual(1);
-    });
+      expect(lazyLoad.length).toEqual(1);
 
-    // TODO fix as part of https://github.com/ProvidenceGeeks/website-frontend/issues/79
-    xit('should test the image fades in with the < CSSTransitionGroup > component', () => {
+      expect(cssTransitionGroup.type.displayName).toEqual('CSSTransitionGroup');
+      expect(cssTransitionGroup.props.transitionName).toEqual('fade');
+      expect(cssTransitionGroup.props.transitionAppear).toEqual(true);
+      expect(cssTransitionGroup.props.transitionAppearTimeout).toEqual(600);
+      expect(cssTransitionGroup.props.transitionEnter).toEqual(false);
+      expect(cssTransitionGroup.props.transitionLeave).toEqual(false);
 
+      expect(img.type).toEqual('img');
+      expect(img.props.src).toEqual(mockCardContent.group.group_photo);
+      expect(img.props.alt).toEqual(mockCardContent.name);
     });
 
     it('should test title displays correctly', () => {
@@ -145,7 +151,6 @@ describe('Card component', () => {
 
     });
 
-    // TODO ideally this woulnd't be needed with solving https://github.com/ProvidenceGeeks/website-frontend/issues/79
     describe('Card.generateImage', () => {
 
       it('should test generateImage displays correctly with provided values', () => {
@@ -167,17 +172,6 @@ describe('Card component', () => {
 
         expect(img.prop('src')).toEqual(PlaceholderImage);
         expect(img.prop('alt')).toEqual(mockCardContent.name);
-      });
-    });
-
-    // TODO ideally this woulnd't be needed with solving https://github.com/ProvidenceGeeks/website-frontend/issues/79
-    describe('Card.generatePlaceholderImage', () => {
-
-      it('should test getPlacholderImage will display with default values', () => {
-        const img = shallow(Card.generatePlaceholderImage());
-
-        expect(img.prop('src')).toEqual(PlaceholderImage);
-        expect(img.prop('alt')).toEqual(Card.defaultProps.imgAlt);
       });
     });
   });
