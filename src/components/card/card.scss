@@ -8,11 +8,23 @@ $imgHeight: 233px!important;
   border: none !important;
 }
 
-.card-img-top {
-  border-radius: 0 !important;
-  min-height: $imgHeight;
-  max-height: $imgHeight;
-  object-fit: cover;
+.lazyload-wrapper {
+
+  .card-img {
+    border-radius: 0 !important;
+    min-height: $imgHeight;
+    max-height: $imgHeight;
+    object-fit: cover;
+  }
+
+  .fade-appear {
+    opacity: 0.01;
+  }
+
+  .fade-appear.fade-appear-active {
+    opacity: 1;
+    transition: opacity 600ms ease-in; //ms should match the value of transitionAppearTimeout
+  }
 }
 
 .card-title-container {

@@ -1,7 +1,6 @@
 const commonConfig = require('./webpack.config.common');
 const webpackMerge = require('webpack-merge');
 const webpack = require('webpack');
-const path = require('path');
 
 module.exports = webpackMerge(commonConfig, {
 
@@ -9,7 +8,7 @@ module.exports = webpackMerge(commonConfig, {
     filename: '[name].bundle.js'
   },
 
-  context: path.resolve(__dirname, 'src'),
+  devtool: 'eval',
 
   module: {
     rules: [

@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import mockEvents from '../../../test/__mocks__/mock-events.json';
-import FacebookIcon from '../facebook-icon/facebook-icon';
-import TwitterIcon from '../twitter-icon/twitter-icon';
+import { shallow, mount, configure } from 'enzyme';
 import Card from './card';
+import FacebookIcon from '../facebook-icon/facebook-icon';
+import mockEvents from '../../../test/__mocks__/mock-events.json';
+import PlaceholderImage from './images/placeholder-318x180.png';
+import TwitterIcon from '../twitter-icon/twitter-icon';
 
 configure({ adapter: new Adapter() });
 
@@ -43,11 +44,23 @@ describe('Card component', () => {
       expect(cardLink.prop('target')).toEqual('_blank');
     });
 
-    it('should test image and image alt display correctly', () => {
-      const img = card.find('img');
+    it('should test there is a lazily loaded image with a 600ms fade in', () => {
+      const lazyLoad = card.find('LazyLoad');
+      const cssTransitionGroup = lazyLoad.props().children;
+      const img = cssTransitionGroup.props.children;
 
-      expect(img.prop('src')).toEqual(mockCardContent.group.group_photo);
-      expect(img.prop('alt')).toEqual(mockCardContent.name);
+      expect(lazyLoad.length).toEqual(1);
+
+      expect(cssTransitionGroup.type.displayName).toEqual('CSSTransitionGroup');
+      expect(cssTransitionGroup.props.transitionName).toEqual('fade');
+      expect(cssTransitionGroup.props.transitionAppear).toEqual(true);
+      expect(cssTransitionGroup.props.transitionAppearTimeout).toEqual(600);
+      expect(cssTransitionGroup.props.transitionEnter).toEqual(false);
+      expect(cssTransitionGroup.props.transitionLeave).toEqual(false);
+
+      expect(img.type).toEqual('img');
+      expect(img.props.src).toEqual(mockCardContent.group.group_photo);
+      expect(img.props.alt).toEqual(mockCardContent.name);
     });
 
     it('should test title displays correctly', () => {
@@ -99,13 +112,6 @@ describe('Card component', () => {
       />);
     });
 
-    it('should test image source and image alt displays default values correctly', () => {
-      const img = card.find('img');
-
-      expect(img.prop('src')).toEqual('//via.placeholder.com/318x180');
-      expect(img.prop('alt')).toEqual('Event Image');
-    });
-
     it('should test facebook share displays default values correctly', () => {
       const message = encodeURIComponent(' ');
 
@@ -121,24 +127,52 @@ describe('Card component', () => {
     });
   });
 
-  describe('Card.formatHtmlContent', () => {
-    it('should test formatHtmlContent when a value is provided', () => {
-      const content = '<p><img src=\"http://photos4.meetupstatic.com/photos/event/5/1/7/2/600_436940850.jpeg\" /></p> ' +
-                      '<p>Location:</p> <p>Providence Public Library</p> <p>150 Empire Street, Providence, RI 02903<br/>' +
-                      '- Rhode Island Room</p> <p>Requirements:</p> <p>1. A laptop is required<br/>2. headphones or ' +
-                      'earbuds are OPTIONAL</p> <p>\\n\\n\\nProvidence Code Night with the Mayor Presented by IntraCity ' +
-                      'Geeks.</p> <p>Send all questions to [masked]</p> <p>Introduction to Web Development!</p>' +
-                      '<p>#ProvidenceCodeNight<br/>#MayorElorza<br/>#IntraCityGeeks</p>';
-      const formattedContent = Card.formatHtmlContent(content);
+  describe('Card static methods', () => {
 
-      expect(formattedContent).toEqual(' Location: Providence Public Library 150 Empire Street, Providence, RI 02903- ' +
-        'Rhode Island Room Requirements: 1. A laptop is required2. headphones or earbuds ar');
+    describe('Card.formatHtmlContent', () => {
+      it('should test formatHtmlContent when a value is provided', () => {
+        const content = '<p><img src=\"http://photos4.meetupstatic.com/photos/event/5/1/7/2/600_436940850.jpeg\" /></p> ' +
+          '<p>Location:</p> <p>Providence Public Library</p> <p>150 Empire Street, Providence, RI 02903<br/>' +
+          '- Rhode Island Room</p> <p>Requirements:</p> <p>1. A laptop is required<br/>2. headphones or ' +
+          'earbuds are OPTIONAL</p> <p>\\n\\n\\nProvidence Code Night with the Mayor Presented by IntraCity ' +
+          'Geeks.</p> <p>Send all questions to [masked]</p> <p>Introduction to Web Development!</p>' +
+          '<p>#ProvidenceCodeNight<br/>#MayorElorza<br/>#IntraCityGeeks</p>';
+        const formattedContent = Card.formatHtmlContent(content);
+
+        expect(formattedContent).toEqual(' Location: Providence Public Library 150 Empire Street, Providence, RI 02903- ' +
+          'Rhode Island Room Requirements: 1. A laptop is required2. headphones or earbuds ar');
+      });
+
+      it('should test formatHtmlContent when no value is provided', () => {
+        const formattedContent = Card.formatHtmlContent();
+
+        expect(formattedContent).toEqual('');
+      });
+
     });
 
-    it('should test formatHtmlContent when no value is provided', () => {
-      const formattedContent = Card.formatHtmlContent();
+    describe('Card.generateImage', () => {
 
-      expect(formattedContent).toEqual('');
+      it('should test generateImage displays correctly with provided values', () => {
+        const img = shallow(Card.generateImage(mockCardContent.group.group_photo, mockCardContent.name));
+
+        expect(img.prop('src')).toEqual(mockCardContent.group.group_photo);
+        expect(img.prop('alt')).toEqual(mockCardContent.name);
+      });
+
+      it('should test generateImage displays correctly when only imgSource is provided', () => {
+        const img = shallow(Card.generateImage(mockCardContent.group.group_photo));
+
+        expect(img.prop('src')).toEqual(mockCardContent.group.group_photo);
+        expect(img.prop('alt')).toEqual(Card.defaultProps.imgAlt);
+      });
+
+      it('should test generateImage displays correctly when only imgAlt is provided', () => {
+        const img = shallow(Card.generateImage(null, mockCardContent.name));
+
+        expect(img.prop('src')).toEqual(PlaceholderImage);
+        expect(img.prop('alt')).toEqual(mockCardContent.name);
+      });
     });
   });
 
