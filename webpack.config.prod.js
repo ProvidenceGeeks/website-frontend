@@ -2,6 +2,7 @@ const commonConfig = require('./webpack.config.common');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const HtmlCriticalPlugin = require('html-critical-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
@@ -75,6 +76,10 @@ module.exports = webpackMerge(commonConfig, {
     }),
 
     new ExtractTextPlugin('styles.[chunkhash].css'),
+
+    new OptimizeCssAssetsPlugin({
+      cssProcessorOptions: { discardComments: { removeAll: true } }
+    }),
 
     // TODO hack to get ES2015 support out of UglifyJS
     // https://github.com/webpack-contrib/uglifyjs-webpack-plugin/issues/33#issuecomment-302969855
