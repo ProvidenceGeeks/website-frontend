@@ -1,0 +1,150 @@
+[{
+  "id": "9",
+  "date": "2017-11-27T14:36:42",
+  "date_gmt": "2017-11-27T19:36:42",
+  "guid": {
+    "rendered": "http://blog.pvdgeeks.org/?p=9"
+  },
+  "modified": "2017-11-27T14:37:28",
+  "modified_gmt": "2017-11-27T19:37:28",
+  "slug": "test-post-from-elana",
+  "status": "publish",
+  "type": "post",
+  "link": "http://blog.pvdgeeks.org/2017/11/27/test-post-from-elana/",
+  "title": {
+    "rendered": "Test Post from Elana"
+  },
+  "content": {
+    "rendered": "<p>Early in september Netflix invited a handful of Spinnaker’s core contributors and companies to its engineering headquarters in Los Gatos California to discuss all things Spinnaker. Here&#8217;s a recap of some key takeaways:</p>\n<p><b>Extending Spinnaker<br />\n</b>David Stenglein, Kenzan’s SVP of architecture and engineering, moderated a panel focused on extending Spinnaker. Panelists featured speakers from Google, Armory, Netflix, Oracle and Cerner. The panelists gave advice on how to best extend and modify Spinnaker by doing things such as adding your package to the classpath of Spinnaker. If you want to extend Spinnaker to better support your company and infrastructure this discussion is a good place to start.</p>\n<p><b>Canary Deployments<br />\n</b>One of the most widely anticipated features of Spinnaker is first class support for canary deployments. Google and Netflix have teamed up to work on a new microservice called “kayenta”. While Spinnaker can already do the first half of a canary deployment it’s still lacking a proper judge. <img class=\"size-medium wp-image-11 alignright\" src=\"http://blog.pvdgeeks.org/wp-content/uploads/2017/11/IMG_4409-300x225.jpg\" alt=\"\" width=\"300\" height=\"225\" srcset=\"http://blog.pvdgeeks.org/wp-content/uploads/2017/11/IMG_4409-300x225.jpg 300w, http://blog.pvdgeeks.org/wp-content/uploads/2017/11/IMG_4409-768x576.jpg 768w, http://blog.pvdgeeks.org/wp-content/uploads/2017/11/IMG_4409-1024x768.jpg 1024w\" sizes=\"(max-width: 300px) 100vw, 300px\" />Kayenta plans to fix this by monitoring metrics such as disk utilization, CPU, and error rates and compare them to a baseline deployment to determine if any given deployment is healthy enough to get full production traffic or if it should be automatically rolled back and the developers notified.</p>\n<p><b>Community</b><br />\nAt the end of the conference Netflix, Google, Kenzan and several other companies sat down to discuss the future of Spinnaker and its roadmap going forward. A few things stood out:</p>\n<ul>\n<li>Many of us had faced the same problems and came up with identical solutions, often using the same programing language.</li>\n<li>We realized just how big of an impact open sourcing even our smallest tools could have.</li>\n<li>We also talked about the limitations of using <a href=\"https://join.spinnaker.io/\">Slack</a>, <a href=\"https://github.com/spinnaker\">Github</a>, or <a href=\"https://stackoverflow.com/questions/tagged/spinnaker\">Stackoverflow </a>when used for long term planning, discussion, and sharing. We came to the consensus that we need some sort of message board system so that we can share our pipelines, projects, and ideas in a single and easily searchable place.</li>\n</ul>\n<p>We all play a vital role in Spinnaker’s future and we very much look forward to more actively engaging with the entire community.</p>\n<figure id=\"attachment_12\" style=\"width: 5312px\" class=\"wp-caption aligncenter\"><img class=\"wp-image-12 size-full\" src=\"http://blog.pvdgeeks.org/wp-content/uploads/2017/11/20160921_153123.jpg\" alt=\"\" width=\"5312\" height=\"2988\" srcset=\"http://blog.pvdgeeks.org/wp-content/uploads/2017/11/20160921_153123.jpg 5312w, http://blog.pvdgeeks.org/wp-content/uploads/2017/11/20160921_153123-300x169.jpg 300w, http://blog.pvdgeeks.org/wp-content/uploads/2017/11/20160921_153123-768x432.jpg 768w, http://blog.pvdgeeks.org/wp-content/uploads/2017/11/20160921_153123-1024x576.jpg 1024w\" sizes=\"(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px\" /><figcaption class=\"wp-caption-text\">caption caption caption</figcaption></figure>\n",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>Early in september Netflix invited a handful of Spinnaker’s core contributors and companies to its engineering headquarters in Los Gatos California to discuss all things Spinnaker. Here&#8217;s a recap of some key takeaways: Extending Spinnaker David Stenglein, Kenzan’s SVP of architecture and engineering, moderated a panel focused on extending Spinnaker. Panelists featured speakers from Google, &hellip; </p>\n<p class=\"link-more\"><a href=\"http://blog.pvdgeeks.org/2017/11/27/test-post-from-elana/\" class=\"more-link\">Continue reading<span class=\"screen-reader-text\"> &#8220;Test Post from Elana&#8221;</span></a></p>\n",
+    "protected": false
+  },
+  "author": 3,
+  "featured_media": 12,
+  "comment_status": "open",
+  "ping_status": "open",
+  "sticky": false,
+  "template": "",
+  "format": "standard",
+  "author_name": "Elana Krasner",
+  "media_details": {
+    "thumbnail": {
+      "file": "20160921_153123-150x150.jpg",
+      "width": 150,
+      "height": 150,
+      "mime_type": "image/jpeg",
+      "source_url": "http://blog.pvdgeeks.org/wp-content/uploads/2017/11/20160921_153123-150x150.jpg"
+    },
+    "medium": {
+      "file": "20160921_153123-300x169.jpg",
+      "width": 300,
+      "height": 169,
+      "mime_type": "image/jpeg",
+      "source_url": "http://blog.pvdgeeks.org/wp-content/uploads/2017/11/20160921_153123-300x169.jpg"
+    },
+    "medium_large": {
+      "file": "20160921_153123-768x432.jpg",
+      "width": 768,
+      "height": 432,
+      "mime_type": "image/jpeg",
+      "source_url": "http://blog.pvdgeeks.org/wp-content/uploads/2017/11/20160921_153123-768x432.jpg"
+    },
+    "large": {
+      "file": "20160921_153123-1024x576.jpg",
+      "width": 1024,
+      "height": 576,
+      "mime_type": "image/jpeg",
+      "source_url": "http://blog.pvdgeeks.org/wp-content/uploads/2017/11/20160921_153123-1024x576.jpg"
+    },
+    "full": {
+      "file": "20160921_153123.jpg",
+      "width": 5312,
+      "height": 2988,
+      "mime_type": "image/jpeg",
+      "source_url": "http://blog.pvdgeeks.org/wp-content/uploads/2017/11/20160921_153123.jpg"
+    }
+  }
+},
+{
+  "id": "5",
+  "date": "2017-11-27T11:29:12",
+  "date_gmt": "2017-11-27T16:29:12",
+  "guid": {
+    "rendered": "http://blog.pvdgeeks.org/?p=5"
+  },
+  "modified": "2017-11-27T11:29:12",
+  "modified_gmt": "2017-11-27T16:29:12",
+  "slug": "this-a-second-test-post-for-peter",
+  "status": "publish",
+  "type": "post",
+  "link": "http://blog.pvdgeeks.org/2017/11/27/this-a-second-test-post-for-peter/",
+  "title": {
+    "rendered": "This a second test post for Peter!"
+  },
+  "content": {
+    "rendered": "<p>Sorting test</p>\n",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>Sorting test</p>\n",
+    "protected": false
+  },
+  "author": 2,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "open",
+  "sticky": false,
+  "template": "",
+  "format": "standard",
+  "author_name": "Providence Geeks",
+  "media_details": {
+    "thumbnail": null,
+    "medium": null,
+    "medium_large": null,
+    "large": null,
+    "full": null
+  }
+},
+{
+  "id": "1",
+  "date": "2017-08-04T12:08:30",
+  "date_gmt": "2017-08-04T12:08:30",
+  "guid": {
+    "rendered": "http:/?p=1"
+  },
+  "modified": "2017-08-04T12:08:30",
+  "modified_gmt": "2017-08-04T12:08:30",
+  "slug": "hello-world",
+  "status": "publish",
+  "type": "post",
+  "link": "http://blog.pvdgeeks.org/2017/08/04/hello-world/",
+  "title": {
+    "rendered": "Hello world!"
+  },
+  "content": {
+    "rendered": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n",
+    "protected": false
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "open",
+  "sticky": false,
+  "template": "",
+  "format": "standard",
+  "author_name": "user",
+  "media_details": {
+    "thumbnail": null,
+    "medium": null,
+    "medium_large": null,
+    "large": null,
+    "full": null
+  }
+}]
