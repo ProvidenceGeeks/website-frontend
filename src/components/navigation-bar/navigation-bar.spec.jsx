@@ -2,7 +2,6 @@ import * as React from 'react';
 import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { Tab, Tabs } from 'react-bootstrap';
-import mockEvents from '../../../test/__mocks__/mock-events.json';
 import BlogPostsList from '../blog-posts-list/blog-posts-list';
 import EventsList from '../events-list/events-list';
 import NavigationBar from './navigation-bar';
@@ -14,11 +13,12 @@ describe('Navigation Bar component', () => {
 
   beforeEach(() => {
     global.fetch = jest.fn().mockImplementation(() => {
+
       return new Promise((resolve) => {
         resolve({
           status: 200,
           json: () => {
-            return mockEvents;
+            return [];
           }
         });
       });
