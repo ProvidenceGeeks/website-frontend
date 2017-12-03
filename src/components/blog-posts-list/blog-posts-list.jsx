@@ -13,7 +13,8 @@ export default class BlogPostsList extends React.Component {
     this.state = {
       posts: [],
       visiblePosts: [],
-      currentPage: 2
+      currentPage: 2,
+      canLoadMore: false
     };
   }
 
@@ -22,9 +23,10 @@ export default class BlogPostsList extends React.Component {
       .then((posts) => {
         this.setState({
           posts: posts,
-          visiblePosts: posts.slice(0, 6)
+          visiblePosts: posts.slice(0, 6),
+          canLoadMore: posts.length > 6
         });
-      }).catch(function(response) {
+      }).catch((response) => {
         console.error(response); // eslint-disable-line no-console
       });
   }
@@ -32,7 +34,8 @@ export default class BlogPostsList extends React.Component {
   loadMorePosts() {
     this.setState({
       currentPage: this.state.currentPage + 1,
-      visiblePosts: this.state.posts.slice(0, this.state.currentPage * 6)
+      visiblePosts: this.state.posts.slice(0, this.state.currentPage * 6),
+      canLoadMore: this.state.posts.length === this.state.posts.slice(0, this.state.currentPage * 6).length
     });
   }
 
@@ -80,6 +83,7 @@ export default class BlogPostsList extends React.Component {
             ? <LoadMoreButton loadMore={ () => this.loadMorePosts() }/>
             : ''
         }
+
       </div>
 
     );
