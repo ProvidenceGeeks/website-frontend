@@ -41,7 +41,7 @@ export default class BlogPostsList extends React.Component {
 
   static formatHeading(post) {
     const author = post.author_name ? post.author_name : '';
-    const date = moment(post.date).format('MM/DD/YY h:mmA');
+    const date = moment(post.date).format('MM/DD/YY');
 
     return `${author} ${date}`;
   }
