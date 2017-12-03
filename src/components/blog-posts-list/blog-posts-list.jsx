@@ -58,6 +58,8 @@ export default class BlogPostsList extends React.Component {
         <div className="posts-grid col-md-12 d-flex justify-content-start flex-wrap">
           {
             this.state.visiblePosts.map(function (post, key) {
+              const canonicalLink = `${window.location.origin}/posts/${post.id}`;
+
               return (
                 <div key={ key } className="col-md-4 col-sm-12">
                   <Card
@@ -67,8 +69,8 @@ export default class BlogPostsList extends React.Component {
                     link={ `/posts/${post.id}` }
                     imgSource={ post.media_details.medium_large ? post.media_details.medium_large.source_url : undefined }
                     imgAlt={ post.title.rendered }
-                    facebookShareMessage={ `/posts/${post.id}` }
-                    twitterShareMessage={ `${ post.title.rendered } - /posts/${ post.id } ! @ProvidenceGeeks` }
+                    facebookShareMessage={ canonicalLink }
+                    twitterShareMessage={ `${ post.title.rendered } - ${ canonicalLink } ! @ProvidenceGeeks` }
                   />
                 </div>
               );
