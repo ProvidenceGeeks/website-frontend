@@ -2,6 +2,8 @@ import * as React from 'react';
 import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import mockEvents from '../../../test/__mocks__/mock-events.json';
+import BlogPostsList from "../../components/blog-posts-list/blog-posts-list";
+import EventsList from "../../components/events-list/events-list";
 import HeroBanner from '../../components/hero-banner/hero-banner';
 import NavigationBar from '../../components/navigation-bar/navigation-bar';
 import Home from './home';
@@ -36,5 +38,13 @@ describe('Home View component', () => {
 
   it('should have a Navigation Bar component', () => {
     expect(home.find(NavigationBar).length).toEqual(1);
+  });
+
+  it('should have a EventsList component', () => {
+    expect(home.find(EventsList).length).toEqual(1);
+  });
+
+  it('should have a BlogPostsList component', () => {
+    expect(home.find(BlogPostsList).length).toEqual(1);
   });
 });
