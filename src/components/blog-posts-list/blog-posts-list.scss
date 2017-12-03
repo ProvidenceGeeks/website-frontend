@@ -20,6 +20,12 @@
   height: 100%;
 }
 
+.posts-grid .card .card-info {
+  background-color: $darkgrey;
+  color: $white;
+  height: 120px;
+}
+
 .posts-grid .card:first-child {
   margin-left: 0 !important;
 }
