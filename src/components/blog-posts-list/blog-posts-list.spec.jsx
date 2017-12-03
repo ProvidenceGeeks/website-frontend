@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { mount, shallow, configure } from 'enzyme';
+import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import mockPosts from '../../../test/__mocks__/mock-posts.json';
 import BlogPostsList from './blog-posts-list';
@@ -70,11 +70,11 @@ describe('Blog Posts List component', () => {
     // };
     // const loadMoreButton = shallow(<LoadMoreButton loadMore={ loadMore }/>);
 
-    console.log('card length before', blogPostsList.find(Card).length);
+    // console.log('card length before', blogPostsList.find(Card).length);
 
     blogPostsList.find(LoadMoreButton).simulate('click');
 
-    console.log('card length after', blogPostsList.find(Card).length);
+    // console.log('card length after', blogPostsList.find(Card).length);
     // expect(blogPostsList.find(Card).length).toEqual(blogPostsList.state().visiblePosts.length);
   });
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { mount, shallow, configure } from 'enzyme';
+import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import mockEvents from '../../../test/__mocks__/mock-events.json';
 import Card from '../card/card';
@@ -45,12 +45,13 @@ describe('Events List component', () => {
 
   // TODO
   xit('should load more events when the load more button is clicked', () => {
-    const loadMore = () => {
-      eventsList.setState({
-        visibleEvents: mockEvents.slice(6, 12)
-      });
-    };
-    const loadMoreButton = shallow(<LoadMoreButton loadMore={ loadMore }/>);
+    // const loadMore = () => {
+    //   eventsList.setState({
+    //     visibleEvents: mockEvents.slice(6, 12)
+    //   });
+    // };
+    //
+    // shallow(<LoadMoreButton loadMore={ loadMore }/>);
 
     eventsList.find(LoadMoreButton).simulate('click');
 
