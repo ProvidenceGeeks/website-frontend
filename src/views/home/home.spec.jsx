@@ -19,7 +19,7 @@ describe('Home View component', () => {
         resolve({
           status: 200,
           json: () => {
-            return mockEvents;
+            return [];
           }
         });
       });

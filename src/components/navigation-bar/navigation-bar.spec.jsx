@@ -18,7 +18,7 @@ describe('Navigation Bar component', () => {
         resolve({
           status: 200,
           json: () => {
-            return mockEvents;
+            return [];
           }
         });
       });
