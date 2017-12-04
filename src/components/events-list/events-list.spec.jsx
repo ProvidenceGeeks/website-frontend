@@ -75,7 +75,7 @@ describe('EventsList component', () => {
       expect(heading).toEqual(' ');
     });
 
-    it('should test when a post is passed', () => {
+    it('should test when an event is passed', () => {
       const mockEvent = mockEvents.slice(1, 2)[0];
       const heading = EventsList.formatHeading(mockEvent);
 
