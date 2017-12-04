@@ -64,11 +64,18 @@ describe('Navigation Bar component', () => {
     expect(tabContent.props.title).toEqual('Custom Title 1');
   });
 
-  it('should have the correct custom title for the second tab', () => {
+  it('should test that no custom title is present if not providedb', () => {
+    navigationBar = mount(
+      <NavigationBar>
+        <EventsList/>
+        <BlogPostsList/>
+      </NavigationBar>
+    );
     const tabChildren = navigationBar.find(Tabs).props().children;
     const tabContent = tabChildren[1].props.children;
 
-    expect(tabContent.props.title).toEqual('Custom Title 2');
+    expect(tabChildren[0][0].props.children.props.title).toEqual(undefined);
+    expect(tabChildren[0][1].props.children.props.title).toEqual(undefined);
   });
 
 });

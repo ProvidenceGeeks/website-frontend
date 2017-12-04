@@ -54,11 +54,9 @@ export default class BlogPostsList extends React.Component {
 
       <div className="row-fluid">
 
-        <div className="col-md-12">
-          <h3 className="posts-header">Latest Posts</h3>
+        <div className="posts-header">
+          <CardGrid data={this.state.posts}/>
         </div>
-
-        <CardGrid data={this.state.posts}/>
 
       </div>
     );
