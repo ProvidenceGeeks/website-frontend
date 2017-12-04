@@ -42,7 +42,7 @@ export default class EventsList extends React.Component {
   }
 
   static formatHeading(event) {
-    const time = event && event.time ? moment(event.time).format('MM/DD/YY h:mmA') : '';
+    const time = event && event.time ? moment(event.time).utcOffset(-5).format('MM/DD/YY h:mmA') : '';
     const venue = event && event.venue && event.venue.city ? `@ ${event.venue.city}` : '';
 
     return `${time} ${venue}`;
