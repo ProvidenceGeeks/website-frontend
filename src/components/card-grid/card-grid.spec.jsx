@@ -86,14 +86,13 @@ describe('CardGrid component', () => {
     });
   });
 
-  xdescribe('CardGrid component when initial data.length prop is 2 pages and loadMore is clicked ', () => {
+  describe('CardGrid component when initial data.length prop is 2 pages and loadMore is clicked ', () => {
     let expected;
-    let data;
     let cardGrid;
 
     beforeEach(() => {
       expected = defaultItemsPerPage * 2;
-      data = getMockData(expected);
+      let data = getMockData(expected);
       cardGrid = mount(<CardGrid data={data}/>);
     });
 
@@ -101,14 +100,13 @@ describe('CardGrid component', () => {
       expect(cardGrid.find(Card).length).toEqual(defaultItemsPerPage);
     });
 
-    it(`should show the LoadMoreButton component when data.length prop is ${data.length}`, () => {
+    it(`should show the LoadMoreButton component when data.length prop is ${defaultItemsPerPage * 2}`, () => {
       expect(cardGrid.find(LoadMoreButton).length).toEqual(1);
     });
 
     // TODO
-    xit(`should show ${expected} Card components when data.length prop is ${data.length} and LoadMoreButton is clicked`, () => {
+    xit(`should show ${expected} Card components when data.length prop is ${expected} and LoadMoreButton is clicked once`, () => {
       cardGrid.find(LoadMoreButton).simulate('click');
-      // console.log(loadMoreButton.props().loadMore());
 
       expect(cardGrid.find(Card).length).toEqual(expected);
     });
@@ -122,17 +120,6 @@ describe('CardGrid component', () => {
     // click
 
     // hides load more
-    // count equals itemsPerPage * 2
-  });
-
-  // TODO
-  xdescribe('CardGrid component when data.length prop is > 2 pages and loadMore is clicked ', () => {
-    // shows load more
-    // count equals itemsPerpage
-
-    // click
-
-    // still show load more
     // count equals itemsPerPage * 2
   });
 

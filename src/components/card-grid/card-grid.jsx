@@ -62,13 +62,13 @@ export default class CardGrid extends React.Component {
           }
         </div>
 
-        <div>
-          {
-            this.state.canLoadMore
-              ? <LoadMoreButton loadMore={ () => this.loadMoreItems() }/>
-              : ''
-          }
-        </div>
+<div>
+  {
+    this.state.canLoadMore
+      ? <LoadMoreButton loadMore={ () => this.loadMoreItems() }/>
+      : ''
+  }
+</div>
       </section>
     );
   }
