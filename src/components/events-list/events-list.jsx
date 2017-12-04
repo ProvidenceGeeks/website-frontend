@@ -19,14 +19,14 @@ export default class EventsList extends React.Component {
     EventsService.getEvents()
       .then((response) => {
         this.setState({
-          events: EventsList.modelEventsData(response)
+          events: EventsList.modelEventsDataForCard(response)
         });
       }).catch((response) => {
         console.error(response); // eslint-disable-line no-console
       });
   }
 
-  static modelEventsData(eventsResponse) {
+  static modelEventsDataForCard(eventsResponse) {
     return eventsResponse.map((event) => {
       return {
         title: event.name,
@@ -42,8 +42,8 @@ export default class EventsList extends React.Component {
   }
 
   static formatHeading(event) {
-    const time = moment(event.time).format('MM/DD/YY h:mmA');
-    const venue = event.venue && event.venue.city ? `@ ${event.venue.city}` : '';
+    const time = event && event.time ? moment(event.time).format('MM/DD/YY h:mmA') : '';
+    const venue = event && event.venue && event.venue.city ? `@ ${event.venue.city}` : '';
 
     return `${time} ${venue}`;
   }

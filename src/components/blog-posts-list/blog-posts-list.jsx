@@ -18,14 +18,14 @@ export default class BlogPostsList extends React.Component {
     PostsService.getPosts()
       .then((response) => {
         this.setState({
-          posts: BlogPostsList.modelPostsData(response)
+          posts: BlogPostsList.modelPostsDataForCard(response)
         });
       }).catch((response) => {
         console.error(response); // eslint-disable-line no-console
       });
   }
 
-  static modelPostsData(postsReponse) {
+  static modelPostsDataForCard(postsReponse) {
     return postsReponse.map((post) => {
       const canonicalLink = `${window.location.origin}/posts/${post.id}`;
 
@@ -41,9 +41,10 @@ export default class BlogPostsList extends React.Component {
       };
     });
   }
+
   static formatHeading(post) {
-    const author = post.author_name ? post.author_name : '';
-    const date = moment(post.date).format('MM/DD/YY');
+    const author = post && post.author_name ? post.author_name : '';
+    const date = post && post.date ? moment(post.date).format('MM/DD/YY') : '';
 
     return `${author} ${date}`;
   }
