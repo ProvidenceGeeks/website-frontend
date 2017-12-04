@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import mockEvents from '../../../test/__mocks__/mock-events.json';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import Home from '../../views/home/home';
@@ -18,7 +17,7 @@ describe('Bootstrap component', () => {
         resolve({
           status: 200,
           json: () => {
-            return mockEvents;
+            return [];
           }
         });
       });

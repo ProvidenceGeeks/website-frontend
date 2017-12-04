@@ -13,7 +13,8 @@ export default class EventsList extends React.Component {
     this.state = {
       events: [],
       visibleEvents: [],
-      currentPage: 2
+      currentPage: 2,
+      canLoadMore: false
     };
   }
 
@@ -22,9 +23,10 @@ export default class EventsList extends React.Component {
       .then((events) => {
         this.setState({
           events: events,
-          visibleEvents: events.slice(0, 6)
+          visibleEvents: events.slice(0, 6),
+          canLoadMore: events.length > 6
         });
-      }).catch(function(response) {
+      }).catch((response) => {
         console.error(response); // eslint-disable-line no-console
       });
   }
@@ -32,7 +34,8 @@ export default class EventsList extends React.Component {
   loadMoreEvents() {
     this.setState({
       currentPage: this.state.currentPage + 1,
-      visibleEvents: this.state.events.slice(0, this.state.currentPage * 6)
+      visibleEvents: this.state.events.slice(0, this.state.currentPage * 6),
+      canLoadMore: this.state.events.slice(0, this.state.currentPage * 6).length <= this.state.events.length
     });
   }
 
@@ -72,7 +75,11 @@ export default class EventsList extends React.Component {
           }
         </div>
 
-        <LoadMoreButton loadMore={ () => this.loadMoreEvents() }/>
+        {
+          this.state.canLoadMore
+            ? <LoadMoreButton loadMore={ () => this.loadMoreEvents() }/>
+            : ''
+        }
 
       </div>
 
