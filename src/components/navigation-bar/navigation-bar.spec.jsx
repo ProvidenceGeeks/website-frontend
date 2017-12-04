@@ -64,7 +64,7 @@ describe('Navigation Bar component', () => {
     expect(tabContent.props.title).toEqual('Custom Title 1');
   });
 
-  it('should test that no custom title is present if not providedb', () => {
+  it('should test that no custom title is present if not provided', () => {
     navigationBar = mount(
       <NavigationBar>
         <EventsList/>
