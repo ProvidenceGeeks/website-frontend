@@ -93,6 +93,7 @@ describe('CardGrid component', () => {
     beforeEach(() => {
       expected = defaultItemsPerPage * 2;
       let data = getMockData(expected);
+
       cardGrid = mount(<CardGrid data={data}/>);
     });
 
