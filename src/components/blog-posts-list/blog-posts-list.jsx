@@ -54,7 +54,7 @@ export default class BlogPostsList extends React.Component {
 
       <div className="row-fluid">
 
-        <div className="posts-header">
+        <div className="grid-container">
           <CardGrid data={this.state.posts}/>
         </div>
 

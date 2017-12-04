@@ -1,11 +1,11 @@
 @import '../bootstrap/bootstrap';
 
-.posts-header {
+.grid-container {
   padding: 2.5rem 0;
 }
 
 @include media-breakpoint-down(sm) {
-  .posts-header {
+  .grid-container {
     padding: 1.5rem 0;
   }
 }
