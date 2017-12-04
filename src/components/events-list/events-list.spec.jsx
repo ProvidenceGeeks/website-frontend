@@ -35,8 +35,13 @@ describe('EventsList component', () => {
   });
 
   describe('EventsList.modelEventsDataForCard', () => {
-    const mockEvent = mockEvents.slice(1, 2)[0];
-    const modeledData = EventsList.modelEventsDataForCard([mockEvent])[0];
+    let mockEvent;
+    let modeledData;
+
+    beforeEach(() => {
+      mockEvent = mockEvents.slice(1, 2)[0];
+      modeledData = EventsList.modelEventsDataForCard([mockEvent])[0];
+    });
 
     it('should test title', () => {
       expect(modeledData.title).toEqual(mockEvent.name);
@@ -44,6 +49,13 @@ describe('EventsList component', () => {
 
     it('should test body', () => {
       expect(modeledData.body).toEqual(Card.formatHtmlContent(mockEvent.description));
+    });
+
+    it('should test body when it is undefined', () => {
+      mockEvent.description = undefined;
+      modeledData = EventsList.modelEventsDataForCard([mockEvent])[0];
+
+      expect(modeledData.body).toEqual('No Description Available');
     });
 
     it('should test link', () => {

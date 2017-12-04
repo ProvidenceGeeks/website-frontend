@@ -36,16 +36,36 @@ describe('Blog Posts List component', () => {
   });
 
   describe('BlogPostsList.modelPostDataForCard', () => {
-    const mockPost = mockPosts.slice(0, 1)[0];
-    const modeledData = BlogPostsList.modelPostsDataForCard([mockPost])[0];
-    const canonicalLink = `${window.location.origin}/posts/${mockPost.id}`;
+    let mockPost;
+    let modeledData;
+    let canonicalLink;
+
+    beforeEach(() => {
+      mockPost = mockPosts.slice(0, 1)[0];
+      modeledData = BlogPostsList.modelPostsDataForCard([mockPost])[0];
+      canonicalLink = `${window.location.origin}/posts/${mockPost.id}`;
+    });
 
     it('should test title', () => {
       expect(modeledData.title).toEqual(mockPost.title.rendered);
     });
 
+    it('should test when a post is passed with missing ', () => {
+      const mockPost = mockPosts.slice(0, 1)[0];
+      const heading = BlogPostsList.formatHeading(mockPost);
+
+      expect(heading).toEqual(`${mockPost.author_name} 11/27/17`);
+    });
+
     it('should test body', () => {
       expect(modeledData.body).toEqual(Card.formatHtmlContent(mockPost.excerpt.rendered));
+    });
+
+    it('should test body when it is undefined', () => {
+      mockPost.excerpt.rendered = undefined;
+      modeledData = BlogPostsList.modelPostsDataForCard([mockPost])[0];
+
+      expect(modeledData.body).toEqual('No Content Available');
     });
 
     it('should test link', () => {
@@ -69,7 +89,6 @@ describe('Blog Posts List component', () => {
     it('should test twitterShareMessage', () => {
       expect(modeledData.twitterShareMessage).toEqual(`${ mockPost.title.rendered } - ${ canonicalLink } ! @ProvidenceGeeks`);
     });
-
   });
 
   describe('BlogPostsList.formatHeading', () => {
