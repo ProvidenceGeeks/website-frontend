@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Card from '../card/card';
 import LoadMoreButton from '../load-more-button/load-more-button';
+import './card-grid.scss';
 
 export default class CardGrid extends React.Component {
 
