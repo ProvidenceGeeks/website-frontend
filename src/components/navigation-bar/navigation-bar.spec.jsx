@@ -72,10 +72,10 @@ describe('Navigation Bar component', () => {
       </NavigationBar>
     );
     const tabChildren = navigationBar.find(Tabs).props().children;
-    const tabContent = tabChildren[1].props.children;
 
-    expect(tabChildren[0][0].props.children.props.title).toEqual(undefined);
-    expect(tabChildren[0][1].props.children.props.title).toEqual(undefined);
+    tabChildren.forEach(tab => {
+      expect(tab.props.children.props.title).toEqual(undefined);
+    });
   });
 
 });
