@@ -45,28 +45,28 @@ describe('Navigation Bar component', () => {
 
   it('should have an EventsList component in the first Tab', () => {
     const tabChildren = navigationBar.find(Tabs).props().children;
-    const tabContent = tabChildren[0][0].props.children;
+    const tabContent = tabChildren[0].props.children;
 
     expect(tabContent.type).toEqual(EventsList);
   });
 
   it('should have a BlogPostsList component in the second Tab', () => {
     const tabChildren = navigationBar.find(Tabs).props().children;
-    const tabContent = tabChildren[0][1].props.children;
+    const tabContent = tabChildren[1].props.children;
 
     expect(tabContent.type).toEqual(BlogPostsList);
   });
 
   it('should have the correct custom title for the first tab', () => {
     const tabChildren = navigationBar.find(Tabs).props().children;
-    const tabContent = tabChildren[0][0].props.children;
+    const tabContent = tabChildren[0].props.children;
 
     expect(tabContent.props.title).toEqual('Custom Title 1');
   });
 
   it('should have the correct custom title for the second tab', () => {
     const tabChildren = navigationBar.find(Tabs).props().children;
-    const tabContent = tabChildren[0][1].props.children;
+    const tabContent = tabChildren[1].props.children;
 
     expect(tabContent.props.title).toEqual('Custom Title 2');
   });
