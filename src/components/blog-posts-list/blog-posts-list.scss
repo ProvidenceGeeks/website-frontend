@@ -6,37 +6,9 @@
   padding: 2.5rem 0;
 }
 
-.posts-grid {
-  margin-bottom: 2rem;
-  display: flex;
-}
-
-.posts-grid > div {
-  margin-bottom: 1.5rem;
-}
-
-.posts-grid .card {
-  margin: 0 1.5rem 1.5rem 0 !important;
-  height: 100%;
-}
-
-.posts-grid .card .card-info {
-  background-color: $darkgrey;
-  color: $white;
-  height: 120px;
-}
-
-.posts-grid .card:first-child {
-  margin-left: 0 !important;
-}
-
 @include media-breakpoint-down(sm) {
   .posts-header {
     font-size: 1.5rem;
     padding: 1.5rem 0;
-  }
-
-  .posts-grid .card {
-    margin: 0 !important;
   }
 }

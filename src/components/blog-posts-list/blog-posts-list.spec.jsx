@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import mockPosts from '../../../test/__mocks__/mock-posts.json';
 import BlogPostsList from './blog-posts-list';
 import Card from '../card/card';
-import LoadMoreButton from '../load-more-button/load-more-button';
+import CardGrid from '../card-grid/card-grid';
 
 configure({ adapter: new Adapter() });
 
@@ -31,51 +31,79 @@ describe('Blog Posts List component', () => {
     expect(blogPostsList).not.toBeNull();
   });
 
-  it('should display three cards when there are three visible events', () => {
-    blogPostsList.setState({
-      visiblePosts: mockPosts.slice(0, 3)
+  it('should have a CardGrid component', () => {
+    expect(blogPostsList.find(CardGrid).length).toEqual(1);
+  });
+
+  describe('BlogPostsList.modelPostDataForCard', () => {
+    let mockPost;
+    let modeledData;
+    let canonicalLink;
+
+    beforeEach(() => {
+      mockPost = mockPosts.slice(0, 1)[0];
+      modeledData = BlogPostsList.modelPostsDataForCard([mockPost])[0];
+      canonicalLink = `${window.location.origin}/posts/${mockPost.id}`;
     });
 
-    expect(blogPostsList.find(Card).length).toEqual(blogPostsList.state().visiblePosts.length);
-  });
-
-  it('should have a hidden load more button', () => {
-    expect(blogPostsList.find(LoadMoreButton).length).toEqual(0);
-  });
-
-  xit('should load more posts when the load more button is clicked', () => {
-    // global.fetch = jest.fn().mockImplementation(() => {
-    //   return new Promise((resolve) => {
-    //     resolve({
-    //       status: 200,
-    //       json: () => {
-    //         console.log('return mock Posts', (mockPosts.concat(mockPosts).concat(mockPosts)).length);
-    //         return (mockPosts.concat(mockPosts).concat(mockPosts));
-    //       }
-    //     });
-    //   });
-    // });
-
-    blogPostsList = mount(<BlogPostsList/>);
-
-    blogPostsList.setState({
-      visiblePosts: mockPosts.concat(mockPosts)
+    it('should test title', () => {
+      expect(modeledData.title).toEqual(mockPost.title.rendered);
     });
 
-    // const existingPosts = blogPostsList.state().visiblePosts;
-    // const loadMore = () => {
-    //   blogPostsList.setState({
-    //     visiblePosts: existingPosts.concat(mockPosts.slice(0, mockPosts.length - 1))
-    //   });
-    // };
-    // const loadMoreButton = shallow(<LoadMoreButton loadMore={ loadMore }/>);
+    it('should test when a post is passed with missing ', () => {
+      const mockPost = mockPosts.slice(0, 1)[0];
+      const heading = BlogPostsList.formatHeading(mockPost);
 
-    // console.log('card length before', blogPostsList.find(Card).length);
+      expect(heading).toEqual(`${mockPost.author_name} 11/27/17`);
+    });
 
-    blogPostsList.find(LoadMoreButton).simulate('click');
+    it('should test body', () => {
+      expect(modeledData.body).toEqual(Card.formatHtmlContent(mockPost.excerpt.rendered));
+    });
 
-    // console.log('card length after', blogPostsList.find(Card).length);
-    // expect(blogPostsList.find(Card).length).toEqual(blogPostsList.state().visiblePosts.length);
+    it('should test body when it is undefined', () => {
+      mockPost.excerpt.rendered = undefined;
+      modeledData = BlogPostsList.modelPostsDataForCard([mockPost])[0];
+
+      expect(modeledData.body).toEqual('No Content Available');
+    });
+
+    it('should test link', () => {
+      expect(modeledData.link).toEqual(`/posts/${mockPost.id}`);
+    });
+
+    it('should test imgSource', () => {
+      expect(modeledData.imgSource).toEqual(mockPost.media_details.medium_large
+        ? mockPost.media_details.medium_large.source_url
+        : undefined);
+    });
+
+    it('should test imgAlt', () => {
+      expect(modeledData.imgAlt).toEqual(mockPost.title.rendered);
+    });
+
+    it('should test facebookShareMessage', () => {
+      expect(modeledData.facebookShareMessage).toEqual(canonicalLink);
+    });
+
+    it('should test twitterShareMessage', () => {
+      expect(modeledData.twitterShareMessage).toEqual(`${ mockPost.title.rendered } - ${ canonicalLink } ! @ProvidenceGeeks`);
+    });
   });
 
+  describe('BlogPostsList.formatHeading', () => {
+    it('should test when no value passed', () => {
+      const heading = BlogPostsList.formatHeading();
+
+      expect(heading).toEqual(' ');
+    });
+
+    it('should test when a post is passed', () => {
+      const mockPost = mockPosts.slice(0, 1)[0];
+      const heading = BlogPostsList.formatHeading(mockPost);
+
+      expect(heading).toEqual(`${mockPost.author_name} 11/27/17`);
+    });
+
+  });
 });
