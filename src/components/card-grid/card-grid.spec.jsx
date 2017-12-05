@@ -105,9 +105,9 @@ describe('CardGrid component', () => {
       expect(cardGrid.find(LoadMoreButton).length).toEqual(1);
     });
 
-    // TODO
-    xit(`should show ${expected} Card components when data.length prop is ${expected} and LoadMoreButton is clicked once`, () => {
-      cardGrid.find(LoadMoreButton).simulate('click');
+    // Issue #106 - https://github.com/ProvidenceGeeks/website-frontend/issues/106
+    it(`should show ${expected} Card components when data.length prop is ${expected} and LoadMoreButton is clicked once`, () => {
+      cardGrid.find('LoadMoreButton button').simulate('click');
 
       expect(cardGrid.find(Card).length).toEqual(expected);
     });
