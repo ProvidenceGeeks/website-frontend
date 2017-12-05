@@ -1,0 +1,209 @@
+var config = require ('../../nightwatch.conf.js');
+
+module.exports = {
+    // url: function() {
+    //     return this.api.launchUrl; 
+    // },
+    // beforeEach(browser) {
+    //     browser.resizeWindow(320, 568); //tests all tests in mobile screen size
+    // },
+    elements: {
+    header: {
+      selector: 'div[class="row"]'
+    },
+    heroImage: {
+      selector: 'div[class="hero-banner jumbotron"]'
+    },
+    heroBanner: {
+      selector: 'div[class="hero-container"]'
+    },
+    nav: {
+      selector: 'div[class=row navigation-bar]'
+    },
+    logo: {
+      selector: 'svg[class="pvd-geeks-logo"'
+    },
+    facebookLogo: {
+      selector: 'svg[class="facebook-icon"]'
+    },
+     facebookLink: {
+      selector: 'div.row a[class="facebook-link"]'
+    },
+    slackLogo: {
+      selector: 'svg[class="slack-icon"]'
+    },
+     slackLink: {
+      selector: 'div.row a[class="slack-link"]'
+    },
+    twitterLogo: {
+      selector: 'svg[class="twitter-icon"]'
+    },
+    twitterLink: {
+      selector: 'div.row a[class="twitter-link"]'
+    },
+    commands: [{
+    wait: function() {
+        this.api.pause(2000);
+    },
+
+    'Can navigate successfully': function(browser) {
+        browser
+            .url('https://stage.pvdgeeks.org')
+            .waitForElementVisible('body', 2000)//asserts successful navigation
+    },
+    'Can locate header and its elements': function(browser) {
+        browser
+            .verify.elementPresent('@header') //asserts that header is present
+            .verify.elementPresent('@facebookLogo') //asserts facebook icon
+            .verify.elementPresent('@slackLogo') //asserts slack icon
+            .verify.elementPresent('@twitterLogo') //asserts twitter icon
+            .verify.elementPresent('@logo') //asserts logo
+    },
+    'Can see the hoverover message' : function(browser) {
+        browser.getAttribute('a.facebook-link', 'title', function(result) {
+            this.assert.equal(typeof result, 'object');
+            this.assert.equal(result.status, 0);
+            this.assert.equal(result.value, 'Like Us');
+        });
+            browser.getAttribute('a.slack-link', 'title', function(result) {
+            this.assert.equal(typeof result, 'object');
+            this.assert.equal(result.status, 0);
+            this.assert.equal(result.value, 'Join Us');
+        });
+            browser.getAttribute('a.twitter-link', 'title', function(result) {
+            this.assert.equal(typeof result, 'object');
+            this.assert.equal(result.status, 0);
+            this.assert.equal(result.value, 'Follow Us');
+        });
+    },
+    'Open a new tab for Facebook': function (browser) {
+        browser.click('a.facebook-link', (result) => {
+            console.log(result);
+            browser.pause(5000);
+            
+            // browser.assert.urlEquals('https://www.facebook.com/providencegeeks/', 'Definitely switched automatically to new tab.')
+        })
+        .window_handles(function(result) {
+            console.log('window handles', result);
+            var size = result.value.length;
+            console.log(size);
+            var lastIndex = size - 1;
+            var temp = result.value[lastIndex];
+            var temp = result.value[1];
+            this.switchWindow(temp);
+        }).verify.urlEquals('https://www.facebook.com/providencegeeks/', 'Definitely switched automatically to new tab.');
+    }, 
+    'Open a new tab for Slack': function (browser) {
+        browser
+        .url('https://stage.pvdgeeks.org')
+        .waitForElementVisible('body');
+    
+        browser.click('a.slack-link', (result) => {
+            console.log(result);
+            browser.pause(5000);            
+            // browser.assert.urlEquals('https://providencegeeks.slack.com/, 'Definitely switched automatically to new tab.')
+        })
+
+        .window_handles(function(result) {
+            console.log('window handles', result);
+            var size = result.value.length;
+            console.log(size);
+            var lastIndex = size - 1;
+            var temp = result.value[lastIndex];
+            this.switchWindow(temp);
+        }).assert.urlEquals('https://providencegeeks.slack.com/', 'Definitely switched automatically to new tab.');
+
+        browser.end();
+        },
+
+    'Open a new tab for Twitter': function (browser) {
+        browser
+        .url('https://stage.pvdgeeks.org')
+        .waitForElementVisible('body');
+    
+        browser.click('a.twitter-link', (result) => {
+            console.log(result);
+            browser.pause(5000);
+            
+            // browser.assert.urlEquals('https://twitter.com/providencegeeks', 'Definitely switched automatically to new tab.')
+        })
+        .window_handles(function(result) {
+            console.log('window handles', result);
+            var size = result.value.length;
+            console.log(size);
+            var lastIndex = size - 1;
+            var temp = result.value[lastIndex];
+            var temp = result.value[1];
+            this.switchWindow(temp);
+        }).assert.urlEquals('https://twitter.com/providencegeeks', 'Definitely switched automatically to new tab.');
+
+        browser.end();
+        },    
+
+    'Can locate footer and its elements' : function (browser) {
+        browser
+        .verify.elementPresent('div[class="footer row"]') //asserts that header is present
+        .verify.elementPresent('div.footer.row svg[class="pvd-geeks-logo"]') //asserts logo
+        .verify.elementPresent('small[class="copyright-text"]', '© Copyright 2017 Providence Geeks')
+        .verify.elementPresent('div.footer.row svg[class="facebook-icon"]') //asserts facebook icon
+        .verify.elementPresent('div.footer.row svg[class="slack-icon"]') //asserts slack icon
+        .verify.elementPresent('div.footer.row svg[class="twitter-icon"]') //asserts twitter icon
+        browser.getCssProperty('div.footer.row col-md-2 svg["pvd-geeks-logo"]', 'display', function(result) {
+            this.assert.equal(typeof result, "object");
+            this.assert.equal(result.status, 0);
+            this.assert.equal(result.value, 'inline'); //change this part to assert logo position
+ });
+    },
+    'Can load more content when scrolled to the bottom' : function (browser) {
+        browser
+        // .execute('scrollTo(0,3000)')//want to test auto-load when implemented
+        .verify.elementPresent('button[class="load-more"]') //will be deprecated once infinite scroll implemented - this is a placeholder
+        .end();
+    },
+    'Can see the hoverover message' : function (browser) {
+        browser.moveToElement('#facebook-icon', 300, 300)
+        .getAttribute('a.facebook-link', 'href' function(result) {
+            this.assert.equal();
+            this.assert.equal(result.status, 0);
+            this.assert.equal(result.value, 'Like Us');
+        });     
+    },
+    'Can see the hero banner and its elements' : function(browser) {
+        browser
+        .verify.elementPresent('div[class="hero-banner jumbotron"]')
+        .verify.elementPresent('div[class="hero-container col-md-12 d-flex flex-column justify-content-center"]')
+        .verify.elementPresent('div.hero-container.col-md-12.d-flex.flex-column.justify-content-center h1[class="hero-title justify-content-center align-self-center"]', 'Providence Geeks')
+        .verify.elementPresent('div.hero-container.col-md-12.d-flex.flex-column.justify-content-center h4[class="hero-subtitle align-self-center"]', 'Connecting Digital Innovators')
+        .verify.elementPresent('div.hero-container.col-md-12.d-flex.flex-column.justify-content-center svg[class="pvd-geeks-logo"]')
+        .verify.elementPresent('div.row.d-flex.justify-content-center.align-self-center p[class="hero-text"]', 'The goal of Providence Geeks is to help Rhode Island’s digital innovators connect, collaborate, and ultimately make the City-State and its geeks info-technology leaders.')
+    }, 
+    'Can see different hero background images per new navigation' : function(browser) {
+        browser.click('svg[class="pvd-geeks-logo"]', (result) => { //still need to add the callback to assert different [style=image url]
+            console.log(result);
+            browser.pause(5000);
+            browser.verify.urlEquals('https://stage.pvdgeeks.org/', 'clicking the logo navigates to the landing page.');
+            this.suiteRetries = 2;
+        })
+        browser.verify.elementPresent('div[class="hero-banner jumbotron"]') ===> 1.) use getAttribute and compare name of image; 2.) retry params, addd to package.json file (--retries)
+        browser.click('svg[class="pvd-geeks-logo"]')
+        .verify //want to verify that the background image is different from the one displayed on the first navigation (random order) 
+    },
+    'Can see the correct font and formats in the hero-banner' : function(browser) {
+        browser.getCssProperty('div.hero-container.col-md-12.d-flex.flex-column.justify-content-center h1[class="hero-title justify-content-center align-self-center', 'font-family', function(result) {
+            this.assert.equal(typeof result, 'object');
+            this.assert.equal(result.status, 0);
+            this.assert.equal(result.value, 'Canter'); //change this part to assert logo position
+        });
+        browser.getCssProperty('div.row.d-flex.justify-content-center h4[class="hero-subtitle align-self-center"]', 'text-transform', function(result) {
+            this.assert.equal(typeof result, 'object');
+            this.assert.equal(result.status, 0);
+            this.assert.equal(result.value, 'uppercase'); //change this part to assert logo position 
+        });        
+    }
+    // 'Can locate the nav bar and its elements' : function(browser) {
+    //     browser
+    //         .verify.elementPresent('div[class="row navigation-bar"]')
+    //         .verify.elementPresent()
+    // }
+
+}; //make sure to add .end(); at the very end.
