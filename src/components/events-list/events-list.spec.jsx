@@ -34,6 +34,10 @@ describe('EventsList component', () => {
     expect(eventsList.find(CardGrid).length).toEqual(1);
   });
 
+  it('should have a heading', () => {
+    expect(eventsList.find('.events-header').text()).toEqual('Upcoming Events');
+  });
+
   describe('EventsList.modelEventsDataForCard', () => {
     let mockEvent;
     let modeledData;
