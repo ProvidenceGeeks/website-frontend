@@ -19,7 +19,7 @@ export default class NavigationBar extends React.Component {
                   </Tab>
                 );
               })
-            };
+            }
           </Tabs>
         </div>
       </div>
