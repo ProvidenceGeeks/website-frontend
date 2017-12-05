@@ -81,7 +81,7 @@ describe('CardGrid component', () => {
       expect(cardGrid.find(Card).length).toEqual(6);
     });
 
-    xit(`should show the LoadMoreButton component when data.length prop is ${data.length}`, () => {
+    it(`should show the LoadMoreButton component when data.length prop is ${data.length}`, () => {
       expect(cardGrid.find(LoadMoreButton).length).toEqual(1);
     });
   });
@@ -105,23 +105,19 @@ describe('CardGrid component', () => {
       expect(cardGrid.find(LoadMoreButton).length).toEqual(1);
     });
 
-    // TODO
-    xit(`should show ${expected} Card components when data.length prop is ${expected} and LoadMoreButton is clicked once`, () => {
-      cardGrid.find(LoadMoreButton).simulate('click');
+    it(`should show ${expected} Card components when data.length prop is ${expected} and LoadMoreButton is clicked once`, () => {
+      // note we actually need to drill into the button element itself to trigger the click
+      cardGrid.find('LoadMoreButton button').simulate('click');
 
       expect(cardGrid.find(Card).length).toEqual(expected);
     });
 
-    // it(`should show the LoadMoreButton component when data.length prop is ${data.length}`, () => {
-    //   expect(cardGrid.find(LoadMoreButton).length).toEqual(1);
-    // });
-    // shows load more
-    // count equals itemsPerpage
+    it(`should hide the LoadMoreButton when data.length prop is ${expected} and LoadMoreButton is clicked once`, () => {
+      // note we actually need to drill into the button element itself to trigger the click
+      cardGrid.find('LoadMoreButton button').simulate('click');
 
-    // click
-
-    // hides load more
-    // count equals itemsPerPage * 2
+      expect(cardGrid.find(LoadMoreButton).length).toEqual(0);
+    });
   });
 
 });

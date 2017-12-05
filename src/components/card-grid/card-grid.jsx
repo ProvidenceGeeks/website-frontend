@@ -20,12 +20,10 @@ export default class CardGrid extends React.Component {
   }
 
   modelInitStateFromDataProp(data) {
-    const currentPage = data.length > 1 ? 1 : 0;
     const visibleItems = data.slice(0, this.itemsPerPage);
     const canLoadMore = data.length > this.itemsPerPage;
 
     return {
-      currentPage: currentPage,
       items: data,
       visibleItems: visibleItems,
       canLoadMore: canLoadMore
@@ -33,7 +31,6 @@ export default class CardGrid extends React.Component {
   }
 
   loadMoreItems() {
-    const currentPage = this.state.currentPage + 1;
     const currentIndex = this.state.visibleItems.length;
     const nextPageData = this.state.items.slice(currentIndex, currentIndex + this.itemsPerPage);
     const visibleItems = [].concat(this.state.visibleItems, nextPageData);
@@ -41,7 +38,6 @@ export default class CardGrid extends React.Component {
 
     this.setState({
       items: this.state.items,
-      currentPage: currentPage,
       visibleItems: visibleItems,
       canLoadMore: canLoadMore
     });
