@@ -2,6 +2,7 @@ import * as React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 import LazyLoad from 'react-lazyload';
 import PropTypes from 'prop-types';
+import CustomLink from '../custom-link/custom-link';
 import FacebookIcon from '../facebook-icon/facebook-icon';
 import PlacholderImage from './images/placeholder-318x180.png';
 import TwitterIcon from '../twitter-icon/twitter-icon';
@@ -30,7 +31,7 @@ export default class Card extends React.Component {
 
       <div className="card d-flex">
 
-        <a className="card-link" href={ this.props.link } target="_blank" rel="noopener noreferrer">
+        <CustomLink url={this.props.link}>
           <div className="lazyload-wrapper">
             <LazyLoad height={233} offset={50} once>
               <CSSTransitionGroup key="1"
@@ -53,7 +54,7 @@ export default class Card extends React.Component {
             <span className="card-subtitle">{this.props.subtitle}</span>
           </div>
           }
-        </a>
+        </CustomLink>
 
         <div className="card-info d-flex align-self-end justify-content-between">
           <div className="card-heading">{ this.props.heading }</div>
