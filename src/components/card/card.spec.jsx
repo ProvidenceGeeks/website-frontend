@@ -1,9 +1,10 @@
 import * as React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, mount, configure } from 'enzyme';
-import Card from './card';
-import FacebookIcon from '../facebook-icon/facebook-icon';
 import mockEvents from '../../../test/__mocks__/mock-events.json';
+import Card from './card';
+import CustomLink from '../custom-link/custom-link';
+import FacebookIcon from '../facebook-icon/facebook-icon';
 import PlaceholderImage from './images/placeholder-318x180.png';
 import TwitterIcon from '../twitter-icon/twitter-icon';
 
@@ -37,12 +38,8 @@ describe('Card component', () => {
       expect(card.find('.card').length).toEqual(1);
     });
 
-    it('should test the card as a link displays correctly', () => {
-      const cardLink = card.find('.card-link');
-
-      expect(cardLink.prop('href')).toEqual(mockEvent.link);
-      expect(cardLink.prop('rel')).toEqual('noopener noreferrer');
-      expect(cardLink.prop('target')).toEqual('_blank');
+    it('should test the card uses a CustomLink component', () => {
+      expect(card.find(CustomLink).length).toEqual(1);
     });
 
     it('should test there is a lazily loaded image with a 600ms fade in', () => {

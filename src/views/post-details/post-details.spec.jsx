@@ -7,20 +7,12 @@ configure({ adapter: new Adapter() });
 
 describe('Post Details View component', () => {
   let postDetails;
+  let params = {
+    id: '1'
+  };
 
   beforeEach(() => {
-    global.fetch = jest.fn().mockImplementation(() => {
-      return new Promise((resolve) => {
-        resolve({
-          status: 200,
-          json: () => {
-            return [];
-          }
-        });
-      });
-    });
-
-    postDetails = mount(<PostDetails />);
+    postDetails = mount(<PostDetails params={params}/>);
   });
 
   it('should not be null', () => {
