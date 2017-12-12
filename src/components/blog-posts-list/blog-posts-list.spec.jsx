@@ -69,7 +69,7 @@ describe('Blog Posts List component', () => {
     });
 
     it('should test link', () => {
-      expect(modeledData.link).toEqual(`/posts/${mockPost.id}`);
+      expect(modeledData.link).toEqual(`/post/${mockPost.id}`);
     });
 
     it('should test imgSource', () => {

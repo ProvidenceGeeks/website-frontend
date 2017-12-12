@@ -7,6 +7,7 @@ import PlacholderImage from './images/placeholder-318x180.png';
 import TwitterIcon from '../twitter-icon/twitter-icon';
 import './card.scss';
 
+// TODO can this just be a non-class component?  Maybe have a card-service instead?
 export default class Card extends React.Component {
   constructor(props) {
     super();
