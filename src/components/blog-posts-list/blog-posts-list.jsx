@@ -33,7 +33,7 @@ export default class BlogPostsList extends React.Component {
         title: post.title.rendered,
         body: Card.formatHtmlContent(post.excerpt.rendered || 'No Content Available'),
         heading: BlogPostsList.formatHeading(post),
-        link: `/posts/${post.id}`,
+        link: `/post/${post.id}`,
         imgSource: post.media_details.medium_large ? post.media_details.medium_large.source_url : undefined,
         imgAlt: post.title.rendered,
         facebookShareMessage: canonicalLink,
