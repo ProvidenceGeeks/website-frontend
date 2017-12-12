@@ -7,10 +7,11 @@ import PostDetails from './views/post-details/post-details';
 
 ReactDOM.render(
   <Router history={browserHistory}>
-    <IndexRoute component={Home} />
-    <Route path='/' component={Bootstrap}/>
-    <Route path='/home' component={Home} />
-    <Route path='/post' component={PostDetails} />
+    <Route path='/' component={Bootstrap}>
+      <IndexRoute component={Home} />
+      <Route path='/home' component={Home} />
+      <Route path='/post/:id' component={PostDetails} />
+    </Route>
   </Router>,
   document.getElementById('root')
 );

@@ -1,16 +1,23 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
+import HeroBanner from '../../components/hero-banner/hero-banner';
 import './post-details.scss';
 
-const PostDetails = () => {
+const PostDetails = (props) => {
   return (
     <div className="post-details">
-      <h1>It works!</h1>
+      <HeroBanner/>
+
+      <h1>It works!  {props.params.id}</h1>
+
     </div>
   );
 };
 
-// Home.PostDetails = {
-//   children: PropTypes.element
-// };
+PostDetails.propTypes = {
+  params: PropTypes.shape({
+    id: PropTypes.string.isRequired
+  })
+};
 
 export default PostDetails;

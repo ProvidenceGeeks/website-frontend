@@ -1,7 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Header from '../header/header';
-import Home from '../../views/home/home';
 import Footer from '../footer/footer';
 import './bootstrap.scss';
 
@@ -16,7 +15,7 @@ export default class Bootstrap extends React.Component {
       <div className='container-fluid'>
         <Header />
 
-        <Home />
+        { this.props.children }
 
         <Footer />
       </div>
