@@ -20,6 +20,7 @@ describe('Card component', () => {
   beforeEach(() => {
     card = mount(<Card
       title={ `${mockCardContent.name}` }
+      groupName={`${mockCardContent.group.name}`}
       body={ `${mockCardContent.description}`}
       heading={ `Heading: ${mockCardContent.name}!!!` }
       link={ mockCardContent.link }
@@ -99,6 +100,12 @@ describe('Card component', () => {
       const body = card.find('.card-text');
 
       expect(body.text()).toEqual('No Description Available.');
+    });
+
+    it('should test the group name displays correctly', () => {
+      const group = card.find('.card-group-container');
+
+      expect(group.text()).toContain(mockCardContent.group.name);
     });
   });
 
