@@ -105,6 +105,7 @@ describe('Card component', () => {
     it('should test the subtitle displays correctly', () => {
       const subtitle = card.find('.card-subtitle-container');
 
+      expect(subtitle).toHaveLength(1);
       expect(subtitle.text()).toEqual(mockCardContent.group.name);
     });
   });
@@ -131,6 +132,12 @@ describe('Card component', () => {
 
       expect(card.find('.twitter-share').prop('href')).toEqual(`https://twitter.com/intent/tweet?status=${message}`);
       expect(card.find(TwitterIcon).length).toEqual(1);
+    });
+
+    it('should test the subtitle does not display', () => {
+      const subtitle = card.find('.card-subtitle-container');
+
+      expect(subtitle).toHaveLength(0);
     });
   });
 
