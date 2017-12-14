@@ -47,9 +47,11 @@ export default class Card extends React.Component {
             <span className="card-title">{ this.props.title }</span>
           </div>
 
+          {this.props.groupName &&
           <div className="card-group-container">
-            <span className="card-group-name">{ this.props.groupName }</span>
+            <span className="card-group-name">{this.props.groupName}</span>
           </div>
+          }
         </a>
 
         <div className="card-info d-flex align-self-end justify-content-between">
@@ -83,7 +85,7 @@ export default class Card extends React.Component {
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
-  groupName: PropTypes.string.isRequired,
+  groupName: PropTypes.string,
   body: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,

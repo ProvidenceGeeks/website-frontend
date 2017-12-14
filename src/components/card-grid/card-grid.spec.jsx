@@ -14,6 +14,7 @@ function getMockData(size) {
   return mockEvents.slice(0, size).map((event, index) => {
     return {
       title: event.title || `Mock Title ${index}`,
+      groupName: event.group.name || `Mock Group Name ${index}`,
       body: event.body || `Mock Body ${index}`,
       heading: event.title || `Mock Heading ${index}`,
       link: event.link,
