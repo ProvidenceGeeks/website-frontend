@@ -82,8 +82,8 @@ describe('EventsList component', () => {
       expect(modeledData.twitterShareMessage).toEqual(`${ mockEvent.name } - ${ mockEvent.link } ! @ProvidenceGeeks`);
     });
 
-    it('should test groupName', () => {
-      expect(modeledData.groupName).toEqual(mockEvent.group.name);
+    it('should test subtitle', () => {
+      expect(modeledData.subtitle).toEqual(mockEvent.group.name);
     });
 
   });

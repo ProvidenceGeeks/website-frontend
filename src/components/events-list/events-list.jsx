@@ -30,7 +30,7 @@ export default class EventsList extends React.Component {
     return eventsResponse.map((event) => {
       return {
         title: event.name,
-        groupName: event.group.name,
+        subtitle: event.group.name,
         body: Card.formatHtmlContent(event.description || 'No Description Available'),
         heading: EventsList.formatHeading(event),
         link: event.link,
