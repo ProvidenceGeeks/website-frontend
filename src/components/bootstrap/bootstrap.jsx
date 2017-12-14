@@ -8,11 +8,17 @@ const Bootstrap = (props) => {
   return (
 
     <div className='container-fluid'>
-      <Header />
+      <section>
+        <Header />
+      </section>
 
-      { props.children }
+      <section>
+        { props.children }
+      </section>
 
-      <Footer />
+      <section>
+        <Footer />
+      </section>
     </div>
 
   );

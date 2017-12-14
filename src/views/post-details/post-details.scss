@@ -1,1 +1,25 @@
+@import '../../components/bootstrap/bootstrap';
 
+.post-details{
+
+  background-color: $screen;
+}
+
+.post-details article {
+  margin: 35px auto 0;
+  font-size: 1.7rem;
+  width: 70%;
+}
+
+.post-details article b {
+  font-family: 'Josefin Slab', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: -5px;
+  display: block;
+}
+
+.post-details article b, p {
+  br {
+    display: none;
+  }
+}

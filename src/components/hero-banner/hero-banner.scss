@@ -21,7 +21,7 @@
 }
 
 .hero-title {
-  font-family: Canter;
+  font-family: Canter, sans-serif;
   font-weight: bold;
   font-size: 4rem;
   text-transform: uppercase;
@@ -37,7 +37,7 @@
 
 .hero-subtitle {
   display: inline;
-  font-family: "Josefin Slab";
+  font-family: 'Josefin Slab', sans-serif;
   font-size: 1em;
   text-transform: uppercase;
   letter-spacing: .1em;
@@ -47,7 +47,6 @@
 .text-line {
   display: inline;
   width: 2.5rem;
-  margin: 0;
   margin: .5rem;
   z-index: 1;
   background: $white;
