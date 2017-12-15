@@ -50,7 +50,7 @@ export default class CardGrid extends React.Component {
           {
             this.state.visibleItems.map(function (item, key) {
               return (
-                <div key={ key } className="col-md-4 col-sm-12">
+                <div key={ key } className="col-lg-4 col-md-6 col-sm-12">
                   <Card {...item} />
                 </div>
               );

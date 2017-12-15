@@ -10,12 +10,8 @@
 }
 
 .card-grid .card {
-  margin: 0 1.5rem 1.5rem 0 !important;
+  margin: 0 0.7rem 1.5rem 0.7rem !important;
   height: 100%;
-}
-
-.card-grid .card:first-child {
-  margin-left: 0 !important;
 }
 
 @include media-breakpoint-down(sm) {
