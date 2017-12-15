@@ -11,6 +11,11 @@
   width: 70%;
 }
 
+.post-details article img{
+  float: left;
+  margin: 15px;
+}
+
 .post-details article b {
   font-family: 'Josefin Slab', sans-serif;
   font-size: 2.5rem;
@@ -22,4 +27,15 @@
   br {
     display: none;
   }
+}
+
+.post-details article figure{
+}
+
+.post-details article figure img{
+}
+
+.post-details article figure figcaption.wp-caption-text{
+  color: $lightgrey;
+  font-style: italic;
 }
