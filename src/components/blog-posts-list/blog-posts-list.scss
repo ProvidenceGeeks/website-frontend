@@ -4,6 +4,12 @@
   padding: 2.5rem 0;
 }
 
+.grid-container .card .card-info {
+  background-color: $darkgrey;
+  color: $white;
+  height: 50px;
+}
+
 @include media-breakpoint-down(sm) {
   .grid-container {
     padding: 1.5rem 0;
