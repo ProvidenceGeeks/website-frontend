@@ -20,6 +20,7 @@ describe('Card component', () => {
   beforeEach(() => {
     card = mount(<Card
       title={ `${mockCardContent.name}` }
+      subtitle={`${mockCardContent.group.name}`}
       body={ `${mockCardContent.description}`}
       heading={ `Heading: ${mockCardContent.name}!!!` }
       link={ mockCardContent.link }
@@ -100,6 +101,13 @@ describe('Card component', () => {
 
       expect(body.text()).toEqual('No Description Available.');
     });
+
+    it('should test the subtitle displays correctly', () => {
+      const subtitle = card.find('.card-subtitle-container');
+
+      expect(subtitle).toHaveLength(1);
+      expect(subtitle.text()).toEqual(mockCardContent.group.name);
+    });
   });
 
   describe('Card elements when only required props are provided', () => {
@@ -124,6 +132,12 @@ describe('Card component', () => {
 
       expect(card.find('.twitter-share').prop('href')).toEqual(`https://twitter.com/intent/tweet?status=${message}`);
       expect(card.find(TwitterIcon).length).toEqual(1);
+    });
+
+    it('should test the subtitle does not display', () => {
+      const subtitle = card.find('.card-subtitle-container');
+
+      expect(subtitle).toHaveLength(0);
     });
   });
 

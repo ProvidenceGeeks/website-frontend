@@ -1,7 +1,5 @@
 @import '../bootstrap/bootstrap';
-
 $imgHeight: 233px!important;
-
 .card {
   font-family: "Josefin Sans", sans-serif;
   background: none !important;
@@ -9,18 +7,15 @@ $imgHeight: 233px!important;
 }
 
 .lazyload-wrapper {
-
   .card-img {
     border-radius: 0 !important;
     min-height: $imgHeight;
     max-height: $imgHeight;
     object-fit: cover;
   }
-
   .fade-appear {
     opacity: 0.01;
   }
-
   .fade-appear.fade-appear-active {
     opacity: 1;
     transition: opacity 600ms ease-in; //ms should match the value of transitionAppearTimeout
@@ -35,6 +30,19 @@ $imgHeight: 233px!important;
   color: $gold;
   width: 100%;
   padding: .55rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-subtitle-container {
+  background: #355463;
+  font-size: 0.8em;
+  font-weight: normal;
+  text-align: right;
+  padding: .25rem .55rem;
+  color: rgba(246, 205, 77, 0.7);
+  font-style: italic;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -63,10 +71,9 @@ $imgHeight: 233px!important;
 }
 
 .card-social-share {
-  :hover {
+   :hover {
     cursor: pointer;
   }
-
   width: 1.75rem;
   height: 1.75rem;
   enable-background: new 0 0 24 24;
@@ -103,7 +110,6 @@ $imgHeight: 233px!important;
   .card-heading {
     font-size: .9rem;
   }
-
   .social-link-fb svg,
   .social-link-tw svg {
     height: 2rem;
