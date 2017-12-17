@@ -7,8 +7,6 @@ import LinkedinIcon from '../linkedin-icon/linkedin-icon';
 import PrinterIcon from '../printer-icon/printer-icon';
 import TwitterIcon from '../twitter-icon/twitter-icon';
 
-// TODO email link
-// TODO print link
 // TODO dont depend on other component styles, e.g. card-social
 const ShareBar = (props) => {
   const encodedUri = encodeURIComponent(props.link);
@@ -31,7 +29,7 @@ const ShareBar = (props) => {
         <div className='social-link-tw'>
 
           <CustomLink className='twitter-share'
-            url={`https://twitter.com/intent/tweet?status=${ encodedUri }`}>
+            url={`https://twitter.com/intent/tweet?status=${ encodedUri } @ProvidenceGeeks`}>
 
             <TwitterIcon/>
           </CustomLink>
