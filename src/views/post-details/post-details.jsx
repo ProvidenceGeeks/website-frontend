@@ -4,6 +4,9 @@ import HeroBanner from '../../components/hero-banner/hero-banner';
 import PostsService from '../../services/posts/posts-service';
 import './post-details.scss';
 
+// TODO Hero Banner
+// TODO Continue reading
+// TODO Share Bar
 // TODO fallback routing when serving locally with http-server
 class PostDetails extends React.Component {
 
@@ -38,7 +41,7 @@ class PostDetails extends React.Component {
           {this.state.selectedPost &&
 
             <article dangerouslySetInnerHTML={{ __html: this.state.selectedPost.content.rendered.replace(/\n/g, '<br />') }}></article>
-            
+
           }
         </div>
 
