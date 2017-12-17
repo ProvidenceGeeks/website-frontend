@@ -52,7 +52,7 @@ describe('Share Bar component', () => {
       it('should test that the CustomLink component is set correctly', () => {
         const link = shareBar.find('.twitter-share');
 
-        expect(link.prop('url')).toEqual(`https://twitter.com/intent/tweet?status=${ encodeURIComponent(shareLink) }`);
+        expect(link.prop('url')).toEqual(`https://twitter.com/intent/tweet?status=${ encodeURIComponent(shareLink) } @ProvidenceGeeks`);
       });
     });
 

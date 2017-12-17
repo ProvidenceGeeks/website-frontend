@@ -2,6 +2,7 @@ import * as React from 'react';
 import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import mockPosts from '../../../test/__mocks__/mock-posts.json';
+import HeroBanner from '../../components/hero-banner/hero-banner';
 import PostDetails from './post-details';
 import ShareBar from '../../components/share-bar/share-bar';
 
@@ -15,8 +16,6 @@ describe('Post Details View component', () => {
   };
 
   beforeEach(() => {
-    const mockPost = mockPosts[0];
-
     global.fetch = jest.fn().mockImplementation(() => {
       return new Promise((resolve) => {
         resolve({
@@ -43,6 +42,14 @@ describe('Post Details View component', () => {
     expect(postDetails.find(ShareBar).length).toEqual(1);
   });
 
+  it('should test a Share bar is shown with the right link', () => {
+    postDetails.setState({
+      mockPost
+    });
+
+    expect(postDetails.find(ShareBar).prop('link')).toEqual(window.location.href);
+  });
+
   it('should test an article is rendered', () => {
     postDetails.setState({
       mockPost
@@ -51,19 +58,37 @@ describe('Post Details View component', () => {
     expect(postDetails.find('article').length).toEqual(1);
   });
 
-  xdescribe('Custom Hero Banner', () => {
-    xit('should test custom background image', () => {
+  describe('Custom Hero Banner', () => {
+    it('should test custom background image', () => {
+      postDetails.setState({
+        mockPost
+      });
 
+      expect(postDetails.find(HeroBanner).prop('backgroundImage')).toEqual(mockPost.media_details.large.source_url);
     });
 
-    xit('should test custom text', () => {
+    it('should test custom title', () => {
+      postDetails.setState({
+        mockPost
+      });
 
+      expect(postDetails.find(HeroBanner).prop('title')).toEqual(mockPost.title.rendered);
+    });
+
+    it('should test custom children', () => {
+      postDetails.setState({
+        mockPost
+      });
+
+      const customContent = postDetails.find(HeroBanner).find('h3.custom-title');
+
+      expect(customContent.length).toEqual(1);
+      expect(customContent.text()).toEqual(`${mockPost.author_name} | ${mockPost.date}`);
     });
   });
 
-  // TODO
-  xdescribe('No match found for provided param.id', () => {
-    // error message?
+  xdescribe('No match found for provided post id (param.id)', () => {
+
   });
 
 });

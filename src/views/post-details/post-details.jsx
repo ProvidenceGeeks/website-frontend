@@ -5,7 +5,6 @@ import PostsService from '../../services/posts/posts-service';
 import ShareBar from '../../components/share-bar/share-bar';
 import './post-details.scss';
 
-// TODO Hero Banner
 // TODO Continue reading...
 // TODO fallback routing when serving locally with http-server
 class PostDetails extends React.Component {
@@ -15,35 +14,59 @@ class PostDetails extends React.Component {
 
     this.props = props;
     this.state = {
-      selectedPost: null
+      postFetchSuccess: false,
+      post: {}
     };
   }
 
   componentDidMount() {
-    PostsService.getPosts().then(response => {
-      const selectedPost = response.filter((post) => {
-        return post.id === this.props.params.id;
-      })[0];
+    if (this.props.params && this.props.params.id) {
+      PostsService.getPosts().then(response => {
+        const selectedPost = response.filter((post) => {
+          return post.id === this.props.params.id;
+        })[0];
 
-      this.setState({
-        selectedPost
+        this.setState({
+          postFetchSuccess: true,
+          post: {
+            title: selectedPost.title.rendered,
+            backgroundImage: selectedPost.media_details.large.source_url,
+            author: selectedPost.author_name,
+            body: selectedPost.content.rendered.replace(/\n/g, '<br />'),
+            date: selectedPost.date,
+            canonicalLink: window.location.href
+          }
+        });
       });
-    });
+    } else {
+      console.error('post id not provided, unable fetch post details'); // eslint-disable-line no-console
+    }
   }
 
   render() {
 
     return (
       <div className="post-details">
-        <HeroBanner/>
 
-        {this.state.selectedPost &&
-          <div className='row article-container'>
+        {this.state.postFetchSuccess &&
+          <div>
+            <HeroBanner
+              title={this.state.post.title}
+              backgroundImage={this.state.post.backgroundImage}>
 
-            <ShareBar link={window.location.href}/>
+              <h3 className="custom-title row d-flex justify-content-center align-self-center">
+                {this.state.post.author} | {this.state.post.date}
+              </h3>
 
-            <article dangerouslySetInnerHTML={{ __html: this.state.selectedPost.content.rendered.replace(/\n/g, '<br />') }}></article>
+            </HeroBanner>
 
+            <div className='row article-container'>
+
+              <ShareBar link={this.state.post.canonicalLink}/>
+
+              <article dangerouslySetInnerHTML={{ __html: this.state.post.body }}></article>
+
+            </div>
           </div>
         }
       </div>

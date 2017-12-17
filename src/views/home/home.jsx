@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <section className="home">
 
-      <HeroBanner />
+      <HeroBanner/>
 
       <NavigationBar>
         <EventsList title={'Events'}/>
