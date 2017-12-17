@@ -1,4 +1,5 @@
 import * as React from 'react';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import HeroBanner from '../../components/hero-banner/hero-banner';
 import PostsService from '../../services/posts/posts-service';
@@ -33,7 +34,7 @@ class PostDetails extends React.Component {
             backgroundImage: selectedPost.media_details.large.source_url,
             author: selectedPost.author_name,
             body: selectedPost.content.rendered.replace(/\n/g, '<br />'),
-            date: selectedPost.date,
+            date: moment(selectedPost.date).utcOffset(-5).format('MM/DD/YY'),
             canonicalLink: window.location.href
           }
         });
