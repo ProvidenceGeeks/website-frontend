@@ -82,7 +82,9 @@ describe('Share Bar component', () => {
       });
 
       it('should test that the Email link is set correctly', () => {
+        const link = shareBar.find('.email-share');
 
+        expect(link.prop('href')).toEqual(`mailto:?subject=Link From Providence Geeks!&body=${ encodeURIComponent(shareLink) }`);
       });
     });
 
@@ -95,14 +97,14 @@ describe('Share Bar component', () => {
         expect(shareBar.find(PrinterIcon).length).toEqual(1);
       });
 
-      it('should test that the Print Button settings are set correctly', () => {
+      xit('should test that clicking the Print Icon calls window.print correctly', () => {
 
       });
     });
 
   });
 
-  describe('Device Conditional Sharing', () => {
+  xdescribe('Device Conditional Sharing', () => {
     it('should test that all sharing features appear on desktop', () => {
 
     });
