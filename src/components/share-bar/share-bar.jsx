@@ -11,6 +11,8 @@ import TwitterIcon from '../twitter-icon/twitter-icon';
 // TODO print link
 // TODO dont depend on other component styles, e.g. card-social
 const ShareBar = (props) => {
+  const encodedUri = encodeURIComponent(props.link);
+
   return (
 
     <div className='row share-bar'>
@@ -19,7 +21,7 @@ const ShareBar = (props) => {
         <div className='social-link-fb'>
 
           <CustomLink className='facebook-share'
-            url={`https://www.facebook.com/sharer/sharer.php?u=${ encodeURIComponent(props.link) }`}>
+            url={`https://www.facebook.com/sharer/sharer.php?u=${ encodedUri }`}>
 
             <FacebookIcon/>
           </CustomLink>
@@ -29,7 +31,7 @@ const ShareBar = (props) => {
         <div className='social-link-tw'>
 
           <CustomLink className='twitter-share'
-            url={`https://twitter.com/intent/tweet?status=${ encodeURIComponent(props.link) }`}>
+            url={`https://twitter.com/intent/tweet?status=${ encodedUri }`}>
 
             <TwitterIcon/>
           </CustomLink>
@@ -39,7 +41,7 @@ const ShareBar = (props) => {
         <div className='social-link-tw'>
 
           <CustomLink className='linkedin-share'
-            url={`https://www.linkedin.com/shareArticle?mini=true&url=${ encodeURIComponent(props.link) }`}>
+            url={`https://www.linkedin.com/shareArticle?mini=true&url=${ encodedUri }`}>
 
             <LinkedinIcon/>
           </CustomLink>
@@ -48,7 +50,9 @@ const ShareBar = (props) => {
 
         <div className='social-link-tw'>
 
-          <a className='email-share' target='_blank' rel='noopener noreferrer'>
+          <a className='email-share'
+            href={`mailto:?subject=Link From Providence Geeks!&body=${ encodedUri }`}>
+
             <EmailIcon/>
           </a>
 
@@ -56,7 +60,7 @@ const ShareBar = (props) => {
 
         <div className='social-link-tw'>
 
-          <a className='print-share'>
+          <a className='print-share' onClick={window.print}>
             <PrinterIcon/>
           </a>
 
