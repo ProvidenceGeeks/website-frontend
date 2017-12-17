@@ -12,6 +12,17 @@ describe('Post Details View component', () => {
   };
 
   beforeEach(() => {
+    global.fetch = jest.fn().mockImplementation(() => {
+      return new Promise((resolve) => {
+        resolve({
+          status: 200,
+          json: () => {
+            return [];
+          }
+        });
+      });
+    });
+
     postDetails = mount(<PostDetails params={params}/>);
   });
 
