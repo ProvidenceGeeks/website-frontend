@@ -8,7 +8,7 @@ import './post-details.scss';
 // TODO Hero Banner
 // TODO Continue reading...
 // TODO Share Bar
-// TODO Document Share Bar component
+// TODO Document Share Bar component in docs
 // TODO fallback routing when serving locally with http-server
 class PostDetails extends React.Component {
 

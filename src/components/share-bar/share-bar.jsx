@@ -1,62 +1,60 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import CustomLink from '../custom-link/custom-link';
 import EmailIcon from '../email-icon/email-icon';
 import FacebookIcon from '../facebook-icon/facebook-icon';
 import LinkedinIcon from '../linkedin-icon/linkedin-icon';
 import PrinterIcon from '../printer-icon/printer-icon';
 import TwitterIcon from '../twitter-icon/twitter-icon';
-import './share-bar.scss';
 
+// TODO email link
+// TODO print link
+// TODO dont depend on other component styles, e.g. card-social
 const ShareBar = (props) => {
   return (
 
     <div className='row share-bar'>
       <div className='card-social'>
 
-        <div className='social-link-fb float-left'>
+        <div className='social-link-fb'>
 
-          <a className='facebook-share'
-            href={`https://www.facebook.com/sharer/sharer.php?u=${ encodeURIComponent(props.link) }`}
-            target='_blank' rel='noopener noreferrer'>
+          <CustomLink className='facebook-share'
+            url={`https://www.facebook.com/sharer/sharer.php?u=${ encodeURIComponent(props.link) }`}>
 
             <FacebookIcon/>
-          </a>
+          </CustomLink>
 
         </div>
 
-        <div className='social-link-tw float-right'>
+        <div className='social-link-tw'>
 
-          <a className='twitter-share'
-            href={`https://twitter.com/intent/tweet?status=${ encodeURIComponent(props.link) }`}
-            target='_blank' rel='noopener noreferrer'>
+          <CustomLink className='twitter-share'
+            url={`https://twitter.com/intent/tweet?status=${ encodeURIComponent(props.link) }`}>
 
             <TwitterIcon/>
-          </a>
+          </CustomLink>
 
         </div>
 
-        <div className='social-link-tw float-right'>
+        <div className='social-link-tw'>
 
-          <a className='linkedin-share'
-            href={`https://www.linkedin.com/shareArticle?mini=true&url=${ encodeURIComponent(props.link) }`}
-            target='_blank' rel='noopener noreferrer'>
+          <CustomLink className='linkedin-share'
+            url={`https://www.linkedin.com/shareArticle?mini=true&url=${ encodeURIComponent(props.link) }`}>
 
             <LinkedinIcon/>
-          </a>
+          </CustomLink>
 
         </div>
 
-        <div className='social-link-tw float-right'>
+        <div className='social-link-tw'>
 
-          <a className='email-share'
-            target='_blank' rel='noopener noreferrer'>
-
+          <a className='email-share' target='_blank' rel='noopener noreferrer'>
             <EmailIcon/>
           </a>
 
         </div>
 
-        <div className='social-link-tw float-right'>
+        <div className='social-link-tw'>
 
           <a className='print-share'>
             <PrinterIcon/>

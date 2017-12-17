@@ -33,12 +33,10 @@ describe('Share Bar component', () => {
         expect(shareBar.find(FacebookIcon).length).toEqual(1);
       });
 
-      it('should test that the Facebook link is set correctly', () => {
+      it('should test that the CustomLink component is set correctly', () => {
         const link = shareBar.find('.facebook-share');
 
-        expect(link.prop('href')).toEqual(`https://www.facebook.com/sharer/sharer.php?u=${ encodeURIComponent(shareLink) }`);
-        expect(link.prop('target')).toEqual('_blank');
-        expect(link.prop('rel')).toEqual('noopener noreferrer');
+        expect(link.prop('url')).toEqual(`https://www.facebook.com/sharer/sharer.php?u=${ encodeURIComponent(shareLink) }`);
       });
     });
 
@@ -51,12 +49,10 @@ describe('Share Bar component', () => {
         expect(shareBar.find(TwitterIcon).length).toEqual(1);
       });
 
-      it('should test the Twitter link is set correctly', () => {
+      it('should test that the CustomLink component is set correctly', () => {
         const link = shareBar.find('.twitter-share');
 
-        expect(link.prop('href')).toEqual(`https://twitter.com/intent/tweet?status=${ encodeURIComponent(shareLink) }`);
-        expect(link.prop('target')).toEqual('_blank');
-        expect(link.prop('rel')).toEqual('noopener noreferrer');
+        expect(link.prop('url')).toEqual(`https://twitter.com/intent/tweet?status=${ encodeURIComponent(shareLink) }`);
       });
     });
 
@@ -69,12 +65,10 @@ describe('Share Bar component', () => {
         expect(shareBar.find(LinkedinIcon).length).toEqual(1);
       });
 
-      it('should test the LinkedIn link is set correctly', () => {
+      it('should test that the CustomLink component is set correctly', () => {
         const link = shareBar.find('.linkedin-share');
 
-        expect(link.prop('href')).toEqual(`https://www.linkedin.com/shareArticle?mini=true&url=${ encodeURIComponent(shareLink) }`);
-        expect(link.prop('target')).toEqual('_blank');
-        expect(link.prop('rel')).toEqual('noopener noreferrer');
+        expect(link.prop('url')).toEqual(`https://www.linkedin.com/shareArticle?mini=true&url=${ encodeURIComponent(shareLink) }`);
       });
     });
 
