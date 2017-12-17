@@ -1,11 +1,10 @@
 @import '../../components/bootstrap/bootstrap';
 
 .post-details{
-
   background-color: $screen;
 }
 
-.post-details article {
+.post-details .article-container {
   margin: 35px auto 0;
   font-size: 1.7rem;
   width: 70%;

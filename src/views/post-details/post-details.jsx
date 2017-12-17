@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import HeroBanner from '../../components/hero-banner/hero-banner';
 import PostsService from '../../services/posts/posts-service';
+import ShareBar from '../../components/share-bar/share-bar';
 import './post-details.scss';
 
 // TODO Hero Banner
@@ -35,17 +36,18 @@ class PostDetails extends React.Component {
   render() {
 
     return (
-      <div>
+      <div className="post-details">
         <HeroBanner/>
 
-        <div className='row post-details'>
-          {this.state.selectedPost &&
+        {this.state.selectedPost &&
+          <div className='row article-container'>
+
+            <ShareBar link={window.location.href}/>
 
             <article dangerouslySetInnerHTML={{ __html: this.state.selectedPost.content.rendered.replace(/\n/g, '<br />') }}></article>
 
-          }
-        </div>
-
+          </div>
+        }
       </div>
     );
   }
