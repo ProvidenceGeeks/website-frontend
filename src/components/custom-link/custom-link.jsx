@@ -10,7 +10,7 @@ const CustomLink = (props) => {
       {
         isExternalLink
           ? <a href={ props.url } target='_blank' rel='noopener noreferrer'> { props.children }</a>
-          : <Link to={props.url}> { props.children } </Link>
+          : <Link to={ props.url }> { props.children } </Link>
       }
     </div>
   );

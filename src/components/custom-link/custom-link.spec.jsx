@@ -15,7 +15,7 @@ describe('CustomLink component', () => {
 
     beforeEach(() => {
       customLink = shallow(
-        <CustomLink url={externalUrl}>
+        <CustomLink url={ externalUrl }>
           { childContent }
         </CustomLink>
       );
@@ -49,8 +49,8 @@ describe('CustomLink component', () => {
 
     beforeEach(() => {
       customLink = shallow(
-        <CustomLink url={appUrl}>
-          {child}
+        <CustomLink url={ appUrl }>
+          { child }
         </CustomLink>
       );
     });

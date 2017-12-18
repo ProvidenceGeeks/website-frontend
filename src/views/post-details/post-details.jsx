@@ -6,8 +6,6 @@ import PostsService from '../../services/posts/posts-service';
 import ShareBar from '../../components/share-bar/share-bar';
 import './post-details.scss';
 
-// TODO Continue reading...
-// TODO fallback routing when serving locally with http-server
 class PostDetails extends React.Component {
 
   constructor(props) {
