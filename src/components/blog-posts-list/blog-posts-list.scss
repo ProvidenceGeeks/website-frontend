@@ -6,8 +6,26 @@
 
 .grid-container .card .card-info {
   background-color: $darkgrey;
-  color: $white;
+  color: lightgray;
   height: 50px;
+}
+
+.grid-container .card .card-info .card-heading {
+  margin-left: 11px;
+}
+
+.grid-container .card .card-link .card-title-container {
+  text-align: justify;
+}
+
+.grid-container .card .card-info .card-social .social-link-fb .facebook-share .facebook-icon .rect
+{
+   fill: white;
+}
+
+.grid-container .card .card-info .card-social .social-link-tw .twitter-share .twitter-icon .rect
+{
+  fill: white;
 }
 
 @include media-breakpoint-down(sm) {
