@@ -82,3 +82,20 @@
   fill: $white;
   display: block !important;
 }
+
+@include media-breakpoint-down(xs) {
+  .hero-title {
+    letter-spacing: 1px;
+    font-size: 3.2rem;
+  }
+  .hero-subtitle {
+    text-align: center;
+    width: 201px;
+  }
+  .text-line {
+    margin: 0;
+  }
+  .hero-text{
+    max-width: 91%;
+  }
+}
