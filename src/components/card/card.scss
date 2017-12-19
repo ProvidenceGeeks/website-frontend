@@ -53,6 +53,11 @@ $imgHeight: 233px!important;
 
 .card-text {
   font-size: 1.1rem;
+  margin: 0;
+}
+
+.card-block a {
+  color: $black;
 }
 
 .card-info {

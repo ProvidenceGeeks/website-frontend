@@ -28,16 +28,18 @@ export default class BlogPostsList extends React.Component {
   static modelPostsDataForCard(postsReponse) {
     return postsReponse.map((post) => {
       const canonicalLink = `${window.location.origin}/posts/${post.id}`;
+      const internalLink = `/post/${post.id}`;
 
       return {
         title: post.title.rendered,
         body: Card.formatHtmlContent(post.excerpt.rendered || 'No Content Available'),
         heading: BlogPostsList.formatHeading(post),
-        link: `/post/${post.id}`,
+        link: internalLink,
         imgSource: post.media_details.medium_large ? post.media_details.medium_large.source_url : undefined,
         imgAlt: post.title.rendered,
         facebookShareMessage: canonicalLink,
-        twitterShareMessage: `${ post.title.rendered } - ${ canonicalLink } ! @ProvidenceGeeks`
+        twitterShareMessage: `${ post.title.rendered } - ${ canonicalLink } ! @ProvidenceGeeks`,
+        readMoreLink: internalLink
       };
     });
   }

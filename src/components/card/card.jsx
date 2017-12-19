@@ -31,7 +31,7 @@ export default class Card extends React.Component {
 
       <div className="card d-flex">
 
-        <CustomLink url={this.props.link}>
+        <CustomLink className="card-link" url={ this.props.link }>
           <div className="lazyload-wrapper">
             <LazyLoad height={233} offset={50} once>
               <CSSTransitionGroup key="1"
@@ -78,6 +78,10 @@ export default class Card extends React.Component {
           <p className="card-text">
             { this.props.body }
           </p>
+
+          {this.props.readMoreLink &&
+            <CustomLink className="read-more-link" url={ this.props.readMoreLink }>Read More &rsaquo;</CustomLink>
+          }
         </div>
       </div>
 
@@ -94,7 +98,8 @@ Card.propTypes = {
   imgSource: PropTypes.string,
   imgAlt: PropTypes.string,
   facebookShareMessage: PropTypes.string,
-  twitterShareMessage: PropTypes.string
+  twitterShareMessage: PropTypes.string,
+  readMoreLink: PropTypes.string
 };
 
 Card.defaultProps = {
