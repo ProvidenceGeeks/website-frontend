@@ -85,7 +85,7 @@
 
 @include media-breakpoint-down(xs) {
   .hero-title {
-    letter-spacing: 1px;
+    letter-spacing: 0.1rem;
     font-size: 3.2rem;
   }
   .hero-subtitle {
