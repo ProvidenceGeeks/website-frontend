@@ -6,7 +6,7 @@
 
 .grid-container .card .card-info {
   background-color: $darkgrey;
-  color: #F1F3F6;
+  color: $screen;
   height: 50px;
 }
 
@@ -22,12 +22,12 @@
 
 .grid-container .card .card-info .card-social .social-link-fb .facebook-share .facebook-icon .rect
 {
-   fill: white;
+   fill: $white;
 }
 
 .grid-container .card .card-info .card-social .social-link-tw .twitter-share .twitter-icon .rect
 {
-  fill: white;
+  fill: $white;
 }
 
 @include media-breakpoint-down(sm) {
