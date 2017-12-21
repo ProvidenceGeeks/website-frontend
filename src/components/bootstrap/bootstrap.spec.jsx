@@ -23,7 +23,11 @@ describe('Bootstrap component', () => {
       });
     });
 
-    bootstrap = mount(<Bootstrap />);
+    bootstrap = mount(
+      <Bootstrap>
+        <Home/>
+      </Bootstrap>
+    );
   });
 
   it('should not be null', () => {
@@ -34,7 +38,7 @@ describe('Bootstrap component', () => {
     expect(bootstrap.find(Header).length).toEqual(1);
   });
 
-  it('should have a Home Component', () => {
+  it('should have the provided child component (Home)', () => {
     expect(bootstrap.find(Home).length).toEqual(1);
   });
 

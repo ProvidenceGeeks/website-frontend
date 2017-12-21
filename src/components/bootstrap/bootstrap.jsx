@@ -1,30 +1,31 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Header from '../header/header';
-import Home from '../../views/home/home';
 import Footer from '../footer/footer';
 import './bootstrap.scss';
 
-export default class Bootstrap extends React.Component {
-  constructor() {
-    super();
-  }
+const Bootstrap = (props) => {
+  return (
 
-  render() {
-    return (
-
-      <div className='container-fluid'>
+    <div className='container-fluid'>
+      <section>
         <Header />
+      </section>
 
-        <Home />
+      <section>
+        { props.children }
+      </section>
 
+      <section>
         <Footer />
-      </div>
+      </section>
+    </div>
 
-    );
-  }
-}
+  );
+};
 
 Bootstrap.propTypes = {
   children: PropTypes.element
 };
+
+export default Bootstrap;

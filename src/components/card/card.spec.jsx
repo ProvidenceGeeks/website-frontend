@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, mount, configure } from 'enzyme';
+import mockEvents from '../../../test/__mocks__/mock-events.json';
 import Card from './card';
 import FacebookIcon from '../facebook-icon/facebook-icon';
-import mockEvents from '../../../test/__mocks__/mock-events.json';
 import PlaceholderImage from './images/placeholder-318x180.png';
 import TwitterIcon from '../twitter-icon/twitter-icon';
 
@@ -28,6 +28,7 @@ describe('Card component', () => {
       imgSource={ `${mockCardContent.group.group_photo}` }
       facebookShareMessage={ 'Post this to Facebook!' }
       twitterShareMessage={ 'Post this to Twitter!' }
+      readMoreLink={ mockCardContent.link }
     />);
   });
 
@@ -37,12 +38,8 @@ describe('Card component', () => {
       expect(card.find('.card').length).toEqual(1);
     });
 
-    it('should test the card as a link displays correctly', () => {
-      const cardLink = card.find('.card-link');
-
-      expect(cardLink.prop('href')).toEqual(mockEvent.link);
-      expect(cardLink.prop('rel')).toEqual('noopener noreferrer');
-      expect(cardLink.prop('target')).toEqual('_blank');
+    it('should test the card uses a CustomLink component', () => {
+      expect(card.find('.card-link').length).toEqual(1);
     });
 
     it('should test there is a lazily loaded image with a 600ms fade in', () => {
@@ -108,6 +105,14 @@ describe('Card component', () => {
       expect(subtitle).toHaveLength(1);
       expect(subtitle.text()).toEqual(mockCardContent.group.name);
     });
+
+    it('should test the read more link displays correctly', () => {
+      const readMoreLink = card.find('.read-more-link');
+
+      expect(readMoreLink.length).toEqual(1);
+      expect(readMoreLink.prop('url')).toEqual(mockCardContent.link);
+      expect(readMoreLink.text()).toContain('Read More');
+    });
   });
 
   describe('Card elements when only required props are provided', () => {
@@ -138,6 +143,10 @@ describe('Card component', () => {
       const subtitle = card.find('.card-subtitle-container');
 
       expect(subtitle).toHaveLength(0);
+    });
+
+    it('should test the read more link is not displayed', () => {
+      expect(card.find('.read-more-link').length).toEqual(0);
     });
   });
 

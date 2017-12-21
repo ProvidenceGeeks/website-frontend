@@ -2,11 +2,13 @@ import * as React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 import LazyLoad from 'react-lazyload';
 import PropTypes from 'prop-types';
+import CustomLink from '../custom-link/custom-link';
 import FacebookIcon from '../facebook-icon/facebook-icon';
 import PlacholderImage from './images/placeholder-318x180.png';
 import TwitterIcon from '../twitter-icon/twitter-icon';
 import './card.scss';
 
+// TODO can this just be a non-class component?  Maybe have a card-service instead?
 export default class Card extends React.Component {
   constructor(props) {
     super();
@@ -29,7 +31,7 @@ export default class Card extends React.Component {
 
       <div className="card d-flex">
 
-        <a className="card-link" href={ this.props.link } target="_blank" rel="noopener noreferrer">
+        <CustomLink className="card-link" url={ this.props.link }>
           <div className="lazyload-wrapper">
             <LazyLoad height={233} offset={50} once>
               <CSSTransitionGroup key="1"
@@ -52,7 +54,7 @@ export default class Card extends React.Component {
             <span className="card-subtitle">{this.props.subtitle}</span>
           </div>
           }
-        </a>
+        </CustomLink>
 
         <div className="card-info d-flex align-self-end justify-content-between">
           <div className="card-heading">{ this.props.heading }</div>
@@ -76,6 +78,10 @@ export default class Card extends React.Component {
           <p className="card-text">
             { this.props.body }
           </p>
+
+          {this.props.readMoreLink &&
+            <CustomLink className="read-more-link" url={ this.props.readMoreLink }>Read More &rsaquo;</CustomLink>
+          }
         </div>
       </div>
 
@@ -92,7 +98,8 @@ Card.propTypes = {
   imgSource: PropTypes.string,
   imgAlt: PropTypes.string,
   facebookShareMessage: PropTypes.string,
-  twitterShareMessage: PropTypes.string
+  twitterShareMessage: PropTypes.string,
+  readMoreLink: PropTypes.string
 };
 
 Card.defaultProps = {

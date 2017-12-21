@@ -5,7 +5,8 @@ const webpack = require('webpack');
 module.exports = webpackMerge(commonConfig, {
 
   output: {
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
+    publicPath: '/'
   },
 
   devtool: 'eval',

@@ -1,7 +1,6 @@
 @import '../bootstrap/bootstrap';
 $imgHeight: 233px!important;
 .card {
-  font-family: "Josefin Sans", sans-serif;
   background: none !important;
   border: none !important;
 }
@@ -54,6 +53,11 @@ $imgHeight: 233px!important;
 
 .card-text {
   font-size: 1.1rem;
+  margin: 0;
+}
+
+.card-block a {
+  color: $black;
 }
 
 .card-info {

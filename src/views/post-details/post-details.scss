@@ -1,0 +1,44 @@
+@import '../../components/bootstrap/bootstrap';
+
+.post-details{
+  background-color: $screen;
+}
+
+.post-details .article-container {
+  margin: 35px auto 0;
+  font-size: 1.7rem;
+  width: 70%;
+}
+
+.post-details article img{
+  float: left;
+  margin: 15px 15px 40px;
+}
+
+.post-details article b {
+  font-family: 'Josefin Slab', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: -5px;
+  display: block;
+}
+
+.post-details article b, p {
+  clear: both;
+
+  br {
+    display: none;
+  }
+}
+
+.post-details article figure{
+}
+
+.post-details article figure img{
+  height: 100%;
+  width: 100%;
+}
+
+.post-details article figure figcaption.wp-caption-text{
+  color: $lightgrey;
+  font-style: italic;
+}
