@@ -4,6 +4,32 @@
   padding: 2.5rem 0;
 }
 
+.grid-container .card .card-info {
+  background-color: $darkgrey;
+  color: $screen;
+  height: 50px;
+}
+
+.grid-container .card .card-info .card-heading {
+  margin-left: 11px;
+  font-weight: normal;
+  font-family: "Josefin Sans Thin", sans-serif;
+}
+
+.grid-container .card .card-link .card-title-container {
+  text-align: justify;
+}
+
+.grid-container .card .card-info .card-social .social-link-fb .facebook-share .facebook-icon .rect
+{
+   fill: $white;
+}
+
+.grid-container .card .card-info .card-social .social-link-tw .twitter-share .twitter-icon .rect
+{
+  fill: $white;
+}
+
 @include media-breakpoint-down(sm) {
   .grid-container {
     padding: 1.5rem 0;
