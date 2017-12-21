@@ -22,7 +22,6 @@ module.exports = webpackMerge(commonConfig, {
 
   devServer: {
     port: 9000,
-    host: 'localhost',
     historyApiFallback: true,
     proxy: {
       '/api/*': {
