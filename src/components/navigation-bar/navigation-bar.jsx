@@ -6,8 +6,8 @@ import './navigation-bar.scss';
 const NavigationBar = (props) => {
 
   return (
-    <div className="row navigation-bar">
-      <div className="col-md-12">
+    <div className="navigation-bar">
+      <div className="col-sm-12">
         <Tabs id="navigation-bar-tabs d-flex">
           {
             props.children.map((child, key) => {

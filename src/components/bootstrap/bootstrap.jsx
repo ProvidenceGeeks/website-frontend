@@ -8,15 +8,15 @@ const Bootstrap = (props) => {
   return (
 
     <div className='container-fluid'>
-      <section>
+      <section className='row'>
         <Header />
       </section>
 
-      <section>
+      <section className='row'>
         { props.children }
       </section>
 
-      <section>
+      <section className='row'>
         <Footer />
       </section>
     </div>

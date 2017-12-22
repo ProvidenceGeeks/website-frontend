@@ -59,7 +59,7 @@ class PostDetails extends React.Component {
 
             </HeroBanner>
 
-            <div className='row article-container'>
+            <div className='article-container'>
 
               <ShareBar link={this.state.post.canonicalLink}/>
 

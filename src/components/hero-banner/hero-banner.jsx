@@ -51,7 +51,7 @@ export default class HeroBanner extends React.Component {
           {this.props.children
             ? this.props.children
             : <div className="d-flex flex-column justify-content-center">
-              <div className="row d-flex justify-content-center">
+              <div className="d-flex justify-content-center">
                 <hr className="text-line align-self-center" />
                 <h4 className="hero-subtitle align-self-center">Connecting Digital Innovators</h4>
                 <hr className="text-line align-self-center" />
@@ -59,7 +59,7 @@ export default class HeroBanner extends React.Component {
 
               <PvdGeeksLogo />
 
-              <div className="row d-flex justify-content-center align-self-center">
+              <div className="d-flex justify-content-center align-self-center">
                 <p className="hero-text">The goal of Providence Geeks is to help Rhode Island’s digital innovators connect,
                 collaborate, and ultimately make the City-State and its geeks info-technology leaders.</p>
               </div>

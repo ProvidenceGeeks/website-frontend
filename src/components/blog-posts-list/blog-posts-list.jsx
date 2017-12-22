@@ -54,13 +54,10 @@ export default class BlogPostsList extends React.Component {
   render() {
     return (
 
-      <div className="row-fluid">
-
-        <div className="grid-container">
-          <CardGrid data={this.state.posts}/>
-        </div>
-
+      <div className="grid-container">
+        <CardGrid data={this.state.posts}/>
       </div>
+
     );
   }
 }
