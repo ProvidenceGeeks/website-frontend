@@ -1,5 +1,7 @@
 @import '../bootstrap/bootstrap';
+
 $imgHeight: 233px!important;
+
 .card {
   background: none !important;
   border: none !important;
@@ -42,7 +44,6 @@ $imgHeight: 233px!important;
   padding: .25rem .55rem;
   color: rgba(246, 205, 77, 0.7);
   font-style: italic;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -116,5 +117,9 @@ $imgHeight: 233px!important;
   .social-link-fb svg,
   .social-link-tw svg {
     height: 2rem;
+  }
+
+  .card-title-container{
+    white-space: normal;
   }
 }
