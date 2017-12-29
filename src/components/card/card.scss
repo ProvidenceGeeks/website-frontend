@@ -91,6 +91,10 @@ $imgHeight: 233px!important;
   display: flex;
 }
 
+.card-social .social-link-fb .facebook-share-mobile, .twitter-share-mobile  {
+  display: none;
+}
+
 .social-link-fb svg,
 .social-link-tw svg {
   height: 1.7rem;
@@ -116,5 +120,11 @@ $imgHeight: 233px!important;
   .social-link-fb svg,
   .social-link-tw svg {
     height: 2rem;
+  }
+  .card-social .social-link-fb .facebook-share, .twitter-share  {
+    display: none;
+  }
+  .card-social .social-link-fb .facebook-share-mobile, .twitter-share-mobile  {
+    display: inherit;
   }
 }
