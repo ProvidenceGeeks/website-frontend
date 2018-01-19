@@ -24,7 +24,7 @@ const Footer = () => {
       </div>
 
       <div className="copyright col-md-12">
-        <small className="copyright-text">&copy; Copyright 2017 Providence Geeks</small>
+        <small className="copyright-text">&copy; Copyright {(new Date().getFullYear())} Providence Geeks</small>
       </div>
 
     </div>
