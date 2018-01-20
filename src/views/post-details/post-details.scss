@@ -33,7 +33,8 @@
 .post-details article figure{
 }
 
-.post-details article figure img{
+/* https://github.com/ProvidenceGeeks/website-frontend/issues/134 */
+.post-details article figure img, .post-details article img{
   height: 100%;
   width: 100%;
 }
