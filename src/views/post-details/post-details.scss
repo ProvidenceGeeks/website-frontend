@@ -10,7 +10,9 @@
   width: 70%;
 }
 
-.post-details article img{
+/* These are styles to target rendered content coming back from WordPress generated markup so be mindful if refactoring */
+/* And test many different articles to ensure no regression, ex. https://github.com/ProvidenceGeeks/website-frontend/issues/134 */
+.post-details article img.size-medium{
   float: left;
   margin: 15px 15px 40px;
 }
@@ -30,11 +32,7 @@
   }
 }
 
-.post-details article figure{
-}
-
-/* https://github.com/ProvidenceGeeks/website-frontend/issues/134 */
-.post-details article figure img, .post-details article img{
+.post-details article figure img, .post-details article img.size-full{
   height: 100%;
   width: 100%;
 }
