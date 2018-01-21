@@ -1,5 +1,7 @@
 @import '../bootstrap/bootstrap';
 
+$social-icon-size: 2.5rem;
+
 .footer {
   background: $darkgrey;
   color: $white;
@@ -15,7 +17,10 @@
 }
 
 .footer-top {
+  padding-left: 2rem;
+  padding-right: 2rem;
   border-spacing: 15px;
+  justify-content: space-between;
 }
 
 .footer-hr-container {
@@ -35,4 +40,28 @@
 
 .footer-top {
   width: 100%;
+}
+
+.footer .social {
+  flex-direction: column;
+
+  svg {
+    height: $social-icon-size/2;
+    width: $social-icon-size/2;
+  }
+}
+
+@media (min-width: 768px) {
+  .footer .social {
+    flex-direction: row;
+
+    li a {
+      margin-right: $social-icon-size/1.5;
+    }
+
+    svg {
+      height: $social-icon-size;
+      width: $social-icon-size;
+    }
+  }
 }
