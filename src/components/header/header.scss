@@ -8,12 +8,11 @@ $social-icon-size: 2.5rem;
   width: 100%;
 }
 
-.logo path {
+.header .logo path {
   fill: $gold;
 }
 
-.logo svg {
-  margin-left: 2rem;
+.header .logo svg {
   padding: 1rem 0;
   height: 7rem;
 }

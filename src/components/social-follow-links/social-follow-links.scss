@@ -6,15 +6,18 @@ $social-icon-size: 2.5rem;
   margin: 0;
 }
 
-.social li a {
-  margin-right: $social-icon-size/1.5;
-}
-
-.slack-icon, .twitter-icon {
+.slack-icon,
+.twitter-icon {
   width: $social-icon-size;
 }
 
 .facebook-icon {
   width: $social-icon-size;
   height: $social-icon-size;
+}
+
+@media (min-width: 768px) {
+  .social li a {
+    margin-right: $social-icon-size/1.5;
+  }
 }
