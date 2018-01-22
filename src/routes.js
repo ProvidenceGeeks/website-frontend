@@ -14,7 +14,7 @@ export default {
   component: Bootstrap,
   indexRoute: {
     getComponent(location, cb) {
-      System.import('./views/home/home')
+      import('./views/home/home')
         .then(loadRoute(cb))
         .catch(handleRouteLoadingError);
     }
@@ -22,14 +22,14 @@ export default {
   childRoutes: [{
     path: '/post/:id',
     getComponent(location, cb) {
-      System.import('./views/post-details/post-details')
+      import('./views/post-details/post-details')
         .then(loadRoute(cb, false))
         .catch(handleRouteLoadingError);
     }
   }, {
     path: '*',
     getComponent(location, cb) {
-      System.import('./views/home/home')
+      import('./views/home/home')
         .then(loadRoute(cb))
         .catch(handleRouteLoadingError);
     }
