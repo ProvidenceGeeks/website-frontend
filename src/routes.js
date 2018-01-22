@@ -1,11 +1,10 @@
 import Bootstrap from './components/bootstrap/bootstrap';
 
-// throws an error in the console if the page wasn't able to load
-function errorLoading(error) {
+// thanks to https://brotzky.co/blog/code-splitting-react-router-webpack-2/!
+function handleRouteLoadingError(error) {
   throw new Error(`Dynamic page loading failed: ${error}`);
 }
 
-// Loading modules!
 function loadRoute(cb) {
   return module => cb(null, module.default);
 }
@@ -17,7 +16,7 @@ export default {
     getComponent(location, cb) {
       System.import('./views/home/home')
         .then(loadRoute(cb))
-        .catch(errorLoading);
+        .catch(handleRouteLoadingError);
     }
   },
   childRoutes: [{
@@ -25,14 +24,14 @@ export default {
     getComponent(location, cb) {
       System.import('./views/post-details/post-details')
         .then(loadRoute(cb, false))
-        .catch(errorLoading);
+        .catch(handleRouteLoadingError);
     }
   }, {
     path: '*',
     getComponent(location, cb) {
       System.import('./views/home/home')
         .then(loadRoute(cb))
-        .catch(errorLoading);
+        .catch(handleRouteLoadingError);
     }
   }]
 };
