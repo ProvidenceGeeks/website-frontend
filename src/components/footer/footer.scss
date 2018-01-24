@@ -17,8 +17,7 @@ $social-icon-size: 2.5rem;
 }
 
 .footer-top {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 0 2rem;
   border-spacing: 15px;
   justify-content: space-between;
 }
@@ -28,7 +27,7 @@ $social-icon-size: 2.5rem;
 }
 
 .footer hr {
-  margin: 0rem 1.66667rem 0rem 2rem;
+  margin: 0 1.66667rem 0 2rem;
   background: $lightgrey;
   width: 100%;
 }
