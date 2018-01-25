@@ -28,10 +28,4 @@ describe('Footer component', () => {
   it('should have a SocialFollowLinks component', () => {
     expect(footer.find(SocialFollowLinks).length).toBe(1);
   });
-
-  it('should have copyright notice with current year', () => {
-    const copyright = footer.find('.row .copyright');
-
-    expect(copyright.text()).toBe('© Copyright 2017 Providence Geeks');
-  });
 });

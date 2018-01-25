@@ -16,10 +16,6 @@ const Footer = () => {
           <SocialFollowLinks />
         </div>
       </div>
-      <hr />
-      <div className="copyright">
-        <small className="copyright-text">&copy; Copyright 2017 Providence Geeks</small>
-      </div>
     </div>
   );
 };
