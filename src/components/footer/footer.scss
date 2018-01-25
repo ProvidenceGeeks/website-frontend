@@ -1,43 +1,48 @@
 @import '../bootstrap/bootstrap';
 
+$social-icon-size: 2.5rem;
+
 .footer {
   background: $darkgrey;
   color: $white;
 }
 
-.logo path {
+.footer .logo path {
   fill: $gold;
 }
 
-.logo svg {
-  margin-left: 2rem;
+.footer .logo svg {
   padding: 1rem 0;
   height: 7rem;
 }
 
 .footer-top {
+  padding: 0 2rem;
   border-spacing: 15px;
-}
-
-.footer-hr-container {
-  padding: 0 !important;
-}
-
-.footer.row > div {
-  padding: 0;
-}
-
-.footer hr {
-  margin: 0rem 1.66667rem 0rem 2rem !important;
-  background: $lightgrey;
+  justify-content: space-between;
   width: 100%;
 }
 
-.copyright {
-  padding: .33em 0 2em 2rem !important;
-  color: $lightgrey;
+.footer .social {
+  flex-direction: column;
+
+  svg {
+    height: $social-icon-size/2;
+    width: $social-icon-size/2;
+  }
 }
 
-.footer-top {
-  width: 100%;
+@media (min-width: 768px) {
+  .footer .social {
+    flex-direction: row;
+
+    li a {
+      margin-right: $social-icon-size/1.5;
+    }
+
+    svg {
+      height: $social-icon-size;
+      width: $social-icon-size;
+    }
+  }
 }

@@ -3,17 +3,46 @@
 $social-icon-size: 2.5rem;
 
 .header {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   background: $darkgrey;
   color: $white;
   width: 100%;
+  padding-bottom: 1rem;
 }
 
-.logo path {
+.header .logo path {
   fill: $gold;
 }
 
-.logo svg {
-  margin-left: 2rem;
+.header .logo svg {
   padding: 1rem 0;
   height: 7rem;
+}
+
+.header .social li a {
+  margin-right: $social-icon-size/1.5;
+}
+
+.header .social li:last-of-type a {
+  margin-right: 0;
+}
+
+.header .social svg {
+  height: $social-icon-size/1.5;
+  width: $social-icon-size/1.5;
+}
+
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+
+  .header .social svg {
+    height: $social-icon-size;
+    width: $social-icon-size;
+  }
 }
