@@ -1,6 +1,6 @@
 {
   "name": "website-frontend",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "UI frontend repository for the Providence Geeks website. Built with React and webpack.",
   "main": "./src/index.jsx",
   "scripts": {
