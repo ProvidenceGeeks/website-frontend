@@ -49,6 +49,7 @@ module.exports = webpackMerge(commonConfig, {
     //   }
     // }),
 
+    // TODO - https://github.com/arthurbergmz/webpack-pwa-manifest/issues/52
     // new WebpackPwaManifest({
     //   name: 'Providence Geeks',
     //   short_name: 'PVD Geeks', // eslint-disable-line camelcase
@@ -64,6 +65,7 @@ module.exports = webpackMerge(commonConfig, {
     //   }]
     // }),
 
+    // TODO - https://github.com/ProvidenceGeeks/website-frontend/pull/142
     // new HtmlCriticalPlugin({
     //   base: path.resolve(__dirname, 'build'),
     //   src: 'index.html',
@@ -80,6 +82,7 @@ module.exports = webpackMerge(commonConfig, {
 
     // new ExtractTextPlugin('styles.[chunkhash].css'),
 
+    // TODO - https://github.com/NMFR/optimize-css-assets-webpack-plugin/issues/34
     new OptimizeCssAssetsPlugin({
       cssProcessorOptions: { discardComments: { removeAll: true } }
     }),
