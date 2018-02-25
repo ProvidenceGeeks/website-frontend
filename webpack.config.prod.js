@@ -2,7 +2,7 @@ const commonConfig = require('./webpack.config.common');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 // const HtmlCriticalPlugin = require('html-critical-webpack-plugin');
-// const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 // const path = require('path');
 // const WebpackPwaManifest = require('webpack-pwa-manifest');
 const webpack = require('webpack');
@@ -80,9 +80,9 @@ module.exports = webpackMerge(commonConfig, {
 
     // new ExtractTextPlugin('styles.[chunkhash].css'),
 
-    // new OptimizeCssAssetsPlugin({
-    //   cssProcessorOptions: { discardComments: { removeAll: true } }
-    // }),
+    new OptimizeCssAssetsPlugin({
+      cssProcessorOptions: { discardComments: { removeAll: true } }
+    }),
 
     new webpack.optimize.ModuleConcatenationPlugin()
   ]
