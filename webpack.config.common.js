@@ -22,6 +22,7 @@ module.exports = {
   },
 
   module: {
+    // TODO - https://github.com/webpack-contrib/eslint-loader/pull/212
     rules: [
       // {
       //   test: /\.(js*)x$/,

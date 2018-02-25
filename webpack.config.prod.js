@@ -3,7 +3,6 @@ const commonConfig = require('./webpack.config.common');
 // const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 // const HtmlCriticalPlugin = require('html-critical-webpack-plugin');
 // const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-// const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 // const path = require('path');
 // const WebpackPwaManifest = require('webpack-pwa-manifest');
 const webpack = require('webpack');
@@ -13,6 +12,7 @@ module.exports = webpackMerge(commonConfig, {
 
   mode: 'production',
 
+  // TODO - https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/701
   // module: {
   //   rules: [
   //     {
@@ -26,6 +26,7 @@ module.exports = webpackMerge(commonConfig, {
 
   plugins: [
 
+    // TODO - https://github.com/jantimon/favicons-webpack-plugin/issues/92
     // new FaviconsWebpackPlugin({
     //   logo: './components/bootstrap/images/pvd-geeks-logo.png',
     //   emitStats: true,
@@ -82,12 +83,6 @@ module.exports = webpackMerge(commonConfig, {
     // new OptimizeCssAssetsPlugin({
     //   cssProcessorOptions: { discardComments: { removeAll: true } }
     // }),
-
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': '"production"'
-      }
-    }),
 
     new webpack.optimize.ModuleConcatenationPlugin()
   ]
