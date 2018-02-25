@@ -11,6 +11,8 @@ const webpackMerge = require('webpack-merge');
 
 module.exports = webpackMerge(commonConfig, {
 
+  mode: 'production',
+
   module: {
     rules: [
       {
