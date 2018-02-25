@@ -54,10 +54,6 @@ module.exports = {
       chunksSortMode: 'dependency'
     }),
 
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'common'
-    }),
-
     new webpack.ProvidePlugin({ // exposes non-modular vendor globals to webpack
       jQuery: 'jquery'
     })
