@@ -45,7 +45,7 @@
     "favicons-webpack-plugin": "^0.0.7",
     "file-loader": "^1.1.9",
     "html-critical-webpack-plugin": "^1.1.0",
-    "html-webpack-plugin": "https://github.com/thescientist13/html-webpack-plugin.git#25b840b765087751403e896e8cc15c3f59f777ae",
+    "html-webpack-plugin": "https://github.com/webpack-contrib/html-webpack-plugin.git#1dee37e2696fd3990fe9be0a2945e465c0bb9a64",
     "http-server": "^0.10.0",
     "jest": "^21.2.1",
     "node-sass": "^4.5.3",
