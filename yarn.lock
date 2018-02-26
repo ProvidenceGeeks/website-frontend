@@ -2943,9 +2943,9 @@ escodegen@^1.6.1, escodegen@^1.9.0:
   optionalDependencies:
     source-map "~0.5.6"
 
-eslint-loader@^1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/eslint-loader/-/eslint-loader-1.9.0.tgz#7e1be9feddca328d3dcfaef1ad49d5beffe83a13"
+eslint-loader@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-loader/-/eslint-loader-2.0.0.tgz#d136619b5c684e36531ffc28c60a56e404608f5d"
   dependencies:
     loader-fs-cache "^1.0.0"
     loader-utils "^1.0.2"
@@ -4258,7 +4258,6 @@ html-webpack-plugin@webpack-contrib/html-webpack-plugin#6319451c00494ec32fea9176
     loader-utils "^0.2.16"
     lodash "^4.17.3"
     pretty-error "^2.0.2"
-    tapable "^1.0.0"
     toposort "^1.0.0"
 
 htmlparser2@^3.9.1:
