@@ -4249,15 +4249,16 @@ html-minifier@^3.2.3:
     relateurl "0.2.x"
     uglify-js "3.3.x"
 
-html-webpack-plugin@webpack-contrib/html-webpack-plugin#6319451c00494ec32fea9176bfdcb7528185ab35:
+"html-webpack-plugin@https://github.com/webpack-contrib/html-webpack-plugin.git#6319451c00494ec32fea9176bfdcb7528185ab35":
   version "2.30.1"
-  resolved "https://codeload.github.com/webpack-contrib/html-webpack-plugin/tar.gz/6319451c00494ec32fea9176bfdcb7528185ab35"
+  resolved "https://github.com/webpack-contrib/html-webpack-plugin.git#6319451c00494ec32fea9176bfdcb7528185ab35"
   dependencies:
     bluebird "^3.4.7"
     html-minifier "^3.2.3"
     loader-utils "^0.2.16"
     lodash "^4.17.3"
     pretty-error "^2.0.2"
+    tapable "^1.0.0"
     toposort "^1.0.0"
 
 htmlparser2@^3.9.1:
