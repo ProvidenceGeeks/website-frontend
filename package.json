@@ -60,7 +60,7 @@
     "webpack-cli": "^2.0.8",
     "webpack-dev-server": "^3.0.0",
     "webpack-merge": "^4.1.2",
-    "webpack-pwa-manifest": "^3.5.0",
+    "webpack-pwa-manifest": "^3.6.0",
     "webpack-s3-plugin": "^1.0.0-rc.0"
   }
 }

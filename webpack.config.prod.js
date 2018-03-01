@@ -3,8 +3,8 @@ const commonConfig = require('./webpack.config.common');
 // const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 // const HtmlCriticalPlugin = require('html-critical-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-// const path = require('path');
-// const WebpackPwaManifest = require('webpack-pwa-manifest');
+const path = require('path');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 
@@ -50,20 +50,20 @@ module.exports = webpackMerge(commonConfig, {
     // }),
 
     // TODO - https://github.com/arthurbergmz/webpack-pwa-manifest/issues/52
-    // new WebpackPwaManifest({
-    //   name: 'Providence Geeks',
-    //   short_name: 'PVD Geeks', // eslint-disable-line camelcase
-    //   start_url: '.', // eslint-disable-line camelcase
-    //   inject: true,
-    //   fingerprints: true,
-    //   ios: true,
-    //   background_color: '#bcbfc2', // eslint-disable-line camelcase
-    //   theme_color: '#1a2930', // eslint-disable-line camelcase
-    //   icons: [{
-    //     src: path.resolve('./src/components/bootstrap/images/pvd-geeks-logo.png'),
-    //     sizes: [96, 128, 192, 256, 384, 512]
-    //   }]
-    // }),
+    new WebpackPwaManifest({
+      name: 'Providence Geeks',
+      short_name: 'PVD Geeks', // eslint-disable-line camelcase
+      start_url: '.', // eslint-disable-line camelcase
+      inject: true,
+      fingerprints: true,
+      ios: true,
+      background_color: '#bcbfc2', // eslint-disable-line camelcase
+      theme_color: '#1a2930', // eslint-disable-line camelcase
+      icons: [{
+        src: path.resolve('./src/components/bootstrap/images/pvd-geeks-logo.png'),
+        sizes: [96, 128, 192, 256, 384, 512]
+      }]
+    }),
 
     // TODO - https://github.com/ProvidenceGeeks/website-frontend/pull/142
     // new HtmlCriticalPlugin({
