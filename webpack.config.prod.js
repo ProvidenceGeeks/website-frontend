@@ -1,7 +1,7 @@
 const commonConfig = require('./webpack.config.common');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 // const HtmlCriticalPlugin = require('html-critical-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
@@ -12,17 +12,28 @@ module.exports = webpackMerge(commonConfig, {
 
   mode: 'production',
 
-  // TODO - https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/701
-  // module: {
-  //   rules: [
-  //     {
-  //       test: /\.(s*)css$/,
-  //       use: ExtractTextPlugin.extract({
-  //         use: ['css-loader', 'sass-loader']
-  //       })
-  //     }
-  //   ]
-  // },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        vendors: {
+          test: /node_modules/,
+          enforce: true
+        }
+      }
+    }
+  },
+
+  module: {   
+    rules: [{   
+      test: /\.(s*)css$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader', 
+        'sass-loader'
+      ]
+    }]
+  },
 
   plugins: [
 
@@ -80,7 +91,7 @@ module.exports = webpackMerge(commonConfig, {
     //   }
     // }),
 
-    // new ExtractTextPlugin('styles.[chunkhash].css'),
+    new MiniCssExtractPlugin(),
 
     // TODO - https://github.com/NMFR/optimize-css-assets-webpack-plugin/issues/34
     new OptimizeCssAssetsPlugin({

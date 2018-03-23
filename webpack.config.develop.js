@@ -13,6 +13,13 @@ module.exports = webpackMerge(commonConfig, {
 
   devtool: 'eval',
 
+  module: {
+    rules: [{
+      test: /\.(s*)css$/,
+      use: ['style-loader', 'css-loader', 'sass-loader']
+    }]
+  },
+
   devServer: {
     port: 9000,
     historyApiFallback: true,
