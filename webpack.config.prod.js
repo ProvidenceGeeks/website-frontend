@@ -93,7 +93,6 @@ module.exports = webpackMerge(commonConfig, {
 
     new MiniCssExtractPlugin(),
 
-    // TODO - https://github.com/NMFR/optimize-css-assets-webpack-plugin/issues/34
     new OptimizeCssAssetsPlugin({
       cssProcessorOptions: { discardComments: { removeAll: true } }
     }),
