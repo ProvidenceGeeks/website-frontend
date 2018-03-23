@@ -10,8 +10,7 @@
     "lint": "eslint *.js ./src/**/**/*.spec.*",
     "release": "npm run clean && npm run lint && webpack --config ./webpack.config.release.js",
     "serve": "npm run build && http-server ./build -o --proxy http://stage.pvdgeeks.org",
-    "test": "npm run clean && jest --config ./jest.config.json",
-    "mini-extract": "npm run clean && webpack --config ./webpack.config.mini-extract.js"
+    "test": "npm run clean && jest --config ./jest.config.json"
   },
   "repository": {
     "url": "https://github.com/ProvidenceGeeks/website-frontend.git",
