@@ -4,8 +4,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    index: './index.jsx',
-    vendor: './vendor.js'
+    index: './index.jsx'
   },
 
   output: {
@@ -34,9 +33,6 @@ module.exports = {
         'react-hot-loader/webpack'
       ],
       exclude: path.join(__dirname, 'node_modules')
-    }, {
-      test: /\.(s*)css$/,
-      use: ['style-loader', 'css-loader', 'sass-loader']
     }, {
       test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: 'url-loader?limit=10000&mimetype=application/font-woff'
