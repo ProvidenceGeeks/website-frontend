@@ -37,7 +37,6 @@ module.exports = webpackMerge(commonConfig, {
 
   plugins: [
 
-    // TODO - https://github.com/jantimon/favicons-webpack-plugin/issues/92
     new FaviconsWebpackPlugin({
       logo: './components/bootstrap/images/pvd-geeks-logo.png',
       emitStats: true,
