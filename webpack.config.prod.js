@@ -6,16 +6,30 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const webpack = require('webpack');
+const UglifyJsWebpackPlugin = require('uglifyjs-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 
 module.exports = webpackMerge(commonConfig, {
 
   mode: 'production',
 
-  // https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
   optimization: {
+    minimizer: [
+      new UglifyJsWebpackPlugin(),
+      new OptimizeCssAssetsPlugin({
+        cssProcessorOptions: { discardComments: { removeAll: true } }
+      })
+    ],
     splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true
+        }
+      }
     }
   },
 
@@ -69,24 +83,16 @@ module.exports = webpackMerge(commonConfig, {
       }]
     }),
 
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].[contenthash].css'
+    }),
+
     new HtmlCriticalPlugin({
       base: path.resolve(__dirname, 'build'),
       src: 'index.html',
       dest: 'index.html',
-      inline: true,
-      minify: true,
-      extract: true,
-      width: 375,
-      height: 565,
-      penthouse: {
-        blockJSRequests: false
-      }
-    }),
-
-    new MiniCssExtractPlugin(),
-
-    new OptimizeCssAssetsPlugin({
-      cssProcessorOptions: { discardComments: { removeAll: true } }
+      inline: true
     }),
 
     new webpack.optimize.ModuleConcatenationPlugin()
