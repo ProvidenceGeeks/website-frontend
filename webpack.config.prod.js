@@ -1,25 +1,47 @@
 const commonConfig = require('./webpack.config.common');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const HtmlCriticalPlugin = require('html-critical-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const webpack = require('webpack');
+const UglifyJsWebpackPlugin = require('uglifyjs-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 
 module.exports = webpackMerge(commonConfig, {
 
-  module: {
-    rules: [
-      {
-        test: /\.(s*)css$/,
-        use: ExtractTextPlugin.extract({
-          use: ['css-loader', 'sass-loader']
-        })
+  mode: 'production',
+
+  optimization: {
+    minimizer: [
+      new UglifyJsWebpackPlugin(),
+      new OptimizeCssAssetsPlugin({
+        cssProcessorOptions: { discardComments: { removeAll: true } }
+      })
+    ],
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true
+        }
       }
-    ]
+    }
+  },
+
+  module: {   
+    rules: [{   
+      test: /\.(s*)css$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader', 
+        'sass-loader'
+      ]
+    }]
   },
 
   plugins: [
@@ -34,15 +56,15 @@ module.exports = webpackMerge(commonConfig, {
       background: '#bcbfc2',
       icons: {
         android: true,
-        appleIcon: true,
-        appleStartup: true,
+        appleIcon: false,
+        appleStartup: false,
         coast: false,
         favicons: true,
         firefox: true,
         opengraph: true,
         twitter: true,
-        yandex: true,
-        windows: true
+        yandex: false,
+        windows: false
       }
     }),
 
@@ -57,38 +79,25 @@ module.exports = webpackMerge(commonConfig, {
       theme_color: '#1a2930', // eslint-disable-line camelcase
       icons: [{
         src: path.resolve('./src/components/bootstrap/images/pvd-geeks-logo.png'),
-        sizes: [96, 128, 192, 256, 384, 512]
+        sizes: [40, 48, 58, 60, 72, 80, 87, 120, 152, 180, 167, 512],
+        ios: true
+      }, {
+        src: path.resolve('./src/components/bootstrap/images/pvd-geeks-logo.png'),
+        size: 1024,
+        ios: 'startup'
       }]
+    }),
+
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].[contenthash].css'
     }),
 
     new HtmlCriticalPlugin({
       base: path.resolve(__dirname, 'build'),
       src: 'index.html',
       dest: 'index.html',
-      inline: true,
-      minify: true,
-      extract: true,
-      width: 375,
-      height: 565,
-      penthouse: {
-        blockJSRequests: false
-      }
-    }),
-
-    new ExtractTextPlugin('styles.[chunkhash].css'),
-
-    new OptimizeCssAssetsPlugin({
-      cssProcessorOptions: { discardComments: { removeAll: true } }
-    }),
-
-    // TODO hack to get ES2015 support out of UglifyJS
-    // https://github.com/webpack-contrib/uglifyjs-webpack-plugin/issues/33#issuecomment-302969855
-    new UglifyJSPlugin(),
-
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': '"production"'
-      }
+      inline: true
     }),
 
     new webpack.optimize.ModuleConcatenationPlugin()
