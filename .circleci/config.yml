@@ -17,10 +17,6 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: Install Yarn
-          command: sudo npm install -g yarn@^1.0.0
-
-      - run:
           name: Install Project Dependencies
           command: yarn install
 
