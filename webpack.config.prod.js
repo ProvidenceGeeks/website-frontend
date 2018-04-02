@@ -56,15 +56,15 @@ module.exports = webpackMerge(commonConfig, {
       background: '#bcbfc2',
       icons: {
         android: true,
-        appleIcon: true,
-        appleStartup: true,
+        appleIcon: false,
+        appleStartup: false,
         coast: false,
         favicons: true,
         firefox: true,
         opengraph: true,
         twitter: true,
-        yandex: true,
-        windows: true
+        yandex: false,
+        windows: false
       }
     }),
 
@@ -79,7 +79,12 @@ module.exports = webpackMerge(commonConfig, {
       theme_color: '#1a2930', // eslint-disable-line camelcase
       icons: [{
         src: path.resolve('./src/components/bootstrap/images/pvd-geeks-logo.png'),
-        sizes: [96, 128, 192, 256, 384, 512]
+        sizes: [40, 48, 58, 60, 72, 80, 87, 120, 152, 180, 167, 512],
+        ios: true
+      }, {
+        src: path.resolve('./src/components/bootstrap/images/pvd-geeks-logo.png'),
+        size: 1024,
+        ios: 'startup'
       }]
     }),
 
