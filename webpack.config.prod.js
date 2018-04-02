@@ -12,15 +12,10 @@ module.exports = webpackMerge(commonConfig, {
 
   mode: 'production',
 
+  // https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
   optimization: {
     splitChunks: {
-      chunks: 'all',
-      cacheGroups: {
-        vendors: {
-          test: /node_modules/,
-          enforce: true
-        }
-      }
+      chunks: 'all'
     }
   },
 
