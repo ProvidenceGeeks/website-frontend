@@ -11,7 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, './build'),
     filename: '[name].[chunkhash].bundle.js',
     sourceMapFilename: '[name].map',
-    chunkFilename: '[id].chunk.js'
+    chunkFilename: '[id].[chunkhash].js'
   },
 
   context: path.resolve(__dirname, 'src'),
