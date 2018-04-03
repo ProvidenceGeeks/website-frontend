@@ -24,8 +24,8 @@ module.exports = webpackMerge(commonConfig, {
       chunks: 'all',
       cacheGroups: {
         styles: {
-          name: 'styles',
-          test: /\.css$/,
+          name: 'bundle',
+          test: /\.(css|scss)$/,
           chunks: 'all',
           enforce: true
         }
