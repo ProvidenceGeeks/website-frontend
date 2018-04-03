@@ -64,12 +64,14 @@ export default class Card extends React.Component {
               <a className="facebook-share" href={ `https://www.facebook.com/sharer/sharer.php?u=${ encodeURIComponent(this.props.facebookShareMessage) }` } target="_blank" rel="noopener noreferrer">
                 <FacebookIcon />
               </a>
+              <a className="facebook-share-mobile" href="fb://page/mypage"><FacebookIcon/> </a>
             </div>
 
             <div className="social-link-tw float-right">
               <a className="twitter-share" href={ `https://twitter.com/intent/tweet?status=${ encodeURIComponent(this.props.twitterShareMessage) }` } target="_blank" rel="noopener noreferrer">
                 <TwitterIcon />
               </a>
+              <a className="twitter-share-mobile" href="twitter://user?screen_name=lorenb"><TwitterIcon/> </a>
             </div>
           </div>
         </div>
