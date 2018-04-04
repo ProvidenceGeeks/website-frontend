@@ -1,4 +1,5 @@
 const commonConfig = require('./webpack.config.common');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const HtmlCriticalPlugin = require('html-critical-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -100,6 +101,11 @@ module.exports = webpackMerge(commonConfig, {
       inline: true
     }),
 
-    new webpack.optimize.ModuleConcatenationPlugin()
+    new webpack.optimize.ModuleConcatenationPlugin(),
+
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false
+    })
   ]
 });
