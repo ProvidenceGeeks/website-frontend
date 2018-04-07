@@ -18,6 +18,13 @@ class PostDetails extends React.Component {
     };
   }
 
+  getBackgroundImageForPost(postImages) {
+    const largeImage = postImages.large ? postImages.large.source_url : null;
+    const mediumLargeImage = postImages.medium_large ? postImages.medium_large.source_url : null;
+
+    return largeImage || mediumLargeImage;
+  }
+
   componentDidMount() {
     if (this.props.params && this.props.params.id) {
       PostsService.getPosts().then(response => {
@@ -25,11 +32,13 @@ class PostDetails extends React.Component {
           return post.id === this.props.params.id;
         })[0];
 
+        console.log(this.getBackgroundImageForPost(selectedPost.media_details)); // eslint-disable-line
+
         this.setState({
           postFetchSuccess: true,
           post: {
             title: selectedPost.title.rendered,
-            backgroundImage: selectedPost.media_details.large.source_url,
+            backgroundImage: this.getBackgroundImageForPost(selectedPost.media_details),
             author: selectedPost.author_name,
             body: selectedPost.content.rendered.replace(/\n/g, '<br />'),
             date: moment(selectedPost.date).utcOffset(-5).format('MM/DD/YY'),
