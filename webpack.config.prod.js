@@ -6,7 +6,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
-const webpack = require('webpack');
 const UglifyJsWebpackPlugin = require('uglifyjs-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 
@@ -100,8 +99,6 @@ module.exports = webpackMerge(commonConfig, {
       dest: 'index.html',
       inline: true
     }),
-
-    new webpack.optimize.ModuleConcatenationPlugin(),
 
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
