@@ -39,7 +39,17 @@ module.exports = webpackMerge(commonConfig, {
       use: [
         MiniCssExtractPlugin.loader,
         'css-loader', 
-        'sass-loader'
+        'sass-loader',
+        {
+          loader: 'postcss-loader',
+          options: {
+            ident: 'postcss',
+            plugins: [
+              require('stylelint')(),
+              require('postcss-reporter')({ clearReportedMessages: true })
+            ]
+          }
+        }
       ]
     }]
   },
