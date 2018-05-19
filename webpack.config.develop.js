@@ -1,7 +1,6 @@
 const commonConfig = require('./webpack.config.common');
 const webpackMerge = require('webpack-merge');
 const webpack = require('webpack');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = webpackMerge(commonConfig, {
 
@@ -17,7 +16,16 @@ module.exports = webpackMerge(commonConfig, {
   module: {
     rules: [{
       test: /\.(s*)css$/,
-      use: ['style-loader', 'css-loader', 'sass-loader']
+      use: ['style-loader', 'css-loader', 'sass-loader', {
+        loader: 'postcss-loader',
+        options: {
+          ident: 'postcss',
+          plugins: [
+            require('stylelint')(),
+            require('postcss-reporter')({ clearReportedMessages: true })
+          ]
+        }
+      }]
     }]
   },
 
@@ -43,13 +51,6 @@ module.exports = webpackMerge(commonConfig, {
   },
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new StyleLintPlugin({
-      configFile: '.stylelintrc',
-      context: 'src',
-      files: '**/*.scss',
-      syntax: 'scss',
-      quiet: false
-    })
+    new webpack.HotModuleReplacementPlugin()
   ]
 });
