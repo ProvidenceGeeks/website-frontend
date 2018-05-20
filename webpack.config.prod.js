@@ -46,7 +46,7 @@ module.exports = webpackMerge(commonConfig, {
             ident: 'postcss',
             plugins: [
               require('stylelint')(),
-              require('postcss-reporter')({ clearReportedMessages: true })
+              require('postcss-reporter')({ clearReportedMessages: true, throwError: true })
             ]
           }
         }
