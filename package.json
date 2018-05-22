@@ -5,7 +5,7 @@
   "main": "./src/index.jsx",
   "scripts": {
     "clean": "rimraf ./build && rimraf ./reports",
-    "build": "npm run clean && npm run lint && webpack --config ./webpack.config.prod.js",
+    "build": "npm run clean && npm run lint && webpack --config ./webpack.config.prod.js && subfont ./build/index.html -i --inline-fonts",
     "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
     "lint": "eslint *.js ./src/**/**/*.spec.*",
     "release": "npm run clean && npm run lint && webpack --config ./webpack.config.release.js",
@@ -55,6 +55,7 @@
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.2",
+    "subfont": "^3.3.0",
     "uglifyjs-webpack-plugin": "^1.2.4",
     "url-loader": "^1.0.0-beta.0",
     "webpack": "^4",
