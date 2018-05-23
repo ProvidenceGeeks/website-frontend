@@ -19,17 +19,13 @@ function getTimeString(timestamp) {
 class DateFormatterService {
 
   // example: 05/25/18 6:00PM
-  static formatTimestampForEvents(timestamp, isUnix) {
-    const now = isUnix ? timestamp * 1000 : timestamp;
-
-    return `${getDateString(now)} ${getTimeString(now)}`;
+  static formatTimestampForEvents(timestamp) {
+    return `${getDateString(timestamp)} ${getTimeString(timestamp)}`;
   }
 
   // example: 05/25/18
-  static formatTimestampForBlogPost(timestamp, isUnix) {
-    const now = isUnix ? timestamp * 1000 : timestamp;
-
-    return `${getDateString(now)}`;
+  static formatTimestampForBlogPost(timestamp) {
+    return `${getDateString(timestamp)}`;
   }
 
 }
