@@ -25,6 +25,7 @@ class DateFormatterService {
     return `${getDateString(now)} ${getTimeString(now)}`;
   }
 
+  // example: 05/25/18
   static formatTimestampForBlogPost(timestamp, isUnix) {
     const now = isUnix ? timestamp * 1000 : timestamp;
 
