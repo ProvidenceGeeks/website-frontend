@@ -1,5 +1,6 @@
 import * as React from 'react';
 import moment from 'moment';
+import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import HeroBanner from '../../components/hero-banner/hero-banner';
 import PostsService from '../../services/posts/posts-service';
@@ -52,27 +53,38 @@ class PostDetails extends React.Component {
   }
 
   render() {
+    const post = this.state.post;
+    const canonicalUrl = `https://www.pvdgeeks.org/post/${this.props.params.id}/`;
 
     return (
       <div className="post-details">
 
         {this.state.postFetchSuccess &&
+          
           <div>
+            <Helmet>
+              <meta property="og:title" content="Providence Geeks" />
+              <meta property="og:type" content="article" />
+              <meta property="og:url" content={canonicalUrl} />
+              <meta property="og:image" content={post.backgroundImage} />
+              <meta property="og:description" content={post.title} />
+            </Helmet>
+
             <HeroBanner
-              title={this.state.post.title}
-              backgroundImage={this.state.post.backgroundImage}>
+              title={post.title}
+              backgroundImage={post.backgroundImage}>
 
               <h3 className="custom-title row d-flex justify-content-center align-self-center">
-                {this.state.post.author} | {this.state.post.date}
+                {post.author} | {post.date}
               </h3>
 
             </HeroBanner>
 
             <div className='row article-container'>
 
-              <ShareBar link={this.state.post.canonicalLink}/>
+              <ShareBar link={post.canonicalLink}/>
 
-              <article dangerouslySetInnerHTML={{ __html: this.state.post.body }}></article>
+              <article dangerouslySetInnerHTML={{ __html: post.body }}></article>
 
             </div>
           </div>
