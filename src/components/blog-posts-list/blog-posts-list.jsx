@@ -1,7 +1,7 @@
 import * as React from 'react';
-import moment from 'moment';
 import Card from '../card/card';
 import CardGrid from '../card-grid/card-grid';
+import DateFormatterService from '../../services/date-formatter/date-formatter-service';
 import PostsService from '../../services/posts/posts-service';
 import './blog-posts-list.scss';
 
@@ -46,7 +46,7 @@ export default class BlogPostsList extends React.Component {
 
   static formatHeading(post) {
     const author = post && post.author_name ? post.author_name : '';
-    const date = post && post.date ? moment(post.date).format('MM/DD/YY') : '';
+    const date = post && post.date ? DateFormatterService.formatTimestampForBlogPost(post.date) : '';
 
     return `${author} ${date}`;
   }
