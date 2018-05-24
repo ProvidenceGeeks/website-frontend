@@ -32,8 +32,6 @@ class PostDetails extends React.Component {
           return post.id === this.props.params.id;
         })[0];
 
-        console.log(this.getBackgroundImageForPost(selectedPost.media_details)); // eslint-disable-line
-
         this.setState({
           postFetchSuccess: true,
           post: {

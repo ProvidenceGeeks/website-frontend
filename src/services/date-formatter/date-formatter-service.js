@@ -1,17 +1,26 @@
+function getLocalDate(timestamp) {
+  // 5 hour offset
+  const OFFSET = 300;
+  const now = new Date(timestamp);
+  const utc = Date.UTC(now.getFullYear(), now.getMonth() - 1, now.getDay(), now.getHours(), now.getMinutes());
+
+  return new Date(utc + OFFSET);
+}
+
 function getDateString(timestamp) {
-  const dateObj = new Date(timestamp);
-  const month = parseInt(dateObj.getMonth(), 10) + 1 <= 9 ? `0${dateObj.getMonth() + 1}` : parseInt(dateObj.getMonth(), 10) + 1;
-  const day = parseInt(dateObj.getDate(), 10) <= 9 ? `0${dateObj.getDate()}` : dateObj.getDate();
-  const year = dateObj.getFullYear().toString().substring(2);
+  const localDate = new Date(timestamp);
+  const month = parseInt(localDate.getMonth(), 10) + 1 <= 9 ? `0${localDate.getMonth() + 1}` : parseInt(localDate.getMonth(), 10) + 1;
+  const day = parseInt(localDate.getDate(), 10) <= 9 ? `0${localDate.getDate()}` : localDate.getDate();
+  const year = localDate.getFullYear().toString().substring(2);
 
   return `${month}/${day}/${year}`;
 }
 
 function getTimeString(timestamp) {
-  const dateObj = new Date(timestamp);
-  const hours = parseInt(dateObj.getHours(), 10) > 12 ? parseInt(dateObj.getHours(), 10) - 12 : dateObj.getHours();
-  const minutes = dateObj.getMinutes() === 0 ? '00' : dateObj.getMinutes();
-  const ampm = dateObj.getHours() >= 12 ? 'PM' : 'AM';
+  const localDate = getLocalDate(timestamp);
+  const hours = parseInt(localDate.getUTCHours(), 10) > 12 ? parseInt(localDate.getUTCHours(), 10) - 12 : localDate.getUTCHours();
+  const minutes = localDate.getUTCMinutes() === 0 ? '00' : localDate.getUTCMinutes();
+  const ampm = localDate.getUTCHours() >= 12 ? 'PM' : 'AM';
 
   return `${hours}:${minutes}${ampm}`;
 }
