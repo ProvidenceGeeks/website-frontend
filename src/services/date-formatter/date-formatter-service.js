@@ -5,6 +5,11 @@ function getLocalDate(timestamp) {
   const utcTimestamp = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes(), now.getSeconds());
   const timezoneAdjustedTimestamp = utcTimestamp - (USER_OFFSET_MILLIS - LOCAL_OFFSET_MILLIS);
   
+  console.log('utcTimestamp', utcTimestamp); // eslint-disable-line
+  console.log('timezoneAdjustedTimestamp', timezoneAdjustedTimestamp); // eslint-disable-line
+  console.log('USER_OFFSET_MILLIS', USER_OFFSET_MILLIS); // eslint-disable-line
+  console.log('LOCAL_OFFSET_MILLIS', LOCAL_OFFSET_MILLIS); // eslint-disable-line
+  console.log('**************'); // eslint-disable-line
   return new Date(timezoneAdjustedTimestamp);
 }
 
