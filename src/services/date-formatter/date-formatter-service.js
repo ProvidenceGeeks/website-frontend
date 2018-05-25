@@ -1,5 +1,5 @@
 function getLocalDate(timestamp) {
-  const utcDateObj = new Date(timestamp); // remember, JavaScript dates are localized to the user...
+  const utcDateObj = new Date(timestamp); // remember, JavaScript dates are localized to the user but reflected in UTC time...
   const EST_OFFSET_MILLIS = 18000000; // 5 hour offset for UTC -> EST
 
   return new Date(utcDateObj.getTime() - EST_OFFSET_MILLIS);
