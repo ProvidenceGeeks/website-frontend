@@ -5,7 +5,7 @@ function getLocalDate(timestamp) {
   return new Date(utcDateObj.getTime() - EST_OFFSET_MILLIS);
 }
 
-function getDateString(dateObj) {
+function getFormattedDate(dateObj) {
   const month = parseInt(dateObj.getMonth() + 1, 10) <= 9 ? `0${dateObj.getMonth() + 1}` : parseInt(dateObj.getMonth(), 10) + 1;
   const day = parseInt(dateObj.getDate(), 10) <= 9 ? `0${dateObj.getDate()}` : dateObj.getDate();
   const year = dateObj.getFullYear().toString().substring(2);
@@ -13,7 +13,7 @@ function getDateString(dateObj) {
   return `${month}/${day}/${year}`;
 }
 
-function getTimeString(dateObj) {
+function getFormattedTime(dateObj) {
   const hours = parseInt(dateObj.getUTCHours(), 10) > 12 ? parseInt(dateObj.getUTCHours(), 10) - 12 : dateObj.getUTCHours();
   const minutes = dateObj.getUTCMinutes() === 0 ? '00' : dateObj.getUTCMinutes();
   const ampm = dateObj.getUTCHours() >= 12 ? 'PM' : 'AM';
@@ -27,14 +27,14 @@ class DateFormatterService {
   static formatTimestampForEvents(timestamp) {
     const eventDateObj = getLocalDate(timestamp);
 
-    return `${getDateString(eventDateObj)} ${getTimeString(eventDateObj)}`;
+    return `${getFormattedDate(eventDateObj)} ${getFormattedTime(eventDateObj)}`;
   }
 
   // example: 05/25/18
   static formatTimestampForBlogPost(timestamp) {
     const postDateObj = getLocalDate(timestamp);
 
-    return `${getDateString(postDateObj)}`;
+    return `${getFormattedDate(postDateObj)}`;
   }
 
 }
