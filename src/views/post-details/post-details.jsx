@@ -1,8 +1,8 @@
 import * as React from 'react';
-import moment from 'moment';
 import PropTypes from 'prop-types';
 import HeroBanner from '../../components/hero-banner/hero-banner';
 import PostsService from '../../services/posts/posts-service';
+import DateFormatterService from '../../services/date-formatter/date-formatter-service';
 import ShareBar from '../../components/share-bar/share-bar';
 import './post-details.scss';
 
@@ -32,8 +32,6 @@ class PostDetails extends React.Component {
           return post.id === this.props.params.id;
         })[0];
 
-        console.log(this.getBackgroundImageForPost(selectedPost.media_details)); // eslint-disable-line
-
         this.setState({
           postFetchSuccess: true,
           post: {
@@ -41,7 +39,7 @@ class PostDetails extends React.Component {
             backgroundImage: this.getBackgroundImageForPost(selectedPost.media_details),
             author: selectedPost.author_name,
             body: selectedPost.content.rendered.replace(/\n/g, '<br />'),
-            date: moment(selectedPost.date).utcOffset(-5).format('MM/DD/YY'),
+            date: DateFormatterService.formatTimestampForBlogPost(selectedPost.date),
             canonicalLink: window.location.href
           }
         });
