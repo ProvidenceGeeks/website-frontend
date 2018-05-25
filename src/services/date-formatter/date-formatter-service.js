@@ -1,8 +1,8 @@
 function getLocalDate(timestamp) {
-  const event = new Date(timestamp); // remember, JavaScript dates are localized to the user...
-  const LOCAL_OFFSET_MILLIS = 18000000; // 5 hour offset for UTC -> EST
+  const utcDateObj = new Date(timestamp); // remember, JavaScript dates are localized to the user...
+  const EST_OFFSET_MILLIS = 18000000; // 5 hour offset for UTC -> EST
 
-  return new Date(event.getTime() - LOCAL_OFFSET_MILLIS);
+  return new Date(utcDateObj.getTime() - EST_OFFSET_MILLIS);
 }
 
 function getDateString(dateObj) {
@@ -32,9 +32,9 @@ class DateFormatterService {
 
   // example: 05/25/18
   static formatTimestampForBlogPost(timestamp) {
-    const eventDateObj = getLocalDate(timestamp);
+    const postDateObj = getLocalDate(timestamp);
 
-    return `${getDateString(eventDateObj)}`;
+    return `${getDateString(postDateObj)}`;
   }
 
 }
