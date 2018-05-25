@@ -1,16 +1,8 @@
 function getLocalDate(timestamp) {
-  const now = new Date(timestamp); // remember, JavaScript dates are localized to the user...
+  const event = new Date(timestamp); // remember, JavaScript dates are localized to the user...
   const LOCAL_OFFSET_MILLIS = 18000000; // 5 hour offset for UTC -> EST
-  // const utcTimestamp = new Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes(), now.getSeconds());
-  // const timezoneAdjustedTimestamp = utcTimestamp + (LOCAL_OFFSET_MILLIS - USER_OFFSET_MILLIS);
-  // const timezoneAdjustedTimestamp = timestamp - (USER_OFFSET_MILLIS + LOCAL_OFFSET_MILLIS);
-  
-  // console.log('utcTimestamp', utcTimestamp); // eslint-disable-line
-  // console.log('timezoneAdjustedTimestamp', timezoneAdjustedTimestamp); // eslint-disable-line
-  // console.log('USER_OFFSET_MILLIS', USER_OFFSET_MILLIS); // eslint-disable-line
-  // console.log('LOCAL_OFFSET_MILLIS', LOCAL_OFFSET_MILLIS); // eslint-disable-line
-  // console.log('**************'); // eslint-disable-line
-  return new Date(now.getTime() - LOCAL_OFFSET_MILLIS); // new Date(timezoneAdjustedTimestamp);
+
+  return new Date(event.getTime() - LOCAL_OFFSET_MILLIS);
 }
 
 function getDateString(utcDateObj) {
