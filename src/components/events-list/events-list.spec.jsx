@@ -45,7 +45,7 @@ describe('EventsList component', () => {
   });
 
   it('should have an error message when an error DOES exist', () => {
-    eventsList.setState({ error: new Error });
+    eventsList.setState({ error: new Error() });
     
     expect(eventsList.find('.message.error')).toHaveLength(1);
   });
