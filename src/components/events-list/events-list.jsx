@@ -1,5 +1,5 @@
 import * as React from 'react';
-import moment from 'moment';
+import DateFormatterService from '../../services/date-formatter/date-formatter-service';
 import Card from '../../components/card/card';
 import CardGrid from '../card-grid/card-grid';
 import EventsService from '../../services/events/events-service';
@@ -44,7 +44,7 @@ export default class EventsList extends React.Component {
   }
 
   static formatHeading(event) {
-    const time = event && event.time ? moment(event.time).utcOffset(-5).format('MM/DD/YY h:mmA') : '';
+    const time = event && event.time ? DateFormatterService.formatTimestampForEvents(event.time) : '';
     const venue = event && event.venue && event.venue.city ? `@ ${event.venue.city}` : '';
 
     return `${time} ${venue}`;

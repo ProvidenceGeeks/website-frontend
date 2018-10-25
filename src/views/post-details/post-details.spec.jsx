@@ -1,8 +1,8 @@
 import * as React from 'react';
-import moment from 'moment';
 import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import mockPosts from '../../../test/__mocks__/mock-posts.json';
+import DateFormatterService from '../../../src/services/date-formatter/date-formatter-service';
 import HeroBanner from '../../components/hero-banner/hero-banner';
 import PostDetails from './post-details';
 import ShareBar from '../../components/share-bar/share-bar';
@@ -84,7 +84,7 @@ describe('Post Details View component', () => {
       const customContent = postDetails.find(HeroBanner).find('h3.custom-title');
 
       expect(customContent.length).toEqual(1);
-      expect(customContent.text()).toEqual(`${mockPost.author_name} | ${moment(mockPost.date).utcOffset(-5).format('MM/DD/YY')}`);
+      expect(customContent.text()).toEqual(`${mockPost.author_name} | ${DateFormatterService.formatTimestampForBlogPost(mockPost.date)}`);
     });
   });
 
