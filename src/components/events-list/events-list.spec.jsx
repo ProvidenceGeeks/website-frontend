@@ -44,6 +44,18 @@ describe('EventsList component', () => {
     expect(eventsList.find(CardGrid).length).toEqual(0);
   });
 
+  it('should have an error message when an error DOES exist', () => {
+    eventsList.setState({ error: new Error });
+    
+    expect(eventsList.find('.message.error')).toHaveLength(1);
+  });
+
+  it('should NOT have a CardGrid component when events DO NOT exist', () => {
+    eventsList.setState({ error: undefined });
+    
+    expect(eventsList.find('.message.error')).toHaveLength(0);
+  });
+
   it('should have a heading', () => {
     expect(eventsList.find('.events-header').text()).toEqual('Upcoming Events');
   });

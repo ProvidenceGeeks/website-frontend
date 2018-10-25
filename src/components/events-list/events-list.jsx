@@ -21,8 +21,9 @@ export default class EventsList extends React.Component {
         this.setState({
           events: EventsList.modelEventsDataForCard(response)
         });
-      }).catch((response) => {
-        console.error(response); // eslint-disable-line no-console
+      }).catch((error) => {
+        console.error(error); // eslint-disable-line no-console
+        this.setState({ error });
       });
   }
 
@@ -57,7 +58,16 @@ export default class EventsList extends React.Component {
           <h3 className="events-header">Upcoming Events</h3>
         </div>
 
-        <CardGrid data={this.state.events}/>
+        {this.state.error
+          && <div className="message error">
+            <p>Sorry, unable to load events right now. Please try again or contact us if the problem persists.</p>
+          </div>
+        }
+
+        {this.state.events
+          && this.state.events.length > 0
+          && <CardGrid data={this.state.events}/>
+        }
 
       </div>
 
