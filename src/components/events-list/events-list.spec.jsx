@@ -30,8 +30,18 @@ describe('EventsList component', () => {
     expect(eventsList).not.toBeNull();
   });
 
-  it('should have a CardGrid component', () => {
+  it('should have a CardGrid component when events DO exist', () => {
+    eventsList.setState({ events: mockEvents });
+    
+    expect(eventsList.state('events')).toHaveLength(mockEvents.length);
     expect(eventsList.find(CardGrid).length).toEqual(1);
+  });
+
+  it('should NOT have a CardGrid component when events DO NOT exist', () => {
+    eventsList.setState({ events: [] });
+    
+    expect(eventsList.state('events')).toHaveLength(0);
+    expect(eventsList.find(CardGrid).length).toEqual(0);
   });
 
   it('should have a heading', () => {
