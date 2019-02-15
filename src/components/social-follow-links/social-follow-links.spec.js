@@ -30,7 +30,7 @@ describe('Social Follow Links component', () => {
   it('should have SlackIcon link', () => {
     const slackLink = socialFollowLinks.find('.social-container .slack-link');
 
-    expect(slackLink.prop('href')).toEqual('http://providencegeeks.slack.com/');
+    expect(slackLink.prop('href')).toContain('https://join.slack.com/t/providencegeeks/shared_invite/');
     expect(slackLink.prop('title')).toEqual('Join Us');
     expect(slackLink.length).toEqual(1);
     expect(slackLink.prop('target')).toEqual('_blank');
