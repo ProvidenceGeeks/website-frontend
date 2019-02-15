@@ -14,7 +14,7 @@ export default function SocialFollowLinks() {
           </a>
         </li>
         <li>
-          <a className="slack-link" href="http://providencegeeks.slack.com/" title="Join Us" target="_blank" rel="noopener noreferrer">
+          <a className="slack-link" href="https://join.slack.com/t/providencegeeks/shared_invite/enQtMzI4MjA2Mzk5MDk1LWZlMTFhNDhlODhmNmRmZGZiZjM1OTNmNzZkN2M2MmJhMjYzZTJkODc0YjQ4NDY4ODUwZmM3OGU5NDU4MDE2MjQ" title="Join Us" target="_blank" rel="noopener noreferrer">
             <SlackIcon />
           </a>
         </li>
