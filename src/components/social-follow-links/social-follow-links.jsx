@@ -2,6 +2,7 @@ import * as React from 'react';
 import FacebookIcon from '../facebook-icon/facebook-icon';
 import SlackIcon from '../slack-icon/slack-icon';
 import TwitterIcon from '../twitter-icon/twitter-icon';
+import GitHubIcon from '../github-icon/github-icon';
 import './social-follow-links.scss';
 
 export default function SocialFollowLinks() {
@@ -23,6 +24,11 @@ export default function SocialFollowLinks() {
         <li>
           <a className="twitter-link" href="https://twitter.com/providencegeeks" title="Follow Us" target="_blank" rel="noopener noreferrer">
             <TwitterIcon />
+          </a>
+        </li>
+        <li>
+          <a className="github-link" href="https://github.com/ProvidenceGeeks/" title="Collaborate With Us" target="_blank" rel="noopener noreferrer">
+            <GitHubIcon />
           </a>
         </li>
       </ul>
