@@ -4,6 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import FacebookIcon from '../facebook-icon/facebook-icon';
 import SlackIcon from '../slack-icon/slack-icon';
 import TwitterIcon from '../twitter-icon/twitter-icon';
+import GitHubIcon from '../github-icon/github-icon';
 import SocialFollowLinks from './social-follow-links';
 
 configure({ adapter: new Adapter() });
@@ -47,5 +48,16 @@ describe('Social Follow Links component', () => {
     expect(twitterLink.prop('rel')).toEqual('noopener noreferrer');
     expect(twitterLink.length).toEqual(1);
     expect(twitterLink.find(TwitterIcon).length).toEqual(1);
+  });
+
+  it('should have GitHubIcon link', () => {
+    const githubLink = socialFollowLinks.find('.social-container .github-link');
+
+    expect(githubLink.prop('href')).toEqual('https://github.com/ProvidenceGeeks/');
+    expect(githubLink.prop('title')).toEqual('Collaborate With Us');
+    expect(githubLink.prop('target')).toEqual('_blank');
+    expect(githubLink.prop('rel')).toEqual('noopener noreferrer');
+    expect(githubLink.length).toEqual(1);
+    expect(githubLink.find(GitHubIcon).length).toEqual(1);
   });
 });
