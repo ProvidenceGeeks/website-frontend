@@ -49,6 +49,19 @@ $imgHeight: 233px!important;
 
 .card-block {
   padding: .5rem;
+  height: 5.0rem;
+  overflow: hidden;
+  position: relative;
+  :after {
+    content: "";
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 70%;
+    height: 1.1em;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), $screen 60%);
+  }
 }
 
 .card-text {

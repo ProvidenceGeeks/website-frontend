@@ -17,7 +17,7 @@ export default class Card extends React.Component {
   }
 
   static formatHtmlContent(description = '') {
-    return description.replace(/<\/?[^>]+(>|$)/g, '').substr(0, 160);
+    return description.replace(/<\/?[^>]+(>|$)/g, '')
   }
 
   static generateImage(imgSource, imgAlt) {
