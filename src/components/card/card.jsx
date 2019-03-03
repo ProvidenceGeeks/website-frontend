@@ -6,6 +6,7 @@ import CustomLink from '../custom-link/custom-link';
 import FacebookIcon from '../facebook-icon/facebook-icon';
 import PlacholderImage from './images/placeholder-318x180.png';
 import TwitterIcon from '../twitter-icon/twitter-icon';
+import renderHTML from 'react-render-html';
 import './card.scss';
 
 // TODO can this just be a non-class component?  Maybe have a card-service instead?
@@ -76,7 +77,7 @@ export default class Card extends React.Component {
 
         <div className="card-block">
           <p className="card-text">
-            { this.props.body }
+            { renderHTML(this.props.body) }
           </p>
 
           {this.props.readMoreLink &&
