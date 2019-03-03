@@ -2,6 +2,7 @@ import * as React from 'react';
 import DateFormatterService from '../../services/date-formatter/date-formatter-service';
 import Card from '../../components/card/card';
 import CardGrid from '../card-grid/card-grid';
+import Loader from '../loader/loader';
 import EventsService from '../../services/events/events-service';
 import './events-list.scss';
 
@@ -11,7 +12,8 @@ export default class EventsList extends React.Component {
     super();
 
     this.state = {
-      events: []
+      events: [],
+      status: 'loading' // or 'error' or 'loaded'
     };
   }
 
@@ -19,11 +21,12 @@ export default class EventsList extends React.Component {
     EventsService.getEvents()
       .then((response) => {
         this.setState({
-          events: EventsList.modelEventsDataForCard(response)
+          events: EventsList.modelEventsDataForCard(response),
+          status: 'loaded'
         });
       }).catch((error) => {
         console.error(error); // eslint-disable-line no-console
-        this.setState({ error });
+        this.setState({ error, status: 'error' });
       });
   }
 
@@ -51,24 +54,32 @@ export default class EventsList extends React.Component {
   }
 
   render() {
+    let data;
+    
+    switch (this.state.status) {
+
+      case 'loading':
+        data = <Loader message='Loading Upcoming Events...'/>;
+        break;
+      case 'loaded':
+        data = this.state.events && this.state.events.length > 0 && <CardGrid data={this.state.events}/>;
+        break;
+      case 'error':
+      default:
+        data = <div className="message error">
+          <p>Sorry, unable to load events right now. Please try again or contact us if the problem persists.</p>
+        </div>;
+        break;
+    
+    }
+
     return (
 
       <div className="row-fluid">
         <div className="col-md-12">
           <h3 className="events-header">Upcoming Events</h3>
         </div>
-
-        {this.state.error
-          && <div className="message error">
-            <p>Sorry, unable to load events right now. Please try again or contact us if the problem persists.</p>
-          </div>
-        }
-
-        {this.state.events
-          && this.state.events.length > 0
-          && <CardGrid data={this.state.events}/>
-        }
-
+        {data}
       </div>
 
     );

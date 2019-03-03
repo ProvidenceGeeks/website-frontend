@@ -5,6 +5,7 @@ import mockEvents from '../../../test/__mocks__/mock-events.json';
 import Card from '../card/card';
 import CardGrid from '../card-grid/card-grid';
 import EventsList from './events-list';
+import Loader from '../loader/loader';
 
 configure({ adapter: new Adapter() });
 
@@ -45,7 +46,7 @@ describe('EventsList component', () => {
   });
 
   it('should have an error message when an error DOES exist', () => {
-    eventsList.setState({ error: new Error() });
+    eventsList.setState({ error: new Error(), status: 'error' });
     
     expect(eventsList.find('.message.error')).toHaveLength(1);
   });
@@ -55,6 +56,12 @@ describe('EventsList component', () => {
     
     expect(eventsList.find('.message.error')).toHaveLength(0);
   });
+
+  it('should have a Loader component when fetching events', () =>{
+    eventsList.setState({ status: 'loading' });
+
+    expect(eventsList.find(Loader).length).toEqual(1);
+  }); 
 
   it('should have a heading', () => {
     expect(eventsList.find('.events-header').text()).toEqual('Upcoming Events');
