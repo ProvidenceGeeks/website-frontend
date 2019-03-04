@@ -22,7 +22,7 @@ export default class EventsList extends React.Component {
       .then((response) => {
         this.setState({
           events: EventsList.modelEventsDataForCard(response),
-          status: 'loading'
+          status: 'loaded'
         });
       }).catch((error) => {
         console.error(error); // eslint-disable-line no-console
