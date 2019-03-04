@@ -11,6 +11,7 @@ export const LOADING_STATES = {
   LOADED: 'loaded',
   ERROR: 'error'
 };
+
 export default class EventsList extends React.Component {
 
   constructor() {
