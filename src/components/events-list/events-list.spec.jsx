@@ -32,7 +32,7 @@ describe('EventsList component', () => {
   });
 
   it('should have a CardGrid component when events DO exist', () => {
-    eventsList.setState({ events: mockEvents });
+    eventsList.setState({ events: mockEvents, status: 'loaded' });
     
     expect(eventsList.state('events')).toHaveLength(mockEvents.length);
     expect(eventsList.find(CardGrid).length).toEqual(1);
