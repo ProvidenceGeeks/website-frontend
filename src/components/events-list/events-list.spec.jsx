@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import mockEvents from '../../../test/__mocks__/mock-events.json';
 import Card from '../card/card';
 import CardGrid from '../card-grid/card-grid';
-import EventsList from './events-list';
+import EventsList, { LOADING_STATES } from './events-list';
 import Loader from '../loader/loader';
 
 configure({ adapter: new Adapter() });
@@ -32,7 +32,7 @@ describe('EventsList component', () => {
   });
 
   it('should have a CardGrid component when events DO exist', () => {
-    eventsList.setState({ events: mockEvents, status: 'loaded' });
+    eventsList.setState({ events: mockEvents, status: LOADING_STATES.LOADED });
     
     expect(eventsList.state('events')).toHaveLength(mockEvents.length);
     expect(eventsList.find(CardGrid).length).toEqual(1);
@@ -46,7 +46,7 @@ describe('EventsList component', () => {
   });
 
   it('should have an error message when an error DOES exist', () => {
-    eventsList.setState({ error: new Error(), status: 'error' });
+    eventsList.setState({ error: new Error(), status: LOADING_STATES.ERROR });
     
     expect(eventsList.find('.message.error')).toHaveLength(1);
   });
@@ -58,7 +58,7 @@ describe('EventsList component', () => {
   });
 
   it('should have a Loader component when fetching events', () =>{
-    eventsList.setState({ status: 'loading' });
+    eventsList.setState({ status: LOADING_STATES.LOADING });
 
     expect(eventsList.find(Loader).length).toEqual(1);
   }); 

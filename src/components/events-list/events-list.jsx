@@ -6,6 +6,11 @@ import Loader from '../loader/loader';
 import EventsService from '../../services/events/events-service';
 import './events-list.scss';
 
+export const LOADING_STATES = {
+  LOADING: 'loading',
+  LOADED: 'loaded',
+  ERROR: 'error'
+};
 export default class EventsList extends React.Component {
 
   constructor() {
@@ -13,7 +18,7 @@ export default class EventsList extends React.Component {
 
     this.state = {
       events: [],
-      status: 'loading' // or 'error' or 'loaded'
+      status: LOADING_STATES.LOADING // or ERROR or LOADED
     };
   }
 
@@ -22,11 +27,11 @@ export default class EventsList extends React.Component {
       .then((response) => {
         this.setState({
           events: EventsList.modelEventsDataForCard(response),
-          status: 'loaded'
+          status: LOADING_STATES.LOADED
         });
       }).catch((error) => {
         console.error(error); // eslint-disable-line no-console
-        this.setState({ error, status: 'error' });
+        this.setState({ error, status: LOADING_STATES.ERROR });
       });
   }
 
@@ -58,13 +63,13 @@ export default class EventsList extends React.Component {
     
     switch (this.state.status) {
 
-      case 'loading':
+      case LOADING_STATES.LOADING:
         data = <Loader message='Loading Upcoming Events...'/>;
         break;
-      case 'loaded':
+      case LOADING_STATES.LOADED:
         data = this.state.events && this.state.events.length > 0 && <CardGrid data={this.state.events}/>;
         break;
-      case 'error':
+      case LOADING_STATES.ERROR:
       default:
         data = <div className="message error">
           <p>Sorry, unable to load events right now. Please try again or contact us if the problem persists.</p>
