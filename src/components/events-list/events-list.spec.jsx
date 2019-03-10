@@ -4,8 +4,8 @@ import Adapter from 'enzyme-adapter-react-16';
 import mockEvents from '../../../test/__mocks__/mock-events.json';
 import Card from '../card/card';
 import CardGrid from '../card-grid/card-grid';
-import EventsList, { LOADING_STATES } from './events-list';
-import Loader from '../loader/loader';
+import EventsList from './events-list';
+import Loader, { LOADING_STATES } from '../loader/loader';
 
 configure({ adapter: new Adapter() });
 
@@ -39,7 +39,7 @@ describe('EventsList component', () => {
   });
 
   it('should NOT have a CardGrid component when events DO NOT exist', () => {
-    eventsList.setState({ events: [] });
+    eventsList.setState({ events: [], status: LOADING_STATES.LOADED });
     
     expect(eventsList.state('events')).toHaveLength(0);
     expect(eventsList.find(CardGrid).length).toEqual(0);
@@ -51,8 +51,8 @@ describe('EventsList component', () => {
     expect(eventsList.find('.message.error')).toHaveLength(1);
   });
 
-  it('should NOT have a CardGrid component when events DO NOT exist', () => {
-    eventsList.setState({ error: undefined });
+  it('should NOT have an error message when an error DOES NOT exist', () => {
+    eventsList.setState({ error: undefined, status: LOADING_STATES.LOADED });
     
     expect(eventsList.find('.message.error')).toHaveLength(0);
   });

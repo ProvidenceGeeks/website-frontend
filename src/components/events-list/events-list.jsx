@@ -2,15 +2,9 @@ import * as React from 'react';
 import DateFormatterService from '../../services/date-formatter/date-formatter-service';
 import Card from '../../components/card/card';
 import CardGrid from '../card-grid/card-grid';
-import Loader from '../loader/loader';
+import Loader, { LOADING_STATES } from '../loader/loader';
 import EventsService from '../../services/events/events-service';
 import './events-list.scss';
-
-export const LOADING_STATES = {
-  LOADING: 'loading',
-  LOADED: 'loaded',
-  ERROR: 'error'
-};
 
 export default class EventsList extends React.Component {
 
@@ -21,6 +15,9 @@ export default class EventsList extends React.Component {
       events: [],
       status: LOADING_STATES.LOADING // or ERROR or LOADED
     };
+
+    this.loadingMessage = 'Loading Upcoming Events...';
+    this.errorMessage = 'Sorry, unable to load events right now. Please try again or contact us if the problem persists.';
   }
 
   componentDidMount() {
@@ -60,32 +57,15 @@ export default class EventsList extends React.Component {
   }
 
   render() {
-    let data;
-    
-    switch (this.state.status) {
-
-      case LOADING_STATES.LOADING:
-        data = <Loader message='Loading Upcoming Events...'/>;
-        break;
-      case LOADING_STATES.LOADED:
-        data = this.state.events && this.state.events.length > 0 && <CardGrid data={this.state.events}/>;
-        break;
-      case LOADING_STATES.ERROR:
-      default:
-        data = <div className="message error">
-          <p>Sorry, unable to load events right now. Please try again or contact us if the problem persists.</p>
-        </div>;
-        break;
-    
-    }
-
     return (
-
+     
       <div className="row-fluid">
         <div className="col-md-12">
           <h3 className="events-header">Upcoming Events</h3>
         </div>
-        {data}
+        <Loader status={this.state.status} loadingMessage={this.loadingMessage} errorMessage={this.errorMessage}> 
+          {this.state.events && this.state.events.length > 0 && <CardGrid data={this.state.events}/>}
+        </Loader>
       </div>
 
     );
