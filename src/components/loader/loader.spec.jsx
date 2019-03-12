@@ -6,12 +6,13 @@ import Loader, { LOADING_STATES } from './loader';
 
 configure({ adapter: new Adapter() });
 
-describe('Loader component renders loading message', () => {
+describe('Loader component when loading state is LOADING', () => {
   let loader;
   const loadingMessage = 'Loading Upcoming Events...';
+  const child = 'Inner Content';
 
   beforeEach(() => {
-    loader = shallow(<Loader status={LOADING_STATES.LOADING} loadingMessage={loadingMessage}/>);
+    loader = shallow(<Loader status={LOADING_STATES.LOADING} loadingMessage={loadingMessage}>{child}</Loader>);
   });
 
   it('should not be null', () => {
@@ -19,18 +20,27 @@ describe('Loader component renders loading message', () => {
     expect(loader.length).toEqual(1);
   });
 
-  it('should have one loader element', () => {
+  it('should display loader when loading state is LOADING', () => {
     expect(loader.find('.loader').length).toEqual(1);
   });
 
-  it('should have one message element with content', () => {
+  it('should display loading message when loading state is LOADING', () => {
     expect(loader.find('.loader-message').text()).toEqual(loadingMessage);
+  });
+
+  it('should NOT display error message when loading state is LOADING', () => {
+    expect(loader.find('.message.error').length).toEqual(0);
+  });
+
+  it('should NOT display child component when loading state is LOADING', ()=>{
+    expect(loader.find(child).length).toEqual(0);
   });
 });
 
-describe('Loader component renders error message', () => {
+describe('Loader component when loading state is ERROR', () => {
   let loader;
   const errorMessage = 'Unable to Load...';
+  const child = 'Inner Content';
 
   beforeEach(() => {
     loader = shallow(<Loader status={LOADING_STATES.ERROR} errorMessage={errorMessage}/>);
@@ -41,12 +51,20 @@ describe('Loader component renders error message', () => {
     expect(loader.length).toEqual(1);
   });
 
-  it('should have one message element with content', () => {
+  it('should display error message when loading state is ERROR', () => {
     expect(loader.find('.message.error').text()).toEqual(errorMessage);
+  });
+
+  it('should NOT display loader when loading state is ERROR', () => {
+    expect(loader.find('.loader').length).toEqual(0);
+  });
+
+  it('should NOT display child component when loading state is LOADING', ()=>{
+    expect(loader.find(child).length).toEqual(0);
   });
 });
 
-describe('Loader component renders loaded component', () => {
+describe('Loader component when loading state is LOADED', () => {
   let loader;
   const loadingMessage = 'Loading Upcoming Events...';
   const errorMessage = 'Unable to Load...';
@@ -61,7 +79,15 @@ describe('Loader component renders loaded component', () => {
     expect(loader.length).toEqual(1);
   });
 
-  it('should render child component on load', () => {
+  it('should display child component when loading state is LOADED', () => {
     expect(loader.props().children).toEqual(child);
+  });
+
+  it('should NOT display error message when loading state is LOADED', () => {
+    expect(loader.find('.message.error').length).toEqual(0);
+  });
+
+  it('should NOT display loader when loading state is LOADED', () => {
+    expect(loader.find('.loader').length).toEqual(0);
   });
 });

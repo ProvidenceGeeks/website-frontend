@@ -64,7 +64,11 @@ export default class EventsList extends React.Component {
           <h3 className="events-header">Upcoming Events</h3>
         </div>
         <Loader status={this.state.status} loadingMessage={this.loadingMessage} errorMessage={this.errorMessage}> 
-          {this.state.events && this.state.events.length > 0 && <CardGrid data={this.state.events}/>}
+          { 
+            this.state.events.length > 0 
+              ? <CardGrid data={this.state.events}/> 
+              : <div className='message success'>There are no events to display.</div>
+          }
         </Loader>
       </div>
 
