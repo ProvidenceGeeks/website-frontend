@@ -121,7 +121,7 @@ describe('EventsList component', () => {
       const mockEvent = mockEvents.slice(1, 2)[0];
       const heading = EventsList.formatHeading(mockEvent);
 
-      expect(heading).toEqual(`11/24/17 7:00PM @ ${mockEvent.venue.city}`);
+      expect(heading).toContain(`@ ${mockEvent.venue.city}`);
     });
 
   });
