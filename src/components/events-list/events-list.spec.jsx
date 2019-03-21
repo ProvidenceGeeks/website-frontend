@@ -120,7 +120,9 @@ describe('EventsList component', () => {
     it('should test when an event is passed', () => {
       const mockEvent = mockEvents.slice(1, 2)[0];
       const heading = EventsList.formatHeading(mockEvent);
+      const pattern = /^([0-9]{1}|[0-9]{2})\/([0-9]{1}|[0-9]{2})\/[0-9]{2} ([0-9]{1}|[0-9]{2}):[0-9]{2}(AM|PM) @ .*$/;
 
+      expect(heading).toMatch(pattern);
       expect(heading).toContain(`@ ${mockEvent.venue.city}`);
     });
 
