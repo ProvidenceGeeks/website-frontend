@@ -44,7 +44,7 @@ export default class EventsList extends React.Component {
   }
 
   static formatHeading(event) {
-    const time = event && event.time ? DateFormatterService.formatTimestampForEvents(event.time) : '';
+    const time = event && event.time ? DateFormatterService.formatTimestampForEvents(event.time, event.utc_offset) : '';
     const venue = event && event.venue && event.venue.city ? `@ ${event.venue.city}` : '';
 
     return `${time} ${venue}`;

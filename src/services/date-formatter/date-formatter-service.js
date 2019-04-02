@@ -1,6 +1,10 @@
-function getLocalDate(timestamp) {
-  const utcDateObj = new Date(timestamp); // remember, JavaScript dates are localized to the user but reflected in UTC time...
-  const OFFSET_MILLIS = new Date().getTimezoneOffset() * 60 * 1000; // get the local offset
+function getLocalDate(timestamp, utcOffset) {
+  // remember, JavaScript dates are localized to the user but reflected in UTC time...
+  // so we use the offset (from Meetup.com) if provided, other use local browser time
+  const utcDateObj = new Date(timestamp);
+  const OFFSET_MILLIS = utcOffset
+    ? utcOffset
+    : new Date().getTimezoneOffset() * 60 * 1000;
 
   return new Date(utcDateObj.getTime() - OFFSET_MILLIS);
 }
@@ -24,8 +28,8 @@ function getFormattedTime(dateObj) {
 class DateFormatterService {
 
   // example: 05/25/18 6:00PM
-  static formatTimestampForEvents(timestamp) {
-    const eventDateObj = getLocalDate(timestamp);
+  static formatTimestampForEvents(timestamp, offset) {
+    const eventDateObj = getLocalDate(timestamp, Math.abs(offset));
 
     return `${getFormattedDate(eventDateObj)} ${getFormattedTime(eventDateObj)}`;
   }
