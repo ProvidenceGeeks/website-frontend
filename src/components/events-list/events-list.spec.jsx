@@ -30,9 +30,9 @@ describe('EventsList component', () => {
   it('should not be null', () => {
     expect(eventsList).not.toBeNull();
   });
-  // PropTypes are failing here. Why?
+  
   it('should have a CardGrid component when events DO exist', () => {
-    eventsList.setState({ events: mockEvents, status: LOADING_STATES.LOADED });
+    eventsList.setState({ events: EventsList.modelEventsDataForCard(mockEvents), status: LOADING_STATES.LOADED });
     
     expect(eventsList.state('events')).toHaveLength(mockEvents.length);
     expect(eventsList.find(CardGrid).length).toEqual(1);
