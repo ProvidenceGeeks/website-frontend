@@ -3,6 +3,7 @@ import Card from '../card/card';
 import CardGrid from '../card-grid/card-grid';
 import DateFormatterService from '../../services/date-formatter/date-formatter-service';
 import PostsService from '../../services/posts/posts-service';
+import Loader, { LOADING_STATES } from '../loader/loader';
 import './blog-posts-list.scss';
 
 export default class BlogPostsList extends React.Component {
@@ -10,18 +11,24 @@ export default class BlogPostsList extends React.Component {
     super();
 
     this.state = {
-      posts: []
+      posts: [],
+      status: LOADING_STATES.LOADING
     };
+
+    this.loadingMessage = 'Loading Blog Posts...';
+    this.errorMessage = 'Sorry, unable to load blog posts right now. Please try again or contact us if the problem persists.';
   }
 
   componentDidMount() {
     PostsService.getPosts()
       .then((response) => {
         this.setState({
-          posts: BlogPostsList.modelPostsDataForCard(response)
+          posts: BlogPostsList.modelPostsDataForCard(response),
+          status: LOADING_STATES.LOADED
         });
-      }).catch((response) => {
-        console.error(response); // eslint-disable-line no-console
+      }).catch((error) => {
+        console.error(error); // eslint-disable-line no-console
+        this.setState({ error, status: LOADING_STATES.ERROR });
       });
   }
 
@@ -57,7 +64,13 @@ export default class BlogPostsList extends React.Component {
       <div className="row-fluid">
 
         <div className="grid-container">
-          <CardGrid data={this.state.posts}/>
+          <Loader status={this.state.status} loadingMessage={this.loadingMessage} errorMessage={this.errorMessage}>
+            { 
+              this.state.posts.length > 0 
+                ? <CardGrid data={this.state.posts}/> 
+                : <div className='message success'>There are no blog posts to display.</div>
+            }
+          </Loader>
         </div>
 
       </div>
