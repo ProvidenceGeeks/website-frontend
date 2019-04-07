@@ -5,12 +5,12 @@
   "main": "./src/index.jsx",
   "scripts": {
     "clean": "rimraf ./build && rimraf ./reports",
-    "build": "npm run clean && npm run lint && webpack --config ./webpack.config.prod.js",
+    "build": "yarn clean && yarn lint && webpack --config ./webpack.config.prod.js --progress",
     "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
     "lint": "eslint \"*.js\" \"./src/**/**/*.js*\"",
-    "release": "npm run clean && npm run lint && webpack --config ./webpack.config.release.js",
-    "serve": "npm run build && http-server ./build -o --proxy http://stage.pvdgeeks.org",
-    "test": "npm run clean && jest --config ./jest.config.json"
+    "release": "yarn clean && yarn lint && webpack --config ./webpack.config.release.js --progress",
+    "serve": "yarn build && http-server ./build -o --proxy http://stage.pvdgeeks.org",
+    "test": "yarn clean && jest --config ./jest.config.json"
   },
   "repository": {
     "url": "https://github.com/ProvidenceGeeks/website-frontend.git",
