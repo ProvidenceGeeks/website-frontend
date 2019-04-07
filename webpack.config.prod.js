@@ -13,6 +13,11 @@ module.exports = webpackMerge(commonConfig, {
 
   mode: 'production',
 
+  performance: {
+    hints: 'error',
+    maxEntrypointSize: 260000 // in KB
+  },
+
   optimization: {
     minimizer: [
       new UglifyJsWebpackPlugin(),

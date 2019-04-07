@@ -5,6 +5,7 @@ import mockPosts from '../../../test/__mocks__/mock-posts.json';
 import BlogPostsList from './blog-posts-list';
 import Card from '../card/card';
 import CardGrid from '../card-grid/card-grid';
+import Loader, { LOADING_STATES } from '../loader/loader';
 
 configure({ adapter: new Adapter() });
 
@@ -31,9 +32,41 @@ describe('Blog Posts List component', () => {
     expect(blogPostsList).not.toBeNull();
   });
 
-  it('should have a CardGrid component', () => {
+  it('should have a CardGrid component when blog posts DO exist', () => {
+    blogPostsList.setState({ status: LOADING_STATES.LOADED });
+
     expect(blogPostsList.find(CardGrid).length).toEqual(1);
   });
+
+  it('should NOT have a CardGrid component when blog posts DO NOT exist', () => {
+    blogPostsList.setState({ posts: [], status: LOADING_STATES.LOADED });
+
+    expect(blogPostsList.find(CardGrid).length).toEqual(0);
+  });
+
+  it('should display a message when blog posts DO NOT exist', () =>{
+    blogPostsList.setState({ posts: [], status: LOADING_STATES.LOADED });
+
+    expect(blogPostsList.find('.message.success').length).toEqual(1);
+  });
+
+  it('should NOT have a CardGrid component when an error DOES exist', () => {
+    blogPostsList.setState({ status: LOADING_STATES.ERROR });
+    
+    expect(blogPostsList.find(CardGrid).length).toEqual(0);
+  });
+
+  it('should have an error message when an error DOES exist', () => {
+    blogPostsList.setState({ error: new Error(), status: LOADING_STATES.ERROR });
+    
+    expect(blogPostsList.find('.message.error')).toHaveLength(1);
+  });
+
+  it('should have a Loader component when fetching events', () =>{
+    blogPostsList.setState({ status: LOADING_STATES.LOADING });
+
+    expect(blogPostsList.find(Loader).length).toEqual(1);
+  }); 
 
   describe('BlogPostsList.modelPostDataForCard', () => {
     let mockPost;
