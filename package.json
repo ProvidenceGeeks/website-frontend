@@ -5,12 +5,12 @@
   "main": "./src/index.jsx",
   "scripts": {
     "clean": "rimraf ./build && rimraf ./reports",
-    "build": "npm run clean && npm run lint && webpack --config ./webpack.config.prod.js",
+    "build": "yarn clean && yarn lint && webpack --config ./webpack.config.prod.js --progress",
     "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
     "lint": "eslint \"*.js\" \"./src/**/**/*.js*\"",
-    "release": "npm run clean && npm run lint && webpack --config ./webpack.config.release.js",
-    "serve": "npm run build && http-server ./build -o --proxy http://stage.pvdgeeks.org",
-    "test": "npm run clean && jest --config ./jest.config.json"
+    "release": "yarn clean && yarn lint && webpack --config ./webpack.config.release.js --progress",
+    "serve": "yarn build && http-server ./build -o --proxy http://stage.pvdgeeks.org",
+    "test": "yarn clean && jest --config ./jest.config.json"
   },
   "repository": {
     "url": "https://github.com/ProvidenceGeeks/website-frontend.git",
@@ -59,7 +59,7 @@
     "url-loader": "^1.0.0-beta.0",
     "webpack": "^4",
     "webpack-bundle-analyzer": "^2.11.1",
-    "webpack-cli": "^2.0.8",
+    "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.0.0",
     "webpack-merge": "^4.1.2",
     "webpack-pwa-manifest": "^3.6.0",
