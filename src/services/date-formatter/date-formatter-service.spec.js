@@ -21,6 +21,15 @@ describe('DateFormatterService', () => {
       
       done();
     });
+
+    it('should test mock events dates are formatted correctly - with provided offset', (done) => {
+      const time = mockEvents[3].time;
+      const offset = mockEvents[3].utc_offset;
+
+      expect(DateFormatterService.formatTimestampForEvents(time, offset)).toMatch(DATE_TIME_REGEX);
+      
+      done();
+    });
   });
 
   describe('formatTimestampForBlogPosts', () => {
