@@ -6,7 +6,7 @@ function getLocalDate(timestamp, utcOffset) {
     ? utcOffset
     : new Date().getTimezoneOffset() * 60 * 1000;
 
-  return new Date(utcDateObj.getTime() - OFFSET_MILLIS);
+  return new Date(utcDateObj.getTime() + OFFSET_MILLIS);
 }
 
 function getFormattedDate(dateObj) {
@@ -29,7 +29,7 @@ class DateFormatterService {
 
   // example: 05/25/18 6:00PM
   static formatTimestampForEvents(timestamp, offset) {
-    const eventDateObj = getLocalDate(timestamp, Math.abs(offset));
+    const eventDateObj = getLocalDate(timestamp, offset);
 
     return `${getFormattedDate(eventDateObj)} ${getFormattedTime(eventDateObj)}`;
   }
