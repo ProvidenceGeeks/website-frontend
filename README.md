@@ -1,4 +1,4 @@
-?# website-frontend
+# website-frontend
 
 ## Overview
 UI frontend repository for the Providence Geeks website.  Built with React and webpack.
