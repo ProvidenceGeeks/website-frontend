@@ -18,28 +18,62 @@ jobs:
 
       - run:
           name: Install Project Dependencies
-          command: yarn install
+          command: yarn install --frozen-lockfile
 
       - run:
-          name: Run Jest Tests
+          name: Run Linter
+          command: yarn lint
+
+      - run:
+          name: Run Unit Tests
           command: yarn test --coverage
 
       - run:
-          name: Execute The Build
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              echo "Master branch, releasing to production"
+          name: Run the Build
+          command: yarn build
+  
+  deploy_stage:
+      docker:
+        - image: thegreenhouse/nodejs-dev:0.4.0
 
-              export RELEASE_ENV=production
-              yarn run release
+      working_directory: ~/repo
 
-            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-              echo "Develop branch, releasing to stage"
+      steps:
+        - checkout
+        - run:
+            name: Deploy to Stage
+            command: export RELEASE_ENV=stage && yarn install && yarn build && yarn release
 
-              export RELEASE_ENV=stage
-              yarn run release
+  deploy_prod:
+      docker:
+        - image: thegreenhouse/nodejs-dev:0.4.0
 
-            else
-              echo "Branch undetermined, likely a CI build"
-              yarn run build
-            fi
+      working_directory: ~/repo
+
+      steps:
+        - checkout
+        - run:
+            name: Deploy to Prod
+            command: export RELEASE_ENV=production && yarn install && yarn build && yarn release
+           
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy_stage:
+          filters:
+            branches:
+              only: master
+          requires:
+            - build
+      - hold:
+          filters:
+            branches:
+              only: master
+          type: approval
+          requires:
+           - build
+      - deploy_prod:
+          requires:
+            - hold
