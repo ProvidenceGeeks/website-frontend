@@ -3,6 +3,9 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
+  
+  context: path.resolve(__dirname, 'src'),
+
   entry: {
     index: './index.jsx'
   },
@@ -13,8 +16,6 @@ module.exports = {
     sourceMapFilename: '[name].map',
     chunkFilename: '[id].[chunkhash].js'
   },
-
-  context: path.resolve(__dirname, 'src'),
 
   resolve: {
     extensions: ['.jsx', '.js']
