@@ -41,3 +41,16 @@
   color: $lightgrey;
   font-style: italic;
 }
+
+@include media-breakpoint-down(xs) {
+  .post-details h3.custom-title{
+    font-size: 1.35rem;
+  }
+
+  .post-details .article-container {
+    padding: 1rem;
+    font-size: 1.25rem;
+    width: 70%;
+    margin: 0;
+}
+}
