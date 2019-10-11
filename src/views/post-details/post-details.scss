@@ -50,7 +50,11 @@
   .post-details .article-container {
     padding: 1rem;
     font-size: 1.25rem;
-    width: 70%;
+    width: 100%;
     margin: 0;
-}
+  }
+
+  .post-details .article-container article{
+    width: 100%;
+  }
 }
