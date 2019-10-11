@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
-import LazyLoad from 'react-lazyload';
+import LazyLoad, { forceCheck } from 'react-lazyload';
 import PropTypes from 'prop-types';
 import CustomLink from '../custom-link/custom-link';
 import FacebookIcon from '../facebook-icon/facebook-icon';
@@ -24,6 +24,10 @@ export default class Card extends React.Component {
     const alt = imgAlt ? imgAlt : Card.defaultProps.imgAlt;
 
     return <img className="card-img" src={ src } alt={ alt } />;
+  }
+
+  componentDidUpdate() {
+    forceCheck();
   }
 
   render() {
