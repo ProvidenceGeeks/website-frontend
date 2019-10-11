@@ -13,8 +13,8 @@ export default class CardGrid extends React.Component {
     this.state = this.modelInitStateFromDataProp(props.data);
   }
 
-  componentWillReceiveProps(nextProps) {
-    const state = this.modelInitStateFromDataProp(nextProps.data);
+  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line camelcase
+    const state = this.modelInitStateFromDataProp(nextProps.data); 
 
     this.setState(state);
   }
