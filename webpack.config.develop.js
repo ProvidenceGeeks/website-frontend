@@ -4,6 +4,8 @@ const webpack = require('webpack');
 
 module.exports = webpackMerge(commonConfig, {
 
+  mode: 'development',
+
   output: {
     filename: '[name].bundle.js',
     publicPath: '/'
@@ -12,12 +14,10 @@ module.exports = webpackMerge(commonConfig, {
   devtool: 'eval',
 
   module: {
-    rules: [
-      {
-        test: /\.(s*)css$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      }
-    ]
+    rules: [{
+      test: /\.(s*)css$/,
+      use: ['style-loader', 'css-loader', 'sass-loader']
+    }]
   },
 
   devServer: {
