@@ -7,17 +7,19 @@
 @import "~bootstrap/scss/_jumbotron";
 @import "~bootstrap/scss/_nav";
 @import "~bootstrap/scss/_card";
-@import url('//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700|Josefin+Slab:300,400,400i,700');
+@import url('//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700|Josefin+Slab:300,400,400i,700&display=swap');
 
 @font-face {
   font-family: 'Canter';
   src: url('../../components/bootstrap/fonts/canter-bold.otf') format('opentype');
   font-weight: bold;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Canter';
   src: url('../../components/bootstrap/fonts/canter-light.otf') format('opentype');
+  font-display: swap;
 }
 
 $white: rgb(255, 255, 255);
