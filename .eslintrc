@@ -1,10 +1,17 @@
 {
+  "parser": "babel-eslint",
   "parserOptions": {
+    "allowImportExportEverywhere": true,
+    "sourceType": "module",
     "ecmaVersion": 6,
     "ecmaFeatures": {
       "jsx": true
-    },
-    "sourceType": "module"
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   },
   "extends": [
     "plugin:react/recommended"
@@ -142,7 +149,7 @@
     "max-nested-callbacks": [2, {"maximum":8}],
     "new-cap": 2,
     "new-parens": 2,
-    "newline-after-var": 2,
+    "newline-after-var": 0,
     "no-array-constructor": 2,
     "no-continue": 0,
     "no-inline-comments": 0,

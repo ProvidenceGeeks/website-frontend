@@ -1,7 +1,8 @@
 import * as React from 'react';
-import moment from 'moment';
+import DateFormatterService from '../../services/date-formatter/date-formatter-service';
 import Card from '../../components/card/card';
 import CardGrid from '../card-grid/card-grid';
+import Loader, { LOADING_STATES } from '../loader/loader';
 import EventsService from '../../services/events/events-service';
 import './events-list.scss';
 
@@ -11,18 +12,24 @@ export default class EventsList extends React.Component {
     super();
 
     this.state = {
-      events: []
+      events: [],
+      status: LOADING_STATES.LOADING // or ERROR or LOADED
     };
+
+    this.loadingMessage = 'Loading Upcoming Events...';
+    this.errorMessage = 'Sorry, unable to load events right now. Please try again or contact us if the problem persists.';
   }
 
   componentDidMount() {
     EventsService.getEvents()
       .then((response) => {
         this.setState({
-          events: EventsList.modelEventsDataForCard(response)
+          events: EventsList.modelEventsDataForCard(response),
+          status: LOADING_STATES.LOADED
         });
-      }).catch((response) => {
-        console.error(response); // eslint-disable-line no-console
+      }).catch((error) => {
+        console.error(error); // eslint-disable-line no-console
+        this.setState({ error, status: LOADING_STATES.ERROR });
       });
   }
 
@@ -43,7 +50,7 @@ export default class EventsList extends React.Component {
   }
 
   static formatHeading(event) {
-    const time = event && event.time ? moment(event.time).utcOffset(-5).format('MM/DD/YY h:mmA') : '';
+    const time = event && event.time ? DateFormatterService.formatTimestampForEvents(event.time, event.utc_offset) : '';
     const venue = event && event.venue && event.venue.city ? `@ ${event.venue.city}` : '';
 
     return `${time} ${venue}`;
@@ -51,14 +58,18 @@ export default class EventsList extends React.Component {
 
   render() {
     return (
-
+     
       <div className="row-fluid">
         <div className="col-md-12">
           <h3 className="events-header">Upcoming Events</h3>
         </div>
-
-        <CardGrid data={this.state.events}/>
-
+        <Loader status={this.state.status} loadingMessage={this.loadingMessage} errorMessage={this.errorMessage}> 
+          { 
+            this.state.events.length > 0 
+              ? <CardGrid data={this.state.events}/> 
+              : <div className='message success'>There are no events to display.</div>
+          }
+        </Loader>
       </div>
 
     );

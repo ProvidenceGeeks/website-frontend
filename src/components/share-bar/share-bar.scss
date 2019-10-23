@@ -1,0 +1,7 @@
+@import '../../components/bootstrap/bootstrap';
+
+@include media-breakpoint-down(xs) {
+  .share-bar {
+    margin: 0 0 1rem 0;
+  }
+}

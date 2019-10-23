@@ -6,6 +6,7 @@ import FacebookIcon from '../facebook-icon/facebook-icon';
 import LinkedinIcon from '../linkedin-icon/linkedin-icon';
 import PrinterIcon from '../printer-icon/printer-icon';
 import TwitterIcon from '../twitter-icon/twitter-icon';
+import './share-bar.scss';
 
 // TODO dont depend on other component styles, e.g. card-social
 const ShareBar = (props) => {
@@ -13,12 +14,13 @@ const ShareBar = (props) => {
 
   return (
 
-    <div className='row share-bar'>
+    <div className='share-bar'>
       <div className='card-social'>
 
         <div className='social-link-fb'>
 
-          <CustomLink className='facebook-share'
+          <CustomLink 
+            className='facebook-share'
             url={`https://www.facebook.com/sharer/sharer.php?u=${ encodedUri }`}>
 
             <FacebookIcon/>

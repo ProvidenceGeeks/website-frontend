@@ -5,6 +5,7 @@ import mockEvents from '../../../test/__mocks__/mock-events.json';
 import Card from '../card/card';
 import CardGrid from '../card-grid/card-grid';
 import EventsList from './events-list';
+import Loader, { LOADING_STATES } from '../loader/loader';
 
 configure({ adapter: new Adapter() });
 
@@ -29,10 +30,44 @@ describe('EventsList component', () => {
   it('should not be null', () => {
     expect(eventsList).not.toBeNull();
   });
-
-  it('should have a CardGrid component', () => {
+  
+  it('should have a CardGrid component when events DO exist', () => {
+    eventsList.setState({ events: EventsList.modelEventsDataForCard(mockEvents), status: LOADING_STATES.LOADED });
+    
+    expect(eventsList.state('events')).toHaveLength(mockEvents.length);
     expect(eventsList.find(CardGrid).length).toEqual(1);
   });
+
+  it('should NOT have a CardGrid component when events DO NOT exist', () => {
+    eventsList.setState({ events: [], status: LOADING_STATES.LOADED });
+    
+    expect(eventsList.state('events')).toHaveLength(0);
+    expect(eventsList.find(CardGrid).length).toEqual(0);
+  });
+
+  it('should display a message when events DO NOT exist', () =>{
+    eventsList.setState({ events: [], status: LOADING_STATES.LOADED });
+
+    expect(eventsList.find('.message.success').length).toEqual(1);
+  });
+
+  it('should NOT have a CardGrid component when an error DOES exist', () => {
+    eventsList.setState({ status: LOADING_STATES.ERROR });
+    
+    expect(eventsList.find(CardGrid).length).toEqual(0);
+  });
+
+  it('should have an error message when an error DOES exist', () => {
+    eventsList.setState({ error: new Error(), status: LOADING_STATES.ERROR });
+    
+    expect(eventsList.find('.message.error')).toHaveLength(1);
+  });
+
+  it('should have a Loader component when fetching events', () =>{
+    eventsList.setState({ status: LOADING_STATES.LOADING });
+
+    expect(eventsList.find(Loader).length).toEqual(1);
+  }); 
 
   it('should have a heading', () => {
     expect(eventsList.find('.events-header').text()).toEqual('Upcoming Events');
@@ -98,8 +133,10 @@ describe('EventsList component', () => {
     it('should test when an event is passed', () => {
       const mockEvent = mockEvents.slice(1, 2)[0];
       const heading = EventsList.formatHeading(mockEvent);
+      const pattern = /^([0-9]{1}|[0-9]{2})\/([0-9]{1}|[0-9]{2})\/[0-9]{2} ([0-9]{1}|[0-9]{2}):[0-9]{2}(AM|PM) @ .*$/;
 
-      expect(heading).toEqual(`11/24/17 7:00PM @ ${mockEvent.venue.city}`);
+      expect(heading).toMatch(pattern);
+      expect(heading).toContain(`@ ${mockEvent.venue.city}`);
     });
 
   });
