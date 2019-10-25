@@ -8,7 +8,7 @@ const NavigationBar = (props) => {
   return (
     <div className="row navigation-bar">
       <div className="col-md-12">
-        <Tabs id="navigation-bar-tabs d-flex">
+        <Tabs id="navigation-bar-tabs">
           {
             props.children.map((child, key) => {
               return (
@@ -17,7 +17,8 @@ const NavigationBar = (props) => {
                   eventKey={key} 
                   title={child.props.title} 
                   className="custom-tab-content"
-                  mountOnEnter={true}>
+                  mountOnEnter={true}
+                >
                   {child}
                 </Tab>
               );
