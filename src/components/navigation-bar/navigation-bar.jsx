@@ -12,7 +12,7 @@ const NavigationBar = (props) => {
           {
             props.children.map((child, key) => {
               return (
-                <Tab key={key} eventKey={key} title={child.props.title} className="custom-tab-content">
+                <Tab mountOnEnter key={key} eventKey={key} title={child.props.title} className="custom-tab-content">
                   {child}
                 </Tab>
               );
