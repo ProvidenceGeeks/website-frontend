@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { Tabs } from 'react-bootstrap';
 import BlogPostsList from '../../components/blog-posts-list/blog-posts-list';
 import EventsList from '../../components/events-list/events-list';
 import HeroBanner from '../../components/hero-banner/hero-banner';
