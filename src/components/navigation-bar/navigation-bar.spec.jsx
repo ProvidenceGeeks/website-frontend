@@ -69,7 +69,6 @@ describe('Navigation Bar component', () => {
     tabChildren.forEach((tab) => {
       expect(tab.props.mountOnEnter).toEqual(true);
     });
-    expect(tabChildren[1].props.mountOnEnter).toEqual(true);
   });
 
   it('should test that no custom title is present if not provided', () => {

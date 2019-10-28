@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { mount, configure } from 'enzyme';
+import { mount, configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import BlogPostsList from '../../components/blog-posts-list/blog-posts-list';
 import EventsList from '../../components/events-list/events-list';
@@ -45,5 +45,10 @@ describe('Home View component', () => {
 
   it('should not mount a BlogPostsList component', () => {
     expect(home.find(BlogPostsList).length).toEqual(0);
+  });
+
+  it('should have a BlogPostsList component', () => {
+    const home = shallow(<Home />);
+    expect(home.find(BlogPostsList).length).toEqual(1);
   });
 });
