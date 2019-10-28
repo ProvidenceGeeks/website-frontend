@@ -66,7 +66,9 @@ describe('Navigation Bar component', () => {
 
   it('should have mountOnEnter prop set for every tab', () => {
     const tabChildren = navigationBar.find(Tabs).props().children;
-    expect(tabChildren[0].props.mountOnEnter).toEqual(true);
+    tabChildren.forEach((tab) => {
+      expect(tab.props.mountOnEnter).toEqual(true);
+    });
     expect(tabChildren[1].props.mountOnEnter).toEqual(true);
   });
 

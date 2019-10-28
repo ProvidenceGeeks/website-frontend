@@ -43,7 +43,7 @@ describe('Home View component', () => {
     expect(home.find(EventsList).length).toEqual(1);
   });
 
-  it('should have a BlogPostsList component', () => {
-    expect(home.find(NavigationBar).find(BlogPostsList)).toBeTruthy();
+  it('should not mount a BlogPostsList component', () => {
+    expect(home.find(BlogPostsList).length).toEqual(0);
   });
 });
