@@ -5,8 +5,7 @@ const SlackIcon = () => {
   return (
 
     <svg version="1.1" x="0px" y="0px" viewBox="-257.2 245.2 125.1 125.1" className="slack-icon">
-      <g id="Layer_2"></g>
-      <g id="Layer_1">
+      <g id={`Layer_${Math.random()}`}>
         <g>
           <rect x="-203.5" y="299.3" transform="matrix(-0.9482 0.3176 -0.3176 -0.9482 -281.5641 661.4931)" className="st0" width="17.6" height="17" />
           <g>

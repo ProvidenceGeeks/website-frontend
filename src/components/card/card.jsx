@@ -65,13 +65,25 @@ export default class Card extends React.Component {
 
           <div className="card-social">
             <div className="social-link-fb float-left">
-              <a className="facebook-share" href={ `https://www.facebook.com/sharer/sharer.php?u=${ encodeURIComponent(this.props.facebookShareMessage) }` } target="_blank" rel="noopener noreferrer">
+              <a 
+                className="facebook-share" 
+                href={ `https://www.facebook.com/sharer/sharer.php?u=${ encodeURIComponent(this.props.facebookShareMessage) }` } 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Like PVDGeeks on Facebook"
+              >
                 <FacebookIcon />
               </a>
             </div>
 
             <div className="social-link-tw float-right">
-              <a className="twitter-share" href={ `https://twitter.com/intent/tweet?status=${ encodeURIComponent(this.props.twitterShareMessage) }` } target="_blank" rel="noopener noreferrer">
+              <a 
+                className="twitter-share" 
+                href={ `https://twitter.com/intent/tweet?status=${ encodeURIComponent(this.props.twitterShareMessage) }` } 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Follow Us on Twitter"
+              >
                 <TwitterIcon />
               </a>
             </div>

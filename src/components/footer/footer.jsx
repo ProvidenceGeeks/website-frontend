@@ -8,7 +8,10 @@ const Footer = () => {
     <div className="footer row">
       <div className="footer-top d-flex">
         <div className="logo">
-          <a href="/">
+          <a 
+            href="/"
+            aria-label="Return to PVD Geeks Home"
+          >
             <PvdGeeksLogo />
           </a>
         </div>
