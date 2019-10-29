@@ -64,6 +64,13 @@ describe('Navigation Bar component', () => {
     expect(tabContent.props.title).toEqual('Custom Title 1');
   });
 
+  it('should have mountOnEnter prop set for every tab', () => {
+    const tabChildren = navigationBar.find(Tabs).props().children;
+    tabChildren.forEach((tab) => {
+      expect(tab.props.mountOnEnter).toEqual(true);
+    });
+  });
+
   it('should test that no custom title is present if not provided', () => {
     navigationBar = mount(
       <NavigationBar>
