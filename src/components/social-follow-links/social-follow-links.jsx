@@ -13,7 +13,7 @@ export default function SocialFollowLinks() {
           <a 
             className="facebook-link" 
             href="https://www.facebook.com/providencegeeks/" 
-            title="Like PVDGeeks on Facebook" 
+            title="Like Us" 
             target="_blank" 
             rel="noopener noreferrer"
             aria-label="Like PVDGeeks on Facebook"
@@ -25,7 +25,7 @@ export default function SocialFollowLinks() {
           <a 
             className="slack-link"
             href="https://join.slack.com/t/providencegeeks/shared_invite/enQtMzI4MjA2Mzk5MDk1LWMxNDEzZDVmOWFhZDcwMmJiYTdjOGM1NTZmMzJlMGFiMWI0ODY5NTVmMGFhODQzYmY1NjkyNTJiNDU5ZDNlZmM"
-            title="Join the PVDGeeks Slack channel" 
+            title="Join Us" 
             target="_blank" 
             rel="noopener noreferrer"
             aria-label="Join the PVDGeeks Slack channel"
@@ -37,7 +37,7 @@ export default function SocialFollowLinks() {
           <a 
             className="twitter-link" 
             href="https://twitter.com/providencegeeks" 
-            title="Follow Us on Twitter" 
+            title="Follow Us" 
             target="_blank" 
             rel="noopener noreferrer"
             aria-label="Follow Us on Twitter" 
