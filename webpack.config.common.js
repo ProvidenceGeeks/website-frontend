@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -50,6 +51,11 @@ module.exports = {
 
     new webpack.ProvidePlugin({ // exposes non-modular vendor globals to webpack
       jQuery: 'jquery'
+    }),
+
+    new ServiceWorkerWebpackPlugin({
+      entry: path.join(__dirname, 'src', 'pvdg-sw.js'),
+      publicPath: '/'
     })
   ]
 };

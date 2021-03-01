@@ -76,7 +76,7 @@ module.exports = webpackMerge(commonConfig, {
     new WebpackPwaManifest({
       name: 'Providence Geeks',
       short_name: 'PVD Geeks', // eslint-disable-line camelcase
-      start_url: '.', // eslint-disable-line camelcase
+      start_url: './', // eslint-disable-line camelcase
       inject: true,
       fingerprints: true,
       ios: true,
